@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/bg_light_gray_color"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#282b30"
+        android:gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/about_vk"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:contentDescription="@string/menu_about"
+            app:srcCompat="@drawable/ic_about_vk" />
+
+        <ImageView
+            android:id="@+id/about_instagram"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:contentDescription="@string/menu_about"
+            app:srcCompat="@drawable/ic_about_instagram" />
+
+        <ImageView
+            android:id="@+id/about_facebook"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:contentDescription="@string/menu_about"
+            app:srcCompat="@drawable/ic_about_facebook" />
+
+        <ImageView
+            android:id="@+id/about_twitter"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:contentDescription="@string/menu_about"
+            app:srcCompat="@drawable/ic_about_twitter" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#152736"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Башкирский государственный университет"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="7pt"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#152736"
+                android:fontFamily="sans-serif-condensed"
+                android:text="СИБАЙСКИЙ ИНСТИТУТ"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="12pt"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/TextAboutUpper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Адресс:" />
+
+            <TextView
+                style="@style/TextAboutContext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="453830, РБ, г. Сибай, ул. Белова, 21." />
+
+            <TextView
+                style="@style/TextAboutUpper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Телефон:" />
+
+            <TextView
+                style="@style/TextAboutContext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+7 (34775) 5-15-70" />
+
+            <TextView
+                style="@style/TextAboutUpper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Электронный адрес института:" />
+
+            <TextView
+                style="@style/TextAboutContext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="info@sibsu.ru" />
+
+            <TextView
+                style="@style/TextAboutUpper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="График работы:" />
+
+            <TextView
+                style="@style/TextAboutContext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Будни: с 8.00 до 17.00.\nCуббота: 8.00-14.00\nОбед: с 13.00 до 14.00." />
+
+            <TextView
+                android:id="@+id/about_web_site_title"
+                style="@style/TextAboutUpper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Веб-сайт института:" />
+
+            <TextView
+                android:id="@+id/about_web_site_context"
+                style="@style/TextAboutContext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="www.sibsu.ru" />
+
+            <TextView
+                style="@style/TextAboutUpper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Телефон доверия института:" />
+
+            <TextView
+                style="@style/TextAboutContext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+7 (34775) 5-15-41" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!--Bottom panel-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

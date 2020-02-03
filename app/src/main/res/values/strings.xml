@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Wise</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Новости</string>
+    <string name="menu_events">События</string>
+    <string name="menu_gallery">Расписание</string>
+    <string name="menu_slideshow">Абитуриентам</string>
+    <string name="menu_tools">Настройки</string>
+    <string name="menu_share">Редактировать</string>
+    <string name="menu_about">Информация</string>
+    <string name="menu_send">Выход</string>
+
+    <string name="fac_tech">Технологический</string>
+    <string name="fac_emf">Естественно-математический</string>
+    <string name="fac_ped">Педагогический</string>
+    <string name="fac_yurid">Юридический</string>
+    <string name="fac_econ_pravo">Экономика и право</string>
+</resources>

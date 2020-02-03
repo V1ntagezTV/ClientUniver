@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_news">
+
+    <fragment
+        android:id="@+id/nav_news"
+        android:name="com.example.testings.ui.news.NewsFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_nav_news_to_news_details_Fragment"
+            app:destination="@id/news_details_Fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/news_details_Fragment"
+        android:name="com.example.testings.ui.news.NewsDetails.NewsDetailsFragment"
+        android:label="Детали">
+        <argument
+            android:name="link"
+            app:argType="string"
+            android:defaultValue="link" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_shedule"
+        android:name="com.example.testings.ui.shedules.SheduleFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_shedule">
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_unstudents"
+        android:name="com.example.testings.ui.unstudents.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_unstudents" />
+
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.example.testings.ui.settings.ToolsFragment"
+        android:label="@string/menu_tools"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/nav_profile_edit"
+        android:name="com.example.testings.ui.profile_edit.ShareFragment"
+        android:label="@string/menu_share"
+        tools:layout="@layout/fragment_profile_edit" />
+
+    <fragment
+        android:id="@+id/nav_exit"
+        android:name="com.example.testings.ui.exit.SendFragment"
+        android:label="@string/menu_send"
+        tools:layout="@layout/fragment_exit" />
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.example.testings.ui.about.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about"/>
+
+    <fragment
+        android:id="@+id/nav_events"
+        android:name="com.example.testings.ui.events.EventsFragment"
+        android:label="@string/menu_events"/>
+</navigation>
