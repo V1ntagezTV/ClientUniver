@@ -18,6 +18,11 @@
                 android:layout_height="wrap_content" />
 
             <TextView
+                android:id="@+id/newsDet_titleImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
                 android:id="@+id/newsDet_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

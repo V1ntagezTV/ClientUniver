@@ -41,7 +41,7 @@ class NewsDetailsFragment: Fragment(){
     fun setPageContent(){
         GlobalScope.launch {
             try {
-                var ContentText: String = ""
+                var ContentText = ""
                 var ContentImageUrls = ""
                 val doc: Document = Jsoup.connect(linkPage).get()
                 val content = doc.select("div[class=entry-content clearfix single-post-content]")
@@ -50,10 +50,21 @@ class NewsDetailsFragment: Fragment(){
                     .select("div[id=gallery-2]")
                     .select("figure[class=gallery-item]")
 
+                val title = header
+                    .select("span[class=post-title]")
+                    .text()
+
+                val titleImage = header
+                    .select("div[class=single-featured]")
+                    .select("img").attr("data-src")
+                    .replace("-750x430", "")
+
+
+                //text content
                 for (el in content){
                     ContentText += el.text() + '\n'+ '\t'
                 }
-
+                //images
                 for (num in 0 until galleryImageList.size){
                     val inLink = galleryImageList
                         .select("div[class=gallery-icon landscape]")
@@ -64,8 +75,10 @@ class NewsDetailsFragment: Fragment(){
                 }
 
                 GlobalScope.launch(Dispatchers.Main) {
+                    view?.findViewById<TextView>(R.id.newsDet_title)?.text = title
                     view?.findViewById<TextView>(R.id.newsDet_imageurls)?.text = ContentImageUrls
                     view?.findViewById<TextView>(R.id.newsDet_content)?.text = ContentText
+                    view?.findViewById<TextView>(R.id.newsDet_titleImage)?.text = titleImage
                 }
             }
             catch (e: IOException){

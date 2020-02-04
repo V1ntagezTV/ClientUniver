@@ -36,7 +36,7 @@ class NewsFragment : Fragment()
         news_recyclerView.layoutManager = LinearLayoutManager(context)
         //end
         setRecyclerViewScrollListener()
-        getData(pageNumber)
+        getData(pageNumber++)
         return root
     }
 
@@ -89,7 +89,7 @@ class NewsFragment : Fragment()
                 GlobalScope.launch(Dispatchers.Main) {
                     val retry = view?.findViewById<Button>(R.id.news_retry_connection)
                     retry?.setOnClickListener{
-                        OnClickRetryConn(pageNum)
+                        //failed loading
                     }
                     view?.findViewById<ProgressBar>(R.id.news_progressBar)?.visibility = View.INVISIBLE
                     retry?.visibility = View.VISIBLE
@@ -98,9 +98,9 @@ class NewsFragment : Fragment()
         }
     }
 
-    private fun OnClickRetryConn(pageNum: Int){
+/*    private fun OnClickRetryConn(pageNum: Int){
         getData(pageNum)
-    }
+    }*/
 
     fun setRecyclerViewScrollListener() {
         news_recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
