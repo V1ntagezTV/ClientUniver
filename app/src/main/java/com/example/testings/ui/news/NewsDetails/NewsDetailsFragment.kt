@@ -45,6 +45,7 @@ class NewsDetailsFragment: Fragment(){
                 var ContentImageUrls = ""
                 val doc: Document = Jsoup.connect(linkPage).get()
                 val content = doc.select("div[class=entry-content clearfix single-post-content]")
+                    .select("p")
                 val header = doc.select("div[class=post-header post-tp-1-header]")
                 val galleryImageList = content
                     .select("div[id=gallery-2]")
@@ -62,7 +63,7 @@ class NewsDetailsFragment: Fragment(){
 
                 //text content
                 for (el in content){
-                    ContentText += el.text() + '\n'+ '\t'
+                    ContentText += el.text() + "\n"+ "\n"
                 }
                 //images
                 for (num in 0 until galleryImageList.size){
