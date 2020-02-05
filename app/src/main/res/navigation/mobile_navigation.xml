@@ -18,11 +18,7 @@
     <fragment
         android:id="@+id/news_details_Fragment"
         android:name="com.example.testings.ui.news.NewsDetails.NewsDetailsFragment"
-        android:label="Детали">
-        <argument
-            android:name="link"
-            app:argType="string"
-            android:defaultValue="link" />
+        android:label="@string/news_details">
     </fragment>
 
     <fragment

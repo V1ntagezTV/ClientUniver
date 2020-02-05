@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -15,24 +17,38 @@
             <TextView
                 android:id="@+id/newsDet_title"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:textAlignment="center"
+                android:textColor="#2e5575"
+                android:textSize="17sp"/>
 
-            <TextView
+            <!--image-->
+            <ImageView
                 android:id="@+id/newsDet_titleImage"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"/>
 
             <TextView
                 android:id="@+id/newsDet_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/black"/>
-
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/black"
+                android:textSize="6pt"/>
+            <!--image list-->
             <TextView
                 android:id="@+id/newsDet_imageurls"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
             </TextView>
+
         </LinearLayout>
     </ScrollView>
 

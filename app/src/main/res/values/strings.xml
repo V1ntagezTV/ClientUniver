@@ -13,6 +13,7 @@
     <string name="menu_share">Редактировать</string>
     <string name="menu_about">Информация</string>
     <string name="menu_send">Выход</string>
+    <string name="news_details">Детали</string>
 
     <string name="fac_tech">Технологический</string>
     <string name="fac_emf">Естественно-математический</string>
