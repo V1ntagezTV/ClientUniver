@@ -2,10 +2,13 @@ package com.example.testings.ui.news.NewsDetails
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.testings.R
@@ -21,7 +24,7 @@ import java.io.IOException
 
 class NewsDetailsFragment: Fragment(){
 
-    private var ImageLinkArray: ArrayList<String> = ArrayList()
+    private var ImageLinksArray: ArrayList<String> = ArrayList()
     private var linkPage: String = ""
     private var titleImage: String = ""
     private var title: String = ""
@@ -31,7 +34,12 @@ class NewsDetailsFragment: Fragment(){
         val root = inflater.inflate(R.layout.fragment_news_details, container, false)
         linkPage = getLinkOrCloseFragment()
         setPageContent()
-        root.findViewById<ImageView>(R.id.newsDet_titleImage).setOnClickListener{ OnClickImageNews(root)}
+        Log.e("link", "succeful")
+        root.findViewById<Button>(R.id.newsDet_retry_connection)?.setOnClickListener{
+            view?.findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.INVISIBLE
+            setPageContent()
+        }
+        view?.findViewById<ImageView>(R.id.newsDet_titleImage)?.setOnClickListener{ OnClickImageNews(root)}
         return root
     }
 
@@ -43,8 +51,11 @@ class NewsDetailsFragment: Fragment(){
         return ""
     }
 
-    fun setPageContent(){
+    private fun setPageContent(){
         //TODO: Рефакторить функцию
+        //TODO: добавить кнопки "поделиться"
+        view?.findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.INVISIBLE
+        view?.findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.VISIBLE
         GlobalScope.launch {
             try {
                 val doc: Document = Jsoup.connect(linkPage).get()
@@ -72,21 +83,25 @@ class NewsDetailsFragment: Fragment(){
                         .select("a")
                         .eq(num)
                         .attr("href")
+                    ImageLinksArray.add(inLink)
                     ImagesLink += inLink + '\n'
                 }
 
                 GlobalScope.launch(Dispatchers.Main) {
+                    view?.findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.INVISIBLE
                     view?.findViewById<TextView>(R.id.newsDet_title)?.text = title
                     Picasso.get()
                         .load(titleImage)
                         .into(view?.findViewById<ImageView>(R.id.newsDet_titleImage))
                     view?.findViewById<TextView>(R.id.newsDet_content)?.text = contentText
                     view?.findViewById<TextView>(R.id.newsDet_imageurls)?.text = ImagesLink
-
                 }
             }
             catch (e: IOException){
-
+                GlobalScope.launch(Dispatchers.Main) {
+                    view?.findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.INVISIBLE
+                    view?.findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.VISIBLE
+                }
             }
         }
     }

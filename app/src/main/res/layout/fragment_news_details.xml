@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/newsDet_progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/newsDet_retry_connection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Повторить подключение"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,7 +43,8 @@
                 android:layout_marginBottom="5dp"
                 android:textAlignment="center"
                 android:textColor="#2e5575"
-                android:textSize="17sp"/>
+                android:textSize="17sp"
+                android:textStyle="bold"/>
 
             <!--image-->
             <ImageView
@@ -37,11 +58,11 @@
                 android:id="@+id/newsDet_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginTop="5dp"
-                android:textColor="@android:color/black"
-                android:textSize="6pt"/>
+                android:textSize="7pt"
+                android:textColor="@android:color/black" />
             <!--image list-->
             <TextView
                 android:id="@+id/newsDet_imageurls"
@@ -51,5 +72,4 @@
 
         </LinearLayout>
     </ScrollView>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
