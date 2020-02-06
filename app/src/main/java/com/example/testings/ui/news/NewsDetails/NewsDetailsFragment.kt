@@ -92,8 +92,10 @@ class NewsDetailsFragment: Fragment(){
                 GlobalScope.launch(Dispatchers.Main) {
                     view?.findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.INVISIBLE
                     view?.findViewById<TextView>(R.id.newsDet_title)?.text = title
-                    Picasso.get()
-                        .load(titleImage)
+                    view?.findViewById<View>(R.id.newsDet_lineUpImageTitle)?.visibility = View.VISIBLE
+                    view?.findViewById<View>(R.id.newsDet_lineUnderImageTitle)?.visibility = View.VISIBLE
+                    view?.findViewById<View>(R.id.newsDet_lineUpFooter)?.visibility = View.VISIBLE
+                    Picasso.get().load(titleImage)
                         .into(view?.findViewById<ImageView>(R.id.newsDet_titleImage))
                     view?.findViewById<TextView>(R.id.newsDet_content)?.text = contentText
                     view?.findViewById<TextView>(R.id.newsDet_imageurls)?.text = ImagesLink
