@@ -54,6 +54,8 @@ class NewsDetailsFragment: Fragment(){
     private fun setPageContent(){
         //TODO: Рефакторить функцию
         //TODO: добавить кнопки "поделиться"
+        //TODO: добавить "открыть по ссылке"
+        //TODO: добавить "скопировать ссылку" на картинках и на страницах
         view?.findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.INVISIBLE
         view?.findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.VISIBLE
         GlobalScope.launch {

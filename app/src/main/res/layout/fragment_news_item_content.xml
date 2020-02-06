@@ -3,22 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="5dp"
+    android:layout_marginBottom="8dp"
     android:background="@android:color/white"
-    android:orientation="vertical"
-    android:paddingLeft="5dp"
-    android:paddingRight="5dp"
-    android:paddingTop="2dp"
-    android:paddingBottom="2dp">
+    android:orientation="vertical">
 
     <TextView
+
         android:id="@+id/news_content_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="7dp"
         android:text="Открыт зимний сезон"
-        android:textAlignment="center"
+        android:fontFamily="sans-serif-medium"
         android:textColor="@color/colorAccent"
-        android:textSize="17sp"
+        android:textSize="7pt"
         android:maxLines="2"/>
 
     <ImageView
@@ -32,20 +33,35 @@
         tools:srcCompat="@tools:sample/avatars"/>
 
     <TextView
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:id="@+id/news_content_small_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="2019 год был отмечен плодотворной работой всего коллектива. Успехи студентов и преподавателей нашего вуза в образовательной, научной, творческой, спортивной…"
-        android:textColor="#000"
+        android:textSize="7pt"
+        android:textColor="@android:color/black"
         android:maxLines="4"/>
 
+    <View
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/bg_light_gray_color"/>
+
     <TextView
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:id="@+id/news_content_postdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="31.12.2019"
         android:textColor="#979797"
-        android:textSize="5pt"/>
+        android:textSize="6pt"
+        android:layout_marginBottom="4dp"/>
 
 </LinearLayout>

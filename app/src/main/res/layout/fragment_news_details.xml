@@ -40,12 +40,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginBottom="5dp"
-                android:textAlignment="center"
-                android:textColor="#2e5575"
-                android:textSize="17sp"
-                android:textStyle="bold"/>
-
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/colorAccent"
+                android:textSize="7pt"/>
             <!--image-->
             <ImageView
                 android:id="@+id/newsDet_titleImage"
@@ -60,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="4dp"
                 android:textSize="7pt"
                 android:textColor="@android:color/black" />
             <!--image list-->
@@ -69,6 +68,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
             </TextView>
+
+            <View
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/bg_light_gray_color"/>
 
         </LinearLayout>
     </ScrollView>
