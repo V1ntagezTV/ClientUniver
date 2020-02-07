@@ -18,6 +18,7 @@ import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import java.io.IOException
 
+//TODO: разобраться с перезагрузкой изображений при перелистывании RecyclerView
 
 class NewsFragment : Fragment()
 {
@@ -28,13 +29,14 @@ class NewsFragment : Fragment()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_news, container, false)
-        //Инициализация контейнера новостей
+        //start init контейнера новостей
         news_recyclerView = root.findViewById(R.id.news_recyclerView)
+        news_recyclerView.setItemViewCacheSize(20) //временное решение cache uses for 20 newsview
         adapter = NewsAdapter()
         news_recyclerView.adapter = adapter
         news_recyclerView.itemAnimator = DefaultItemAnimator()
         news_recyclerView.layoutManager = LinearLayoutManager(context)
-        //end
+        //end init
         setRecyclerViewScrollListener()
         getData(pageNumber++)
         return root

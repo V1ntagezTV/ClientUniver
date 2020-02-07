@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
+import com.example.testings.ui.news.NewsDetails.NewsDetailsFragment
 import com.squareup.picasso.Picasso
 
 
@@ -30,9 +30,9 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
 
         init {
             ItemView.setOnClickListener{
-                val bundle = Bundle()
-                bundle.putString("link", URLDetails)
-                ItemView.findNavController().navigate(R.id.news_details_Fragment, bundle)
+                val intent = Intent(itemView.context, NewsDetailsFragment::class.java)
+                intent.putExtra("link", URLDetails)
+                startActivity(itemView.context, intent, Bundle())
             }
         }
     }
