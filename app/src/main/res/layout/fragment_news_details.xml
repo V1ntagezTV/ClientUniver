@@ -45,25 +45,13 @@
                 android:fontFamily="sans-serif-medium"
                 android:textColor="@color/colorAccent"
                 android:textSize="7pt"/>
-
-            <View
-                android:id="@+id/newsDet_lineUpImageTitle"
-                android:visibility="invisible"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/bg_light_gray_color"/>
+            <!--image-->
             <ImageView
                 android:id="@+id/newsDet_titleImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"/>
-            <View
-                android:id="@+id/newsDet_lineUnderImageTitle"
-                android:visibility="invisible"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/bg_light_gray_color"/>
 
             <TextView
                 android:id="@+id/newsDet_content"
@@ -74,21 +62,21 @@
                 android:layout_marginTop="4dp"
                 android:textSize="7pt"
                 android:textColor="@android:color/black" />
-
-            <View
-                android:id="@+id/newsDet_lineUpFooter"
-                android:visibility="invisible"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/bg_light_gray_color"/>
             <!--image list-->
             <TextView
                 android:id="@+id/newsDet_imageurls"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
             </TextView>
+
+            <View
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/bg_light_gray_color"/>
 
         </LinearLayout>
     </ScrollView>
