@@ -48,6 +48,7 @@
             <!--image-->
             <ImageView
                 android:id="@+id/newsDet_titleImage"
+                android:onClick="OnClickImageNews"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
