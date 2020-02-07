@@ -1,15 +1,12 @@
 package com.example.testings.ui.news.NewsDetails
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import com.example.testings.R
 import com.example.testings.ui.news.ImageActivity
@@ -31,15 +28,17 @@ class NewsDetailsFragment: Fragment(){
     private var contentText: String = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
         val root = inflater.inflate(R.layout.fragment_news_details, container, false)
         linkPage = getLinkOrCloseFragment()
         setPageContent()
-        Log.e("link", "succeful")
         root.findViewById<Button>(R.id.newsDet_retry_connection)?.setOnClickListener{
-            view?.findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.INVISIBLE
+            root.findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.INVISIBLE
             setPageContent()
         }
-        view?.findViewById<ImageView>(R.id.newsDet_titleImage)?.setOnClickListener{ OnClickImageNews(root)}
+        root.findViewById<ImageView>(R.id.newsDet_titleImage)?.setOnClickListener{
+            OnClickImageNews()
+        }
         return root
     }
 
@@ -88,15 +87,30 @@ class NewsDetailsFragment: Fragment(){
                     ImageLinksArray.add(inLink)
                     ImagesLink += inLink + '\n'
                 }
+                //start links to response
+                val vklink = doc
+                    .select("div[class=share-handler-wrap bs-pretty-tabs-initialized]")
+                    .select("span[class=social-item vk]")
+                    .select("a").attr("href")
+
+                val fblink = doc.select("div[class=share-handler-wrap bs-pretty-tabs-initialized]")
+                    .select("span[class=social-item facebook]")
+                    .select("a").attr("href")
+                //end links to responce
 
                 GlobalScope.launch(Dispatchers.Main) {
-                    view?.findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.INVISIBLE
-                    view?.findViewById<TextView>(R.id.newsDet_title)?.text = title
                     Picasso.get()
                         .load(titleImage)
                         .into(view?.findViewById<ImageView>(R.id.newsDet_titleImage))
+                    view?.findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.INVISIBLE
+
+                    view?.findViewById<TextView>(R.id.newsDet_title)?.text = title
                     view?.findViewById<TextView>(R.id.newsDet_content)?.text = contentText
                     view?.findViewById<TextView>(R.id.newsDet_imageurls)?.text = ImagesLink
+
+                    view?.findViewById<LinearLayout>(R.id.newsDet_reqPanel)?.visibility = View.VISIBLE
+                    view?.findViewById<ImageView>(R.id.newsDet_reqVK)?.setOnClickListener { openNewTabWindow(vklink) }
+                    view?.findViewById<ImageView>(R.id.newsDet_reqFB)?.setOnClickListener { openNewTabWindow(fblink) }
                 }
             }
             catch (e: IOException){
@@ -108,9 +122,15 @@ class NewsDetailsFragment: Fragment(){
         }
     }
 
-    fun OnClickImageNews(v: View){
-        val intent = Intent(v.context, ImageActivity::class.java)
+    fun OnClickImageNews(){
+        val intent = Intent(view?.context, ImageActivity::class.java)
         intent.putExtra("ImageUrl", titleImage)
         startActivity(intent, Bundle())
+    }
+
+    private fun openNewTabWindow(urls: String) {
+        val uris = Uri.parse(urls)
+        val intents = Intent(Intent.ACTION_VIEW, uris)
+        view?.context?.startActivity(intents)
     }
 }

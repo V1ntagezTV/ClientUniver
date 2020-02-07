@@ -3,13 +3,8 @@ package com.example.testings.ui.news
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.view.MotionEvent
-import android.view.ScaleGestureDetector
-import android.view.View
 import android.widget.ImageView
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.testings.R
 import com.squareup.picasso.Picasso

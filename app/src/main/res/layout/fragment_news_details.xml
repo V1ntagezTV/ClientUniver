@@ -17,7 +17,7 @@
         android:id="@+id/newsDet_retry_connection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Повторить подключение"
+        android:text="@string/retry_connection"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -46,13 +46,21 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="7pt"/>
             <!--image-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/bg_light_gray_color"/>
             <ImageView
                 android:id="@+id/newsDet_titleImage"
-                android:onClick="OnClickImageNews"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/ContentDesImage"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/bg_light_gray_color"/>
 
             <TextView
                 android:id="@+id/newsDet_content"
@@ -67,17 +75,56 @@
             <TextView
                 android:id="@+id/newsDet_imageurls"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
             </TextView>
 
             <View
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
+                android:id="@+id/newsDet_lineFooter"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/bg_light_gray_color"/>
+            <!--footer req links-->
+            <LinearLayout
+                android:id="@+id/newsDet_reqPanel"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:background="#282b30"
+                android:visibility="invisible"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="90dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:text="@string/podelitsya"
+                    android:textColor="@color/white" />
+
+                <ImageView
+                    android:id="@+id/newsDet_reqVK"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:contentDescription="@string/ContentDesImage"
+                    app:srcCompat="@drawable/ic_about_vk" />
+
+                <ImageView
+                    android:id="@+id/newsDet_reqFB"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:contentDescription="@string/ContentDesImage"
+                    app:srcCompat="@drawable/ic_about_facebook"/>
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

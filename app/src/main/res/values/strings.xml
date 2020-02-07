@@ -20,4 +20,10 @@
     <string name="fac_ped">Педагогический</string>
     <string name="fac_yurid">Юридический</string>
     <string name="fac_econ_pravo">Экономика и право</string>
+
+    <string name="retry_connection">Повторить подключение</string>
+    <string name="podelitsya">Поделиться</string>
+
+
+    <string name="ContentDesImage">Image</string>
 </resources>
