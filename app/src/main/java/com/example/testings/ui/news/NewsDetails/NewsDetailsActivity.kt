@@ -10,10 +10,12 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.testings.R
 import com.example.testings.ui.news.ImageActivity
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -22,7 +24,7 @@ import org.jsoup.nodes.Document
 import java.io.IOException
 
 
-class NewsDetailsFragment: Fragment(){
+class NewsDetailsActivity: AppCompatActivity(){
 
     private var ImageLinksArray: ArrayList<String> = ArrayList()
     private var linkPage: String = ""
@@ -30,24 +32,32 @@ class NewsDetailsFragment: Fragment(){
     private var title: String = ""
     private var contentText: String = ""
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val root = inflater.inflate(R.layout.fragment_news_details, container, false)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.fragment_news_details)
         linkPage = getLinkOrCloseFragment()
+        val toolbar = supportActionBar
+        toolbar?.title = "Детали"
+        toolbar?.setDisplayHomeAsUpEnabled(true)
         setPageContent()
-        Log.e("link", "succeful")
-        root.findViewById<Button>(R.id.newsDet_retry_connection)?.setOnClickListener{
-            view?.findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.INVISIBLE
-            setPageContent()
+        findViewById<Button>(R.id.newsDet_retry_connection)
+            .setOnClickListener{
+                findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.INVISIBLE
+                setPageContent()
         }
-        view?.findViewById<ImageView>(R.id.newsDet_titleImage)?.setOnClickListener{ OnClickImageNews(root)}
-        return root
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 
     private fun getLinkOrCloseFragment(): String{
-        if (arguments?.getString("link") != null){
-            return arguments?.getString("link") as String
+        val intent = getIntent()
+        if (intent.getStringExtra("link") != null){
+            return intent.getStringExtra("link").toString()
         }
-        activity?.onBackPressed()
+        onBackPressed()
         return ""
     }
 
@@ -56,8 +66,8 @@ class NewsDetailsFragment: Fragment(){
         //TODO: добавить кнопки "поделиться"
         //TODO: добавить "открыть по ссылке"
         //TODO: добавить "скопировать ссылку" на картинках и на страницах
-        view?.findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.INVISIBLE
-        view?.findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.VISIBLE
+        findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.INVISIBLE
+        findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.VISIBLE
         GlobalScope.launch {
             try {
                 val doc: Document = Jsoup.connect(linkPage).get()
@@ -90,21 +100,21 @@ class NewsDetailsFragment: Fragment(){
                 }
 
                 GlobalScope.launch(Dispatchers.Main) {
-                    view?.findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.INVISIBLE
-                    view?.findViewById<TextView>(R.id.newsDet_title)?.text = title
-                    view?.findViewById<View>(R.id.newsDet_lineUpImageTitle)?.visibility = View.VISIBLE
-                    view?.findViewById<View>(R.id.newsDet_lineUnderImageTitle)?.visibility = View.VISIBLE
-                    view?.findViewById<View>(R.id.newsDet_lineUpFooter)?.visibility = View.VISIBLE
+                    findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.INVISIBLE
+                    findViewById<TextView>(R.id.newsDet_title)?.text = title
+                    findViewById<View>(R.id.newsDet_lineUpImageTitle)?.visibility = View.VISIBLE
+                    findViewById<View>(R.id.newsDet_lineUnderImageTitle)?.visibility = View.VISIBLE
+                    findViewById<View>(R.id.newsDet_lineUpFooter)?.visibility = View.VISIBLE
                     Picasso.get().load(titleImage)
-                        .into(view?.findViewById<ImageView>(R.id.newsDet_titleImage))
-                    view?.findViewById<TextView>(R.id.newsDet_content)?.text = contentText
-                    view?.findViewById<TextView>(R.id.newsDet_imageurls)?.text = ImagesLink
+                        .into(findViewById<ImageView>(R.id.newsDet_titleImage))
+                    findViewById<TextView>(R.id.newsDet_content)?.text = contentText
+                    findViewById<TextView>(R.id.newsDet_imageurls)?.text = ImagesLink
                 }
             }
             catch (e: IOException){
                 GlobalScope.launch(Dispatchers.Main) {
-                    view?.findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.INVISIBLE
-                    view?.findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.VISIBLE
+                    findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.INVISIBLE
+                    findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.VISIBLE
                 }
             }
         }

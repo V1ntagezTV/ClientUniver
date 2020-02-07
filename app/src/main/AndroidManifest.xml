@@ -36,6 +36,10 @@
             android:theme="@style/AppTheme.BlackStatusBar">
         </activity>
 
+        <activity
+            android:name=".ui.news.NewsDetails.NewsDetailsActivity"
+            android:label="Детали"
+            android:theme="@style/AppTheme"/>
 
     </application>
 
