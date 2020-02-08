@@ -1,3 +1,2 @@
 # ClientUniv
-addProject
-CLIENT
+Picasso, jsoup, RecyclerView
