@@ -27,4 +27,16 @@
         <item name="android:textColorPrimary">@color/white</item>
     </style>
 
+<!--text styles-->
+    <style name="h2_textStyle">
+        <item name="android:textSize">7pt</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="h1_textStyle">
+        <item name="android:textSize">7pt</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
 </resources>

@@ -32,7 +32,7 @@
         </activity>
 
         <activity
-            android:name=".ui.news.ImageActivity"
+            android:name=".ImageActivity"
             android:theme="@style/AppTheme.BlackStatusBar">
         </activity>
 
