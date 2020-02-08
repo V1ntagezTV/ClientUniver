@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.testings.ImageActivity
 import com.example.testings.R
 import com.squareup.picasso.Picasso
 
@@ -54,9 +55,11 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
         holder.TViewDescrip.text = news.SmallDescription
         holder.URLDetails = news.URLDetails
 
-        Picasso.get()
-            .load(news.URLPreview)
-            .into(holder.IViewPreview)
+        if (news.URLPreview.startsWith("http://")){
+            Picasso.get()
+                .load(news.URLPreview)
+                .into(holder.IViewPreview)
+        }
 
         holder.IViewPreview.setOnClickListener { v: View ->
             val intent = Intent(v.context, ImageActivity::class.java)
@@ -65,7 +68,7 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
         }
     }
 
-    fun set(arrayList: ArrayList<NewsModel>){
+    fun Set(arrayList: ArrayList<NewsModel>){
         list.clear()
         list.addAll(arrayList)
         notifyDataSetChanged()

@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import com.example.testings.R
-import com.example.testings.ui.news.ImageActivity
+import com.example.testings.ImageActivity
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -52,7 +52,6 @@ class NewsDetailsFragment: Fragment(){
 
     private fun setPageContent(){
         //TODO: Рефакторить функцию
-        //TODO: добавить кнопки "поделиться"
         //TODO: добавить "открыть по ссылке"
         //TODO: добавить "скопировать ссылку" на картинках и на страницах
         view?.findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.INVISIBLE
@@ -87,6 +86,7 @@ class NewsDetailsFragment: Fragment(){
                     ImageLinksArray.add(inLink)
                     ImagesLink += inLink + '\n'
                 }
+
                 //start links to response
                 val vklink = doc
                     .select("div[class=share-handler-wrap bs-pretty-tabs-initialized]")
@@ -99,9 +99,11 @@ class NewsDetailsFragment: Fragment(){
                 //end links to responce
 
                 GlobalScope.launch(Dispatchers.Main) {
-                    Picasso.get()
-                        .load(titleImage)
-                        .into(view?.findViewById<ImageView>(R.id.newsDet_titleImage))
+                    if (titleImage.startsWith("http://")){
+                        Picasso.get()
+                            .load(titleImage)
+                            .into(view?.findViewById<ImageView>(R.id.newsDet_titleImage))
+                    }
                     view?.findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.INVISIBLE
 
                     view?.findViewById<TextView>(R.id.newsDet_title)?.text = title

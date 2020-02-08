@@ -38,11 +38,11 @@ class NewsFragment : Fragment()
         news_recyclerView.layoutManager = LinearLayoutManager(context)
         //end init
         setRecyclerViewScrollListener()
-        getData(pageNumber++)
+        setData(pageNumber++)
         return root
     }
 
-    fun getData(pageNum: Int) {
+    fun setData(pageNum: Int) {
         GlobalScope.launch {
             try {
                 val doc: Document = Jsoup.connect("http://sibsu.ru/category/novosti/page/${pageNum}").get()
@@ -84,7 +84,7 @@ class NewsFragment : Fragment()
                 GlobalScope.launch(Dispatchers.Main) {
                     view?.findViewById<ProgressBar>(R.id.news_progressBar)?.visibility = View.INVISIBLE
                     view?.findViewById<Button>(R.id.news_retry_connection)?.visibility = View.INVISIBLE
-                    adapter.set(list)
+                    adapter.Set(list)
                 }
             }
             catch (e: IOException) {
@@ -104,7 +104,7 @@ class NewsFragment : Fragment()
     }
 
     private fun OnClickRetryConn(pageNum: Int){
-        getData(pageNum)
+        setData(pageNum)
     }
 
     fun setRecyclerViewScrollListener() {
@@ -114,7 +114,7 @@ class NewsFragment : Fragment()
 
                 val linLayoutMan = news_recyclerView.layoutManager as LinearLayoutManager?
                 if (linLayoutMan?.findLastCompletelyVisibleItemPosition() == list.size - 1){
-                    getData(++pageNumber)
+                    setData(++pageNumber)
                 }
             }
         })

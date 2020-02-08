@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".ui.news.ImageActivity">
+    tools:context=".ImageActivity">
 
     <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/ImageActivity_image"
