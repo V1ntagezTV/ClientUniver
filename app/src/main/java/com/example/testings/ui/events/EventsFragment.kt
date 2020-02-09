@@ -4,7 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
+import android.widget.Button
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -36,10 +37,17 @@ class EventsFragment: Fragment(){
         setRecyclerViewScrollListener()
         setData(pageNumber++)
 
+        root.findViewById<Button>(R.id.event_retry_connection).setOnClickListener { v: View ->
+            pageNumber = 1
+            setData(pageNumber++)
+        }
+
         return root
     }
 
     fun setData(pageNum: Int) {
+        view?.findViewById<Button>(R.id.event_retry_connection)?.visibility = View.INVISIBLE
+        view?.findViewById<ProgressBar>(R.id.event_progressBar)?.visibility = View.VISIBLE
         GlobalScope.launch {
             try{
                 val doc = Jsoup.connect("http://sibsu.ru/category/objavlenija/page/${pageNum}").get()
@@ -72,11 +80,15 @@ class EventsFragment: Fragment(){
                     list.add(EventModel(title, date, desc, eventPageLink))
                 }
                 GlobalScope.launch(Dispatchers.Main) {
+                    view?.findViewById<ProgressBar>(R.id.event_progressBar)?.visibility = View.INVISIBLE
                     adapter.Set(list)
                 }
             }
             catch (e: IOException){
-
+                GlobalScope.launch(Dispatchers.Main) {
+                    view?.findViewById<ProgressBar>(R.id.event_progressBar)?.visibility = View.INVISIBLE
+                    view?.findViewById<Button>(R.id.event_retry_connection)?.visibility = View.VISIBLE
+                }
             }
         }
     }

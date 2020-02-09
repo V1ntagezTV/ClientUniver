@@ -22,9 +22,9 @@
     </style>
 
     <style name="AppTheme.BlackStatusBar">
-        <item name="android:colorPrimaryDark">@color/black</item>
-        <item name="android:colorPrimary">@color/black</item>
-        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:colorPrimaryDark">@android:color/black</item>
+        <item name="android:colorPrimary">@android:color/black</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
     </style>
 
 <!--text styles-->

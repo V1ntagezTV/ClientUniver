@@ -107,7 +107,7 @@
                     android:fontFamily="sans-serif-black"
                     android:gravity="center"
                     android:text="@string/podelitsya"
-                    android:textColor="@color/white" />
+                    android:textColor="@android:color/white" />
 
                 <ImageView
                     android:id="@+id/newsDet_reqVK"
