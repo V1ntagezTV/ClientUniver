@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
         android:drawable="@android:color/white">
     </item>
 
-    <item>
+    <item android:gravity="center">
         <bitmap
-            android:src="@drawable/peng_logo"
-            android:gravity="center"/>
+            android:gravity="center_vertical|center_horizontal"
+            android:src="@drawable/splash_logo"/>
     </item>
+
 </layer-list>

@@ -17,6 +17,7 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <!--style for splash screen-->
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_screen_background</item>
     </style>
@@ -27,7 +28,7 @@
         <item name="android:textColorPrimary">@android:color/white</item>
     </style>
 
-<!--text styles-->
+    <!--text styles-->
     <style name="h2_textStyle">
         <item name="android:textSize">7pt</item>
         <item name="android:textColor">@android:color/black</item>
