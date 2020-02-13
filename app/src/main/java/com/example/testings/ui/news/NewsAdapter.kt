@@ -2,24 +2,18 @@ package com.example.testings.ui.news
 
 
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.ColorFilter
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.ImageActivity
 import com.example.testings.R
-import com.example.testings.ui.news.NewsDetails.NewsDetailsFragment
+import com.example.testings.ui.news.NewsDetails.NewsDetailsActivity
 import com.squareup.picasso.Picasso
-import org.jsoup.select.Evaluator
 
 
 class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
@@ -36,7 +30,7 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
 
         init {
             ItemView.setOnClickListener{ v: View ->
-                val intent = Intent(v.context, NewsDetailsFragment::class.java)
+                val intent = Intent(v.context, NewsDetailsActivity::class.java)
                 intent.putExtra("link", URLDetails)
                 startActivity(v.context, intent, Bundle())
             }

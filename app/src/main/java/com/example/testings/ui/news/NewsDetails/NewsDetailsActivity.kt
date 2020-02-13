@@ -19,7 +19,7 @@ import java.io.IOException
 import com.example.testings.Addons.ExpandableHeightGridView
 
 
-class NewsDetailsFragment: AppCompatActivity() {
+class NewsDetailsActivity: AppCompatActivity() {
 
     private var ImageLinksArray: ArrayList<String> = ArrayList()
     private var linkPage: String = ""
