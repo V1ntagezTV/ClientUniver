@@ -1,13 +1,12 @@
 package com.example.testings.ui.news.NewsDetails
 
+
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.*
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import com.example.testings.R
 import com.example.testings.ImageActivity
 import com.squareup.picasso.Picasso
@@ -17,9 +16,10 @@ import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import java.io.IOException
+import com.example.testings.Addons.ExpandableHeightGridView
 
 
-class NewsDetailsFragment: Fragment(){
+class NewsDetailsFragment: AppCompatActivity() {
 
     private var ImageLinksArray: ArrayList<String> = ArrayList()
     private var linkPage: String = ""
@@ -27,26 +27,30 @@ class NewsDetailsFragment: Fragment(){
     private var title: String = ""
     private var contentText: String = ""
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-        val root = inflater.inflate(R.layout.fragment_news_details, container, false)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.fragment_news_details)
+        val toolbar = supportActionBar
+        toolbar?.title = "Детали"
+        toolbar?.setDisplayHomeAsUpEnabled(true)
         linkPage = getLinkOrCloseFragment()
         setPageContent()
-        root.findViewById<Button>(R.id.newsDet_retry_connection)?.setOnClickListener{
-            root.findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.INVISIBLE
+
+        findViewById<Button>(R.id.newsDet_retry_connection)?.setOnClickListener{
+            findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.INVISIBLE
             setPageContent()
         }
-        root.findViewById<ImageView>(R.id.newsDet_titleImage)?.setOnClickListener{
-            OnClickImageNews()
+        findViewById<ImageView>(R.id.newsDet_titleImage).setOnClickListener{
+            OnClickImageNews(titleImage)
         }
-        return root
     }
 
     private fun getLinkOrCloseFragment(): String{
-        if (arguments?.getString("link") != null){
-            return arguments?.getString("link") as String
+        val intent = getIntent()
+        if (intent.getStringExtra("link") != null){
+            return intent.getStringExtra("link")
         }
-        activity?.onBackPressed()
+        onBackPressed()
         return ""
     }
 
@@ -54,8 +58,8 @@ class NewsDetailsFragment: Fragment(){
         //TODO: Рефакторить функцию
         //TODO: добавить "открыть по ссылке"
         //TODO: добавить "скопировать ссылку" на картинках и на страницах
-        view?.findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.INVISIBLE
-        view?.findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.VISIBLE
+        findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.INVISIBLE
+        findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.VISIBLE
         GlobalScope.launch {
             try {
                 val doc: Document = Jsoup.connect(linkPage).get()
@@ -79,10 +83,11 @@ class NewsDetailsFragment: Fragment(){
                 var ImagesLink = ""
                 for (num in 0 until galleryImageList.size){
                     val inLink = galleryImageList
-                        .select("div[class=gallery-icon landscape]")
+                        .select("div")
                         .select("a")
                         .eq(num)
                         .attr("href")
+
                     ImageLinksArray.add(inLink)
                     ImagesLink += inLink + '\n'
                 }
@@ -102,37 +107,47 @@ class NewsDetailsFragment: Fragment(){
                     if (titleImage.startsWith("http://")){
                         Picasso.get()
                             .load(titleImage)
-                            .into(view?.findViewById<ImageView>(R.id.newsDet_titleImage))
+                            .into(findViewById<ImageView>(R.id.newsDet_titleImage))
                     }
-                    view?.findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.INVISIBLE
+                    //
+                    val gridView: ExpandableHeightGridView = findViewById(R.id.newsDet_gridImages)
+                    val adapter = ImageListAdapter(baseContext, ImageLinksArray)
+                    gridView.adapter = adapter
+                    gridView.isExpanded = true
 
-                    view?.findViewById<TextView>(R.id.newsDet_title)?.text = title
-                    view?.findViewById<TextView>(R.id.newsDet_content)?.text = contentText
-                    view?.findViewById<TextView>(R.id.newsDet_imageurls)?.text = ImagesLink
-
-                    view?.findViewById<LinearLayout>(R.id.newsDet_reqPanel)?.visibility = View.VISIBLE
-                    view?.findViewById<ImageView>(R.id.newsDet_reqVK)?.setOnClickListener { openNewTabWindow(vklink) }
-                    view?.findViewById<ImageView>(R.id.newsDet_reqFB)?.setOnClickListener { openNewTabWindow(fblink) }
+                    findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.INVISIBLE
+                    //setNewsContent
+                    findViewById<TextView>(R.id.newsDet_title)?.text = title
+                    findViewById<TextView>(R.id.newsDet_content)?.text = contentText
+                    //design content unhide
+                    findViewById<View>(R.id.newsDet_lineFooter)?.visibility = View.VISIBLE
+                    findViewById<LinearLayout>(R.id.newsDet_reqPanel)?.visibility = View.VISIBLE
+                    findViewById<ImageView>(R.id.newsDet_reqVK)?.setOnClickListener { openNewTabWindow(vklink) }
+                    findViewById<ImageView>(R.id.newsDet_reqFB)?.setOnClickListener { openNewTabWindow(fblink) }
                 }
             }
             catch (e: IOException){
                 GlobalScope.launch(Dispatchers.Main) {
-                    view?.findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.INVISIBLE
-                    view?.findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.VISIBLE
+                    findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.INVISIBLE
+                    findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.VISIBLE
                 }
             }
         }
     }
 
-    fun OnClickImageNews(){
-        val intent = Intent(view?.context, ImageActivity::class.java)
-        intent.putExtra("ImageUrl", titleImage)
+    fun OnClickImageNews(link: String){
+        val intent = Intent(this, ImageActivity::class.java)
+        intent.putExtra("ImageUrl", link)
         startActivity(intent, Bundle())
     }
 
     private fun openNewTabWindow(urls: String) {
         val uris = Uri.parse(urls)
         val intents = Intent(Intent.ACTION_VIEW, uris)
-        view?.context?.startActivity(intents)
+        startActivity(intents)
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 }

@@ -25,6 +25,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--TODO: Перевести весь текст на SP формат-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -36,15 +37,13 @@
 
             <TextView
                 android:id="@+id/newsDet_title"
+                style="@style/h1_textStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="7dp"
-                android:layout_marginBottom="7dp"
-                android:fontFamily="sans-serif-medium"
-                android:textColor="@color/colorAccent"
-                android:textSize="7pt"/>
+                android:layout_marginBottom="7dp" />
             <!--image-->
             <View
                 android:layout_width="match_parent"
@@ -64,22 +63,16 @@
 
             <TextView
                 android:id="@+id/newsDet_content"
+                style="@style/h2_textStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginTop="4dp"
-                android:textSize="7pt"
-                android:textColor="@android:color/black" />
-            <!--image list-->
-            <TextView
-                android:id="@+id/newsDet_imageurls"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </TextView>
+                android:layout_marginTop="4dp" />
 
             <View
                 android:id="@+id/newsDet_lineFooter"
+                android:visibility="invisible"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginStart="10dp"
@@ -87,6 +80,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/bg_light_gray_color"/>
+
+            <com.example.testings.Addons.ExpandableHeightGridView
+                android:id="@+id/newsDet_gridImages"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="2"
+                android:columnWidth="100dp"
+                android:gravity="center"
+                android:verticalSpacing="10dp"
+                android:horizontalSpacing="10dp"/>
+
             <!--footer req links-->
             <LinearLayout
                 android:id="@+id/newsDet_reqPanel"

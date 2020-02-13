@@ -17,6 +17,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.ImageActivity
 import com.example.testings.R
+import com.example.testings.ui.news.NewsDetails.NewsDetailsFragment
 import com.squareup.picasso.Picasso
 import org.jsoup.select.Evaluator
 
@@ -35,9 +36,9 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
 
         init {
             ItemView.setOnClickListener{ v: View ->
-                val bundle = Bundle()
-                bundle.putString("link", URLDetails)
-                v.findNavController().navigate(R.id.news_details_Fragment, bundle)
+                val intent = Intent(v.context, NewsDetailsFragment::class.java)
+                intent.putExtra("link", URLDetails)
+                startActivity(v.context, intent, Bundle())
             }
         }
     }

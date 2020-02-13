@@ -11,8 +11,6 @@ import com.squareup.picasso.Picasso
 
 class ImageActivity: AppCompatActivity() {
 
-    private var imageUrl: String = ""
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_news_open_image)
@@ -22,9 +20,9 @@ class ImageActivity: AppCompatActivity() {
         toolbar?.setDisplayHomeAsUpEnabled(true)
         toolbar?.setBackgroundDrawable(ColorDrawable(Color.BLACK))
 
-
+        val imageUrl: String?
         val intent: Intent = getIntent()
-        imageUrl = intent.getStringExtra("ImageUrl") as String
+        imageUrl = intent.getStringExtra("ImageUrl")
         if (imageUrl.startsWith("http://sibsu.ru/wp-content/uploads/")){
             Picasso.get()
                 .load(imageUrl)
