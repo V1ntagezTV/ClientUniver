@@ -33,19 +33,22 @@ class NewsDetailsActivity: AppCompatActivity() {
         val toolbar = supportActionBar
         toolbar?.title = "Детали"
         toolbar?.setDisplayHomeAsUpEnabled(true)
-        linkPage = getLinkOrCloseFragment()
+        linkPage = getLinkOrCloseActivity()
         setPageContent()
 
-        findViewById<Button>(R.id.newsDet_retry_connection)?.setOnClickListener{
-            findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.INVISIBLE
+        findViewById<Button>(R.id.newsDet_retry_connection).setOnClickListener{
+            findViewById<Button>(R.id.newsDet_retry_connection).visibility = View.INVISIBLE
             setPageContent()
         }
         findViewById<ImageView>(R.id.newsDet_titleImage).setOnClickListener{
-            OnClickImageNews(titleImage)
+            OnClickImage(titleImage)
+        }
+        findViewById<ExpandableHeightGridView>(R.id.newsDet_gridImages).setOnItemClickListener { _, _, position, _ ->
+                    OnClickImage(ImageLinksArray[position])
         }
     }
 
-    private fun getLinkOrCloseFragment(): String{
+    private fun getLinkOrCloseActivity(): String{
         val intent = getIntent()
         if (intent.getStringExtra("link") != null){
             return intent.getStringExtra("link")
@@ -113,6 +116,7 @@ class NewsDetailsActivity: AppCompatActivity() {
                     val gridView: ExpandableHeightGridView = findViewById(R.id.newsDet_gridImages)
                     val adapter = ImageListAdapter(baseContext, ImageLinksArray)
                     gridView.adapter = adapter
+                    adapter.notifyDataSetChanged()
                     gridView.isExpanded = true
 
                     findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.INVISIBLE
@@ -135,7 +139,7 @@ class NewsDetailsActivity: AppCompatActivity() {
         }
     }
 
-    fun OnClickImageNews(link: String){
+    fun OnClickImage(link: String){
         val intent = Intent(this, ImageActivity::class.java)
         intent.putExtra("ImageUrl", link)
         startActivity(intent, Bundle())
