@@ -1,6 +1,9 @@
 package com.example.testings.ui.events
 
-data class EventModel(val Title:String,
-                     val PostDate:String,
-                     val SmallDescription: String,
-                      val EventPageLink: String)
+class EventModel{
+    var Title:String? = null
+    var PostDate:String? = null
+    var SmallDescription: String? = null
+    var EventPageLink: String = ""
+    var FullDescription: String = ""
+}

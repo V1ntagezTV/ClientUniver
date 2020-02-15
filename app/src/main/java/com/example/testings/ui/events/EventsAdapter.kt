@@ -1,9 +1,12 @@
 package com.example.testings.ui.events
 
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
 
@@ -15,7 +18,14 @@ class EventsAdapter: RecyclerView.Adapter<EventsAdapter.EventHolder>(){
         var Title: TextView = itemView.findViewById(R.id.event_title)
         var PostDate: TextView = itemView.findViewById(R.id.event_date)
         var SmallDescription: TextView = itemView.findViewById(R.id.event_content)
-        var PageLink = ""
+        var PageLink: String = ""
+        init {
+            itemView.setOnClickListener{ v: View ->
+                val intent = Intent(v.context, EventDetailsActivity::class.java)
+                intent.putExtra("link", PageLink)
+                ContextCompat.startActivity(v.context, intent, Bundle())
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventHolder {

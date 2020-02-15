@@ -44,7 +44,7 @@ class EventsFragment: Fragment(){
 
         return root
     }
-
+    //TODO: Рефакторить
     fun setData(pageNum: Int) {
         view?.findViewById<Button>(R.id.event_retry_connection)?.visibility = View.INVISIBLE
         view?.findViewById<ProgressBar>(R.id.event_progressBar)?.visibility = View.VISIBLE
@@ -76,8 +76,12 @@ class EventsFragment: Fragment(){
                         .eq(item)
                         .attr("href")
 
-
-                    list.add(EventModel(title, date, desc, eventPageLink))
+                    val eventModel = EventModel()
+                    eventModel.Title = title
+                    eventModel.PostDate = date
+                    eventModel.SmallDescription = desc
+                    eventModel.EventPageLink = eventPageLink
+                    list.add(eventModel)
                 }
                 GlobalScope.launch(Dispatchers.Main) {
                     view?.findViewById<ProgressBar>(R.id.event_progressBar)?.visibility = View.INVISIBLE
