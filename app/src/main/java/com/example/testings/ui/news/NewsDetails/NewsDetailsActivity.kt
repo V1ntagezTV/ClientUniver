@@ -84,7 +84,7 @@ class NewsDetailsActivity: AppCompatActivity() {
                     .select("div[class=single-featured]")
                     .select("img").attr("data-src")
                     .replace("-750x430", "")
-                //gallery footer image
+
                 for (num in 0 until galleryImageList.size){
                     val inLink = galleryImageList
                         .select("div")
@@ -93,10 +93,10 @@ class NewsDetailsActivity: AppCompatActivity() {
                         .attr("href")
                     ImageLinksArray.add(inLink)
                 }
-                //content text
+
                 contentText += content[0].text()
                 for (num in 1 until content.size - 2) {
-                    if (content[num].tag().normalName() == "div") continue
+                    if (content[num].tag().normalName() == "div" || content[num].text() == "") continue
                     contentText += "\n\n" + content[num].text()
                 }
 
