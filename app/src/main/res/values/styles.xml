@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -16,7 +17,11 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
+    <!--style for newsDetails/eventDetails-->
+    <style name="AppTheme.SlideClose">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
     <!--style for splash screen-->
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_screen_background</item>
@@ -25,10 +30,13 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <!--style for opened image-->
     <style name="AppTheme.BlackStatusBar">
         <item name="android:colorPrimaryDark">@android:color/black</item>
         <item name="android:colorPrimary">@android:color/black</item>
         <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
     <!--text styles-->

@@ -44,7 +44,7 @@ class EventsFragment: Fragment(){
 
         return root
     }
-    //TODO: Рефакторить
+
     fun setData(pageNum: Int) {
         view?.findViewById<Button>(R.id.event_retry_connection)?.visibility = View.INVISIBLE
         view?.findViewById<ProgressBar>(R.id.event_progressBar)?.visibility = View.VISIBLE

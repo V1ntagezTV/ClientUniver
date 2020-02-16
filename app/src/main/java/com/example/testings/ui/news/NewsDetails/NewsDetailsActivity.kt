@@ -17,6 +17,7 @@ import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import java.io.IOException
 import com.example.testings.Addons.ExpandableHeightGridView
+import com.r0adkll.slidr.Slidr
 
 
 class NewsDetailsActivity: AppCompatActivity() {
@@ -30,6 +31,7 @@ class NewsDetailsActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_news_details)
+        Slidr.attach(this)
         val toolbar = supportActionBar
         toolbar?.title = "Детали"
         toolbar?.setDisplayHomeAsUpEnabled(true)
@@ -58,10 +60,6 @@ class NewsDetailsActivity: AppCompatActivity() {
     }
 
     private fun setPageContent(){
-        //TODO: Рефакторить функцию
-        //TODO: добавить "открыть по ссылке"
-        //TODO: добавить "скопировать ссылку" на картинках и на страницах
-        //TODO: избавиться от отступов внизу
         findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.INVISIBLE
         findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.VISIBLE
 
@@ -95,7 +93,7 @@ class NewsDetailsActivity: AppCompatActivity() {
                 }
 
                 contentText += content[0].text()
-                for (num in 1 until content.size - 2) {
+                for (num in 1 until content.size) {
                     if (content[num].tag().normalName() == "div" || content[num].text() == "") continue
                     contentText += "\n\n" + content[num].text()
                 }

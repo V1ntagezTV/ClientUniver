@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.r0adkll.slidr.Slidr
 import com.squareup.picasso.Picasso
 
 
@@ -14,6 +15,7 @@ class ImageActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_news_open_image)
+        Slidr.attach(this, Color.BLACK, Color.WHITE)
 
         val toolbar = supportActionBar
         toolbar?.title = "Изображение"

@@ -41,13 +41,13 @@
             android:name=".ui.news.NewsDetails.NewsDetailsActivity"
             android:configChanges="orientation|screenSize"
             android:label="Детали"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme.SlideClose">
         </activity>
 
         <activity
             android:name=".ui.events.EventDetailsActivity"
             android:configChanges="orientation|screenSize"
-            android:theme="@style/AppTheme"
+            android:theme="@style/AppTheme.SlideClose"
             android:label="Детали">
         </activity>
     </application>
