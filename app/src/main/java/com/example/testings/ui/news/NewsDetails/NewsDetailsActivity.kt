@@ -61,12 +61,16 @@ class NewsDetailsActivity: AppCompatActivity() {
         //TODO: Рефакторить функцию
         //TODO: добавить "открыть по ссылке"
         //TODO: добавить "скопировать ссылку" на картинках и на страницах
+        //TODO: избавиться от отступов внизу
         findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.INVISIBLE
         findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.VISIBLE
+
         GlobalScope.launch {
             try {
                 val doc: Document = Jsoup.connect(linkPage).get()
-                val content = doc.select("div[class=entry-content clearfix single-post-content]")
+                val content = doc
+                    .select("div[class=entry-content clearfix single-post-content]")[0]
+                    .children()
                 val header = doc.select("div[class=post-header post-tp-1-header]")
                 val galleryImageList = content
                     .select("div[id=gallery-2]")
@@ -80,19 +84,20 @@ class NewsDetailsActivity: AppCompatActivity() {
                     .select("div[class=single-featured]")
                     .select("img").attr("data-src")
                     .replace("-750x430", "")
-
-                contentText += content.text().replace("Оцените материал!", "")
-
-                var ImagesLink = ""
+                //gallery footer image
                 for (num in 0 until galleryImageList.size){
                     val inLink = galleryImageList
                         .select("div")
                         .select("a")
                         .eq(num)
                         .attr("href")
-
                     ImageLinksArray.add(inLink)
-                    ImagesLink += inLink + '\n'
+                }
+                //content text
+                contentText += content[0].text()
+                for (num in 1 until content.size - 2) {
+                    if (content[num].tag().normalName() == "div") continue
+                    contentText += "\n\n" + content[num].text()
                 }
 
                 //start links to response
