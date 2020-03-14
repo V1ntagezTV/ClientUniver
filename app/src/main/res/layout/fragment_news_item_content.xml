@@ -58,6 +58,8 @@
             android:maxLines="4"/>
 
         <View
+            android:id="@+id/news_content_linkview"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="6dp"
@@ -65,11 +67,33 @@
             android:background="@color/bg_light_gray_color" />
 
         <TextView
+            android:id="@+id/news_content_linkTextView"
+            style="@style/footer_textStyle"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:drawableStart="@drawable/ic_link"
+            android:drawablePadding="4dp"
+            android:layout_marginEnd="10dp"
+            android:maxLines="1"
+            android:text="https://www.youtube.com/?gl=RUhl=ru" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:background="@color/bg_light_gray_color"/>
+
+        <TextView
             android:id="@+id/news_content_postdate"
             style="@style/footer_textStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="20dp"
             android:layout_marginStart="10dp"
+            android:drawableStart="@drawable/ic_clock"
+            android:drawablePadding="4dp"
             android:layout_marginEnd="10dp"
             android:text="31.12.2019" />
     </LinearLayout>
