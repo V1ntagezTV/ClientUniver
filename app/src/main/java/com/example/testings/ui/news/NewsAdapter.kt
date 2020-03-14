@@ -30,9 +30,12 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
 
         init {
             ItemView.setOnClickListener{ v: View ->
-                val intent = Intent(v.context, NewsDetailsActivity::class.java)
-                intent.putExtra("link", URLDetails)
-                startActivity(v.context, intent, Bundle())
+                //открывать только страницы сайта
+                if (URLDetails.startsWith("http://sibsu.ru/novosti/")){
+                    val intent = Intent(v.context, NewsDetailsActivity::class.java)
+                    intent.putExtra("link", URLDetails)
+                    startActivity(v.context, intent, Bundle())
+                }
             }
         }
     }
@@ -54,7 +57,7 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
         holder.TViewDescrip.text = news.SmallDescription
         holder.URLDetails = news.URLDetails
 
-        if (news.URLPreview.startsWith("http://")){
+        if (news.URLPreview.startsWith("http://")) {
             Picasso.get()
                 .load(news.URLPreview)
                 .into(holder.IViewPreview)

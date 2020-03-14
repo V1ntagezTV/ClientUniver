@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp">
+    android:layout_margin="7dp"
+    app:cardCornerRadius="7dp">
 
 
     <LinearLayout
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
@@ -18,6 +20,8 @@
         <TextView
             android:id="@+id/event_title"
             style="@style/h1_textStyle"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Сибайский институт (филиал) БашГУ объявляет о проведении выборов"/>
@@ -31,6 +35,8 @@
 
         <TextView
             android:id="@+id/event_date"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="20.11.2019" />
@@ -38,6 +44,8 @@
         <TextView
             android:id="@+id/event_content"
             style="@style/h2_textStyle"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Выборы на замещение вакантных должностей: - заведующего кафедрой экономики и менеджмента 0,25 ст.; - заведующего кафедрой эксплуатации транспортно-технологических машин и комплексов 0,5 ст.…" />

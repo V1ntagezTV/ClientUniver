@@ -30,12 +30,13 @@ class NewsDetailsActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        linkPage = getLinkOrCloseActivity()
         setContentView(R.layout.fragment_news_details)
         Slidr.attach(this)
         val toolbar = supportActionBar
         toolbar?.title = "Детали"
         toolbar?.setDisplayHomeAsUpEnabled(true)
-        linkPage = getLinkOrCloseActivity()
+
         setPageContent()
 
         findViewById<Button>(R.id.newsDet_retry_connection).setOnClickListener{
@@ -52,8 +53,10 @@ class NewsDetailsActivity: AppCompatActivity() {
 
     private fun getLinkOrCloseActivity(): String{
         val intent = getIntent()
-        if (intent.getStringExtra("link") != null){
-            return intent.getStringExtra("link")
+        val link = intent.getStringExtra("link")
+
+        if (link != null){
+            return link
         }
         onBackPressed()
         return ""
@@ -131,6 +134,11 @@ class NewsDetailsActivity: AppCompatActivity() {
                     findViewById<LinearLayout>(R.id.newsDet_reqPanel)?.visibility = View.VISIBLE
                     findViewById<ImageView>(R.id.newsDet_reqVK)?.setOnClickListener { openNewTabWindow(vklink) }
                     findViewById<ImageView>(R.id.newsDet_reqFB)?.setOnClickListener { openNewTabWindow(fblink) }
+                    findViewById<View>(R.id.newsDet_lineImage1)?.visibility = View.VISIBLE
+                    findViewById<View>(R.id.newsDet_lineImage2)?.visibility = View.VISIBLE
+                    if (ImageLinksArray.count() == 0){
+                        findViewById<ExpandableHeightGridView>(R.id.newsDet_gridImages).visibility = View.GONE
+                    }
                 }
             }
             catch (e: IOException){

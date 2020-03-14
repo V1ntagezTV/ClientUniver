@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,11 +29,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:id="@+id/newsDet_scrollview"
         android:fitsSystemWindows="false"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            android:descendantFocusability="beforeDescendants"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
@@ -47,6 +55,8 @@
                 android:layout_marginBottom="7dp" />
             <!--image-->
             <View
+                android:id="@+id/newsDet_lineImage1"
+                android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/bg_light_gray_color"/>
@@ -58,6 +68,8 @@
                 android:scaleType="centerCrop"
                 android:contentDescription="@string/ContentDesImage"/>
             <View
+                android:id="@+id/newsDet_lineImage2"
+                android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/bg_light_gray_color"/>
@@ -75,7 +87,6 @@
                 android:id="@+id/newsDet_lineFooter"
                 android:visibility="invisible"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_width="match_parent"
@@ -84,29 +95,25 @@
 
             <com.example.testings.Addons.ExpandableHeightGridView
                 android:id="@+id/newsDet_gridImages"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:numColumns="2"
                 android:columnWidth="100dp"
                 android:stretchMode="columnWidth"
                 android:gravity="center"
-                android:verticalSpacing="10dp"
-                android:horizontalSpacing="10dp"/>
+                android:verticalSpacing="2dp"
+                android:horizontalSpacing="2dp"/>
 
             <!--footer req links-->
             <LinearLayout
                 android:id="@+id/newsDet_reqPanel"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:orientation="horizontal"
                 android:background="#282b30"
                 android:visibility="invisible"
-                android:layout_marginBottom="10dp"
                 android:padding="10dp">
 
                 <TextView
@@ -133,8 +140,8 @@
                     android:gravity="center"
                     android:contentDescription="@string/ContentDesImage"
                     app:srcCompat="@drawable/ic_about_facebook"/>
-            </LinearLayout>
 
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
