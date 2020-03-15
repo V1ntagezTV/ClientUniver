@@ -87,8 +87,6 @@
                 android:id="@+id/newsDet_lineFooter"
                 android:visibility="invisible"
                 android:layout_marginTop="5dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/bg_light_gray_color"/>
@@ -97,7 +95,7 @@
                 android:id="@+id/newsDet_gridImages"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="2dp"
                 android:numColumns="2"
                 android:columnWidth="100dp"
                 android:stretchMode="columnWidth"
@@ -108,7 +106,7 @@
             <!--footer req links-->
             <LinearLayout
                 android:id="@+id/newsDet_reqPanel"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="2dp"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:orientation="horizontal"

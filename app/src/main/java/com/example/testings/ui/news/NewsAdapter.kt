@@ -64,7 +64,7 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
             startActivity(v.context, intent, Bundle())
         }
 
-        if (news.URLDetails.startsWith("http://sibsu.ru/novosti/")){
+        if (news.URLDetails.startsWith("http://sibsu.ru/")){
             holder.itemView.setOnClickListener{ v: View ->
                 val intent = Intent(v.context, NewsDetailsActivity::class.java)
                 intent.putExtra("link", news.URLDetails)
@@ -85,11 +85,5 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
         list.clear()
         list.addAll(arrayList)
         notifyDataSetChanged()
-    }
-
-    private fun openNewTabWindow(urls: String, context: Context) {
-        val uris = Uri.parse(urls)
-        val intents = Intent(Intent.ACTION_VIEW, uris)
-        startActivity(context, intents, Bundle())
     }
 }

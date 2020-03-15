@@ -85,16 +85,28 @@ class EventsFragment: Fragment(){
                 }
                 GlobalScope.launch(Dispatchers.Main) {
                     view?.findViewById<ProgressBar>(R.id.event_progressBar)?.visibility = View.INVISIBLE
+                    view?.findViewById<Button>(R.id.event_retry_connection)?.visibility = View.INVISIBLE
                     adapter.Set(list)
                 }
             }
             catch (e: IOException){
                 GlobalScope.launch(Dispatchers.Main) {
+                    val retry = view?.findViewById<Button>(R.id.event_retry_connection)
+                    retry?.setOnClickListener{
+                        pageNumber = 1
+                        view?.findViewById<ProgressBar>(R.id.event_progressBar)?.visibility = View.VISIBLE
+                        view?.findViewById<Button>(R.id.event_retry_connection)?.visibility = View.INVISIBLE
+                        OnClickRetryConn(pageNumber++)
+                    }
                     view?.findViewById<ProgressBar>(R.id.event_progressBar)?.visibility = View.INVISIBLE
-                    view?.findViewById<Button>(R.id.event_retry_connection)?.visibility = View.VISIBLE
+                    retry?.visibility = View.VISIBLE
                 }
             }
         }
+    }
+
+    private fun OnClickRetryConn(pageNum: Int){
+        setData(pageNum)
     }
 
     private fun setRecyclerViewScrollListener() {
