@@ -48,10 +48,10 @@ class NewsFragment : Fragment()
                 val doc: Document = Jsoup.connect("http://sibsu.ru/category/novosti/page/${pageNum}").get()
                 val element = doc.select("div[class=item-inner clearfix]")
 
-                for (i in 0 until element.size) {
+                for (ind in 0 until element.size) {
                     val urlImage = element
                         .select("div[class=featured clearfix]")
-                        .eq(i)
+                        .eq(ind)
                         .select("a[class=img-holder]")
                         .attr("data-src")
                         .replace("-210x136", "")
@@ -59,24 +59,24 @@ class NewsFragment : Fragment()
                     val title = element
                         .select("h2[class=title]")
                         .select("a")
-                        .eq(i)
+                        .eq(ind)
                         .text()
 
                     val postTime = element
                         .select("div[class=post-meta]")
                         .select("span[class=time]")
-                        .eq(i)
+                        .eq(ind)
                         .text()
 
                     val description = element
                         .select("div[class=post-summary]")
-                        .eq(i)
+                        .eq(ind)
                         .text()
 
                     val urldetails = element
                         .select("h2[class=title]")
                         .select("a")
-                        .eq(i)
+                        .eq(ind)
                         .attr("href")
 
                     list.add(NewsModel(title, postTime, urlImage, description, urldetails))
