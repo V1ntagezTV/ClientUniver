@@ -8,7 +8,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="7dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
     app:cardCornerRadius="7dp">
 
 
@@ -33,7 +35,7 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:layout_height="1dp"
-            android:background="@color/bg_light_gray_color"/>
+            android:background="@color/light_gray_color"/>
 
         <TextView
             android:id="@+id/event_content"
@@ -50,27 +52,27 @@
             android:layout_height="1dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
-            android:background="@color/bg_light_gray_color" />
+            android:background="@color/light_gray_color" />
 
         <TextView
             android:id="@+id/event__linkTextView"
-            style="@style/footer_textStyle"
-            android:visibility="gone"
-            android:layout_width="match_parent"
+            style="@style/linked_textStyle"
+            android:visibility="visible"
+            android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_marginStart="10dp"
             android:drawableStart="@drawable/ic_link"
-            android:drawablePadding="4dp"
+            android:drawablePadding="6dp"
             android:layout_marginEnd="10dp"
             android:maxLines="1"
-            android:text="https://www.youtube.com/?gl=RUhl=ru" />
+            android:text="https://www.youtube.com/?glffffffffff=RUhl=ru" />
 
         <View
             android:layout_width="match_parent"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:layout_height="1dp"
-            android:background="@color/bg_light_gray_color"/>
+            android:background="@color/light_gray_color"/>
 
         <TextView
             android:id="@+id/event_date"
@@ -79,7 +81,7 @@
             android:layout_height="20dp"
             android:layout_marginStart="10dp"
             android:drawableStart="@drawable/ic_clock"
-            android:drawablePadding="4dp"
+            android:drawablePadding="6dp"
             android:layout_marginEnd="10dp"
             android:text="31.12.2019" />
 

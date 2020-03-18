@@ -49,8 +49,8 @@
                 style="@style/h1_textStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"
                 android:layout_marginTop="7dp"
                 android:layout_marginBottom="7dp" />
             <!--image-->
@@ -59,7 +59,7 @@
                 android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/bg_light_gray_color"/>
+                android:background="@color/light_gray_color"/>
             <ImageView
                 android:id="@+id/newsDet_titleImage"
                 android:layout_width="match_parent"
@@ -72,15 +72,15 @@
                 android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/bg_light_gray_color"/>
+                android:background="@color/light_gray_color"/>
 
             <TextView
                 android:id="@+id/newsDet_content"
                 style="@style/h2_textStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"
                 android:layout_marginTop="4dp" />
 
             <View
@@ -89,7 +89,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/bg_light_gray_color"/>
+                android:background="@color/light_gray_color"/>
 
             <com.example.testings.Addons.ExpandableHeightGridView
                 android:id="@+id/newsDet_gridImages"

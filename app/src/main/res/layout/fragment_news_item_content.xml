@@ -8,8 +8,10 @@
     android:focusable="true"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="7dp"
-    app:cardCornerRadius="7dp">
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    app:cardCornerRadius="5dp">
 
     <LinearLayout
         android:id="@+id/news_container"
@@ -29,13 +31,12 @@
             android:layout_marginBottom="7dp"
             android:fontFamily="sans-serif-medium"
             android:maxLines="2"
-            android:textSize="16sp"
             android:text="Вниманию сотрудников и студентов института:" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/bg_light_gray_color" />
+            android:background="@color/light_gray_color" />
         <ImageView
             android:id="@+id/news_content_imgView_avatar"
             android:layout_width="match_parent"
@@ -47,7 +48,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/bg_light_gray_color" />
+            android:background="@color/light_gray_color" />
 
         <TextView
             android:id="@+id/news_content_small_desc"
@@ -55,8 +56,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="4dp"
             android:layout_marginEnd="10dp"
+            android:layout_marginTop="4dp"
             android:text="2019 год был отмечен плодотворной работой всего коллектива. Успехи студентов и преподавателей нашего вуза в образовательной, научной, творческой, спортивной…"
             android:maxLines="4"/>
 
@@ -67,17 +68,17 @@
             android:layout_height="1dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
-            android:background="@color/bg_light_gray_color" />
+            android:background="@color/light_gray_color" />
 
         <TextView
             android:id="@+id/news_content_linkTextView"
-            style="@style/footer_textStyle"
+            style="@style/linked_textStyle"
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:layout_marginStart="10dp"
             android:drawableStart="@drawable/ic_link"
-            android:drawablePadding="4dp"
+            android:drawablePadding="6dp"
             android:layout_marginEnd="10dp"
             android:maxLines="1"
             android:text="https://www.youtube.com/?gl=RUhl=ru" />
@@ -87,7 +88,7 @@
             android:layout_height="1dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
-            android:background="@color/bg_light_gray_color"/>
+            android:background="@color/light_gray_color"/>
 
         <TextView
             android:id="@+id/news_content_postdate"
@@ -96,7 +97,7 @@
             android:layout_height="20dp"
             android:layout_marginStart="10dp"
             android:drawableStart="@drawable/ic_clock"
-            android:drawablePadding="4dp"
+            android:drawablePadding="6dp"
             android:layout_marginEnd="10dp"
             android:text="31.12.2019" />
     </LinearLayout>

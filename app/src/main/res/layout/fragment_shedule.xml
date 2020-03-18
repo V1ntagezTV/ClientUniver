@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_light_gray_color">
+    android:background="@color/light_gray_color">
 
     <!--header with -->
     <LinearLayout
@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="10"
-            android:background="@color/bg_light_gray_color"
+            android:background="@color/light_gray_color"
             android:drawableStart="@drawable/ic_arrow_left"
             android:gravity="center_vertical|left"
             android:text="Пред. неделя"
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="10"
-            android:background="@color/bg_light_gray_color"
+            android:background="@color/light_gray_color"
             android:drawableEnd="@drawable/ic_arrow_right"
             android:gravity="center_vertical|center_horizontal"
             android:text="Cлед. неделя"

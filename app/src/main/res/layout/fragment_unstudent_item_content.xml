@@ -7,16 +7,12 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackgroundBorderless"
-    android:paddingStart="10dp"
-    android:paddingEnd="10dp"
+    android:padding="10dp"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:layout_marginBottom="2dp"
-    android:layout_marginStart="7dp"
-    android:layout_marginEnd="7dp"
-    app:cardCornerRadius="7dp">
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -40,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAlignment="center"
-            android:text="Эксплуатация транспортно-технологических машин и комплексов" />
+            android:text="Эксплуатация " />
 
         <TextView
             android:id="@+id/unstud_row_faculty"
