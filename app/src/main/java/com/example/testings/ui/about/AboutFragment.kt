@@ -7,14 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
-import androidx.core.view.get
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.example.testings.R
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.MapView
-import com.yandex.mapkit.MapKitFactory
-import com.yandex.mapkit.map.CameraPosition
 
 
 class AboutFragment: Fragment(){
@@ -25,7 +20,9 @@ class AboutFragment: Fragment(){
         val instagram_image = root.findViewById<ImageView>(R.id.about_instagram)
         val facebook_image = root.findViewById<ImageView>(R.id.about_facebook)
         val twitter_image = root.findViewById<ImageView>(R.id.about_twitter)
+        val website = root.findViewById<CardView>(R.id.about_website)
 
+        website.setOnClickListener { openNewTabWindow("http://sibsu.ru/") }
         vk_image.setOnClickListener { openNewTabWindow("https://vk.com/sibsu_ru")}
         instagram_image.setOnClickListener { openNewTabWindow("https://www.instagram.com/sibashgu/") }
         facebook_image.setOnClickListener { openNewTabWindow("https://www.facebook.com/SiBashGU/") }

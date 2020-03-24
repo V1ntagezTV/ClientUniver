@@ -18,43 +18,51 @@
 
         <ImageView
             android:id="@+id/about_facebook"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
             android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginStart="20dp"
+            android:layout_height="50dp"
+            android:padding="8dp"
+            android:layout_marginStart="5dp"
             android:contentDescription="@string/menu_about"
             app:srcCompat="@drawable/ic_about_facebook" />
 
         <ImageView
             android:id="@+id/about_instagram"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
             android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_height="50dp"
+            android:padding="8dp"
             android:contentDescription="@string/menu_about"
             app:srcCompat="@drawable/ic_about_instagram" />
 
         <ImageView
             android:id="@+id/about_vk"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
             android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_height="50dp"
+            android:padding="8dp"
             android:contentDescription="@string/menu_about"
             app:srcCompat="@drawable/ic_about_vk" />
 
         <ImageView
             android:id="@+id/about_twitter"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
             android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_height="50dp"
+            android:padding="8dp"
             android:contentDescription="@string/menu_about"
             app:srcCompat="@drawable/ic_about_twitter" />
     </LinearLayout>
 
-    <TextView
+    <!-- <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -82,12 +90,12 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toTopOf="parent" />      -->
 
     <ScrollView
         android:layout_width="match_parent"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_height="0dp">
 
         <LinearLayout
@@ -97,28 +105,23 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
                 android:layout_width="match_parent"
                 android:scaleType="centerCrop"
                 android:layout_height="160dp"
-                android:src="@drawable/map"
+                android:src="@drawable/map_location"
                 android:contentDescription="@string/ContentDesImage" />
 
             <androidx.cardview.widget.CardView
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
                 android:layout_width="match_parent"
-                android:layout_height="40dp">
+                android:layout_height="50dp">
 
                 <ImageView
-                    android:layout_marginTop="7dp"
+                    android:layout_marginTop="12dp"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/ContentDesImage"
                     app:srcCompat="@drawable/ic_menu_about" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -132,14 +135,15 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/about_website"
                 android:foreground="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:layout_width="match_parent"
-                android:layout_height="30dp">
+                android:layout_height="40dp">
 
                 <ImageView
-                    android:layout_marginTop="7dp"
+                    android:layout_marginTop="12dp"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/ContentDesImage"
@@ -162,10 +166,10 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:layout_width="match_parent"
-                android:layout_height="30dp">
+                android:layout_height="40dp">
 
                 <ImageView
-                    android:layout_marginTop="7dp"
+                    android:layout_marginTop="12dp"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/ContentDesImage"
@@ -184,16 +188,12 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
+                android:layout_height="60dp">
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="8dp"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/ContentDesImage"
