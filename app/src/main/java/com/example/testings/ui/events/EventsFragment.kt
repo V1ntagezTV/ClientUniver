@@ -37,7 +37,7 @@ class EventsFragment: Fragment(){
         setRecyclerViewScrollListener()
         setData(pageNumber++)
 
-        root.findViewById<Button>(R.id.event_retry_connection).setOnClickListener { v: View ->
+        root.findViewById<Button>(R.id.event_retry_connection).setOnClickListener {
             pageNumber = 1
             setData(pageNumber++)
         }

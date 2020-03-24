@@ -53,4 +53,14 @@ dependencies {
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
     implementation 'org.jsoup:jsoup:1.12.1'
     implementation 'com.r0adkll:slidableactivity:2.1.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+
+    // Основная библиотека MapKit.
+    implementation 'com.yandex.android:mapkit:3.5.0'
+    // Дополнительные модули MapKit.
+    // Удалите зависимости если ваше приложение не использует их.
+    implementation 'com.yandex.android:directions:3.5.0'
+    implementation 'com.yandex.android:places:3.5.0'
+    implementation 'com.yandex.android:search:3.5.0'
+    implementation 'com.yandex.android:transport:3.5.0'
 }
