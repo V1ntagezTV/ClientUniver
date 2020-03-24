@@ -17,6 +17,7 @@
             <TextView
                 android:id="@+id/eventDet_title"
                 style="@style/h1_textStyle"
+                android:textIsSelectable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -34,6 +35,7 @@
             <TextView
                 android:id="@+id/eventDet_content"
                 style="@style/h2_textStyle"
+                android:textIsSelectable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
