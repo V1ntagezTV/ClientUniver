@@ -5,14 +5,16 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Новости</string>
+    <string name="menu_news">Новости</string>
     <string name="menu_events">События</string>
-    <string name="menu_gallery">Расписание</string>
-    <string name="menu_slideshow">Абитуриентам</string>
+    <string name="menu_shedule">Расписание</string>
+    <string name="menu_unstudents">Абитуриентам</string>
     <string name="menu_tools">Настройки</string>
-    <string name="menu_share">Редактировать</string>
-    <string name="menu_about">Информация</string>
-    <string name="menu_send">Выход</string>
+    <string name="menu_edit">Редактировать</string>
+    <string name="menu_about">Об Университете</string>
+    <string name="menu_faculties">Факультеты</string>
+    <string name="menu_services">Дополнительное</string>
+    <string name="menu_exit">Выход</string>
     <string name="news_details">Детали</string>
 
     <string name="fac_tech">Технологический</string>

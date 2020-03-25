@@ -44,7 +44,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_unstudents,
                 R.id.nav_setting,
                 R.id.nav_about,
-                R.id.nav_profile_edit,
+                R.id.nav_application,
+                R.id.nav_faculties,
                 R.id.nav_exit
             ), drawerLayout
         )

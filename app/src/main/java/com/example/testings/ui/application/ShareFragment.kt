@@ -1,4 +1,4 @@
-package com.example.testings.ui.profile_edit
+package com.example.testings.ui.application
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -21,7 +21,7 @@ class ShareFragment : Fragment() {
     ): View? {
         shareViewModel =
             ViewModelProviders.of(this).get(ShareViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_profile_edit, container, false)
+        val root = inflater.inflate(R.layout.fragment_application, container, false)
         val textView: TextView = root.findViewById(R.id.text_share)
         shareViewModel.text.observe(this, Observer {
             textView.text = it

@@ -1,4 +1,4 @@
-package com.example.testings.ui.profile_edit
+package com.example.testings.ui.application
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/nav_news"
         android:name="com.example.testings.ui.news.NewsFragment"
-        android:label="@string/menu_home"
+        android:label="@string/menu_news"
         tools:layout="@layout/fragment_news" >
         <action
             android:id="@+id/action_nav_news_to_news_details_Fragment"
@@ -24,14 +24,14 @@
     <fragment
         android:id="@+id/nav_shedule"
         android:name="com.example.testings.ui.shedules.SheduleFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_shedule"
         tools:layout="@layout/fragment_shedule">
     </fragment>
 
     <fragment
         android:id="@+id/nav_unstudents"
         android:name="com.example.testings.ui.unstudents.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/menu_unstudents"
         tools:layout="@layout/fragment_unstudents" />
 
     <fragment
@@ -41,15 +41,15 @@
         tools:layout="@layout/fragment_settings" />
 
     <fragment
-        android:id="@+id/nav_profile_edit"
-        android:name="com.example.testings.ui.profile_edit.ShareFragment"
-        android:label="@string/menu_share"
-        tools:layout="@layout/fragment_profile_edit" />
+        android:id="@+id/nav_application"
+        android:name="com.example.testings.ui.application.ShareFragment"
+        android:label="@string/menu_edit"
+        tools:layout="@layout/fragment_application" />
 
     <fragment
         android:id="@+id/nav_exit"
         android:name="com.example.testings.ui.exit.SendFragment"
-        android:label="@string/menu_send"
+        android:label="@string/menu_exit"
         tools:layout="@layout/fragment_exit" />
 
     <fragment
@@ -62,4 +62,14 @@
         android:id="@+id/nav_events"
         android:name="com.example.testings.ui.events.EventsFragment"
         android:label="@string/menu_events"/>
+
+    <fragment
+        android:id="@+id/nav_services"
+        android:name="com.example.testings.ui.services.ServicesFragment"
+        android:label="@string/menu_services"/>
+
+    <fragment
+        android:id="@+id/nav_faculties"
+        android:name="com.example.testings.ui.faculties.FacultiesFragment"
+        android:label="@string/menu_faculties"/>
 </navigation>
