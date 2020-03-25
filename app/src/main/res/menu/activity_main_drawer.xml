@@ -34,22 +34,18 @@
             android:id="@+id/nav_services"
             android:icon="@drawable/ic_services"
             android:title="@string/menu_services"/>
-        <item
-            android:id="@+id/nav_setting"
-            android:icon="@drawable/ic_menu_setting"
-            android:title="@string/menu_tools" />
     </group>
 
     <group
         android:id="@+id/nav_profile_group"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_application"
-            android:icon="@drawable/ic_menu_edit"
-            android:title="@string/menu_edit" />
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_menu_setting"
+            android:title="@string/menu_tools" />
         <item
-            android:id="@+id/nav_exit"
-            android:icon="@drawable/ic_menu_exit"
-            android:title="@string/menu_exit" />
+            android:id="@+id/nav_info"
+            android:icon="@drawable/ic_menu_info"
+            android:title="@string/menu_edit" />
     </group>
 </menu>

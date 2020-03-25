@@ -13,7 +13,7 @@
     <string name="menu_edit">О приложении</string>
     <string name="menu_about">Об Университете</string>
     <string name="menu_faculties">Факультеты</string>
-    <string name="menu_services">Дополнительное</string>
+    <string name="menu_services">Дополнительно</string>
     <string name="menu_exit">Выход</string>
     <string name="news_details">Детали</string>
 
@@ -27,5 +27,4 @@
     <string name="podelitsya">Поделиться</string>
 
     <string name="ContentDesImage">Image</string>
-    <string name="YandexMapApiKey">79d52153&#8211;e813&#8211;468e&#8211;a987&#8211;63aaa29aa9e6</string>
 </resources>

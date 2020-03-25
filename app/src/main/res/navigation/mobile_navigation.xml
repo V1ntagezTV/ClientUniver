@@ -41,16 +41,10 @@
         tools:layout="@layout/fragment_settings" />
 
     <fragment
-        android:id="@+id/nav_application"
-        android:name="com.example.testings.ui.application.ShareFragment"
+        android:id="@+id/nav_info"
+        android:name="com.example.testings.ui.information.ShareFragment"
         android:label="@string/menu_edit"
         tools:layout="@layout/fragment_application" />
-
-    <fragment
-        android:id="@+id/nav_exit"
-        android:name="com.example.testings.ui.exit.SendFragment"
-        android:label="@string/menu_exit"
-        tools:layout="@layout/fragment_exit" />
 
     <fragment
         android:id="@+id/nav_about"
