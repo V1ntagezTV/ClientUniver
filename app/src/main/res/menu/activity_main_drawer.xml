@@ -28,11 +28,11 @@
             android:title="@string/menu_about"/>
         <item
             android:id="@+id/nav_faculties"
-            android:icon="@drawable/ic_menu_about"
+            android:icon="@drawable/ic_faculties"
             android:title="@string/menu_faculties"/>
         <item
             android:id="@+id/nav_services"
-            android:icon="@drawable/ic_menu_about"
+            android:icon="@drawable/ic_services"
             android:title="@string/menu_services"/>
         <item
             android:id="@+id/nav_setting"
