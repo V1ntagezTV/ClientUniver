@@ -43,7 +43,6 @@
     <!--text styles-->
     <style name="h2_textStyle">
         <item name="android:textSize">16sp</item>
-        <item name="android:textIsSelectable">true</item>
         <item name="android:textColor">@color/font_ContentText</item>
     </style>
 

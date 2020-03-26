@@ -5,6 +5,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <!--menu-->
     <string name="menu_news">Новости</string>
     <string name="menu_events">События</string>
     <string name="menu_shedule">Расписание</string>
@@ -17,6 +18,13 @@
     <string name="menu_exit">Выход</string>
     <string name="news_details">Детали</string>
 
+    <!--services-->
+    <string name="serv_cabinet">Личный кабинет</string> <!-- https://cabinet.sibsu.ru/ -->
+    <string name="serv_library_bashgu">ЭБС БашГУ</string> <!-- https://elib.bashedu.ru/ -->
+    <string name="serv_library_biblioclub">ЭБС "Biblioclub"</string> <!-- http://biblioclub.ru/ -->
+    <string name="serv_library_lan">ЭБС "Лань"</string> <!-- https://e.lanbook.com/ -->
+    <!--faculties-->
+
     <string name="fac_tech">Технологический</string>
     <string name="fac_emf">Естественно-математический</string>
     <string name="fac_ped">Педагогический</string>
@@ -27,4 +35,6 @@
     <string name="podelitsya">Поделиться</string>
 
     <string name="ContentDesImage">Image</string>
+    
+    
 </resources>
