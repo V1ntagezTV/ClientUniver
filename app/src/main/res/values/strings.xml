@@ -21,8 +21,8 @@
     <!--services-->
     <string name="serv_cabinet">Личный кабинет</string> <!-- https://cabinet.sibsu.ru/ -->
     <string name="serv_library_bashgu">ЭБС БашГУ</string> <!-- https://elib.bashedu.ru/ -->
-    <string name="serv_library_biblioclub">ЭБС "Biblioclub"</string> <!-- http://biblioclub.ru/ -->
-    <string name="serv_library_lan">ЭБС "Лань"</string> <!-- https://e.lanbook.com/ -->
+    <string name="serv_library_biblioclub">ЭБС \"Biblioclub\"</string> <!-- http://biblioclub.ru/ -->
+    <string name="serv_library_lan">ЭБС \"Лань\"</string> <!-- https://e.lanbook.com/ -->
     <!--faculties-->
 
     <string name="fac_tech">Технологический</string>
