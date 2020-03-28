@@ -9,39 +9,43 @@
         <item
             android:id="@+id/nav_news"
             android:icon="@drawable/ic_menu_news"
-            android:title="Новости" />
+            android:title="@string/menu_news" />
         <item
             android:id="@+id/nav_events"
             android:icon="@drawable/ic_menu_event"
-            android:title="События"/>
+            android:title="@string/menu_events"/>
         <item
             android:id="@+id/nav_shedule"
             android:icon="@drawable/ic_menu_shedule"
-            android:title="Расписание" />
+            android:title="@string/menu_shedule" />
         <item
             android:id="@+id/nav_unstudents"
             android:icon="@drawable/ic_menu_unstudents"
-            android:title="Абитуриентам" />
+            android:title="@string/menu_unstudents" />
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_menu_about"
-            android:title="Об Университете"/>
+            android:title="@string/menu_about"/>
         <item
-            android:id="@+id/nav_setting"
-            android:icon="@drawable/ic_menu_setting"
-            android:title="Настройки" />
+            android:id="@+id/nav_faculties"
+            android:icon="@drawable/ic_faculties"
+            android:title="@string/menu_faculties"/>
+        <item
+            android:id="@+id/nav_services"
+            android:icon="@drawable/ic_services"
+            android:title="@string/menu_services"/>
     </group>
 
     <group
         android:id="@+id/nav_profile_group"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_profile_edit"
-            android:icon="@drawable/ic_menu_edit"
-            android:title="Редактировать" />
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_menu_setting"
+            android:title="@string/menu_tools" />
         <item
-            android:id="@+id/nav_exit"
-            android:icon="@drawable/ic_menu_exit"
-            android:title="Выйти" />
+            android:id="@+id/nav_info"
+            android:icon="@drawable/ic_menu_info"
+            android:title="@string/menu_edit" />
     </group>
 </menu>

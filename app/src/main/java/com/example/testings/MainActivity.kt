@@ -1,9 +1,6 @@
 package com.example.testings
 
 import android.os.Bundle
-import android.os.RecoverySystem
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -15,10 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import androidx.core.view.GravityCompat
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.testings.ui.news.NewsAdapter
-import com.example.testings.ui.news.NewsModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,8 +37,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_unstudents,
                 R.id.nav_setting,
                 R.id.nav_about,
-                R.id.nav_profile_edit,
-                R.id.nav_exit
+                R.id.nav_info,
+                R.id.nav_faculties,
+                R.id.nav_services
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
