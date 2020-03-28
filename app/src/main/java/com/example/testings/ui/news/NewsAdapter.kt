@@ -64,7 +64,7 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
             startActivity(v.context, intent, Bundle())
         }
 
-        if (news.URLDetails.startsWith("http://sibsu.ru/")){
+        if ("://sibsu.ru/" in news.URLDetails){
             holder.itemView.setOnClickListener{ v: View ->
                 val intent = Intent(v.context, NewsDetailsActivity::class.java)
                 intent.putExtra("link", news.URLDetails)

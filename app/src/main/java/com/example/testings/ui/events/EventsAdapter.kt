@@ -39,9 +39,8 @@ class EventsAdapter: RecyclerView.Adapter<EventsAdapter.EventHolder>(){
         holder.SmallDescription.text = eventData.SmallDescription
         holder.PageLink.text = eventData.EventPageLink
 
-        if (eventData.EventPageLink.startsWith("http://sibsu.ru/novosti") ||
-            eventData.EventPageLink.startsWith("http://sibsu.ru/objavlenija")){
-            holder.itemView.setOnClickListener{ v:View ->
+        if ("sibsu.ru/novosti" in eventData.EventPageLink || "sibsu.ru/objavlenija" in eventData.EventPageLink){
+            holder.itemView.setOnClickListener { v:View ->
                 val intent = Intent(v.context, EventDetailsActivity::class.java)
                 intent.putExtra("link", eventData.EventPageLink)
                 startActivity(v.context, intent, Bundle())
