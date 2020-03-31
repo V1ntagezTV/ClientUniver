@@ -7,52 +7,6 @@
     android:background="@color/light_gray_color">
 
     <!--header with -->
-    <LinearLayout
-        android:id="@+id/shedule_nowdate_left_right"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="10"
-            android:background="@color/light_gray_color"
-            android:drawableStart="@drawable/ic_arrow_left"
-            android:gravity="center_vertical|left"
-            android:text="Пред. неделя"
-            android:textAllCaps="false"
-            android:textColor="@color/colorPrimary"
-            android:textSize="12sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1000"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="Январь 2020"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/colorPrimary"
-            android:textSize="7pt"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="10"
-            android:background="@color/light_gray_color"
-            android:drawableEnd="@drawable/ic_arrow_right"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="Cлед. неделя"
-            android:textAllCaps="false"
-            android:textColor="@color/colorPrimary"
-            android:textSize="12sp" />
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -61,7 +15,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shedule_nowdate_left_right">
+        app:layout_constraintTop_toTopOf="parent">
 
         <!--пн-->
         <LinearLayout

@@ -1,10 +1,15 @@
 package com.example.testings.ui.unstudents
 
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.testings.ImageActivity
 import com.example.testings.R
 
 class EducAdapter: RecyclerView.Adapter<EducAdapter.EducHolder>(){
@@ -32,6 +37,11 @@ class EducAdapter: RecyclerView.Adapter<EducAdapter.EducHolder>(){
         holder.codeV.text = EducDB.Code
         holder.facultyV.text = EducDB.Faculty
         holder.nameV.text = EducDB.Name
+
+        holder.itemView.setOnClickListener{
+            val intent = Intent(it.context, ProfileInfoActivity::class.java)
+            startActivity(it.context, intent, Bundle())
+        }
     }
 
     fun Set(list: ArrayList<EducProfileModel>){
