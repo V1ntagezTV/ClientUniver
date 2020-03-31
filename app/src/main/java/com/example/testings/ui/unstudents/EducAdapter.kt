@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.testings.ImageActivity
 import com.example.testings.R
 
 class EducAdapter: RecyclerView.Adapter<EducAdapter.EducHolder>(){
@@ -40,6 +38,10 @@ class EducAdapter: RecyclerView.Adapter<EducAdapter.EducHolder>(){
 
         holder.itemView.setOnClickListener{
             val intent = Intent(it.context, ProfileInfoActivity::class.java)
+            val bundle = Bundle()
+            bundle.putString("code", EducDB.Code)
+            bundle.putString("fac", EducDB.Faculty)
+            bundle.putString("Name", EducDB.Name)
             startActivity(it.context, intent, Bundle())
         }
     }
