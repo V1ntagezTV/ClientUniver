@@ -38,10 +38,10 @@ class EducAdapter: RecyclerView.Adapter<EducAdapter.EducHolder>(){
 
         holder.itemView.setOnClickListener{
             val intent = Intent(it.context, ProfileInfoActivity::class.java)
-            val bundle = Bundle()
-            bundle.putString("code", EducDB.Code)
-            bundle.putString("fac", EducDB.Faculty)
-            bundle.putString("Name", EducDB.Name)
+            intent.putExtra("code", EducDB.Code)
+            intent.putExtra("fac", EducDB.Faculty)
+            intent.putExtra("name", EducDB.Name)
+            intent.putExtra("all", EducDB.All)
             startActivity(it.context, intent, Bundle())
         }
     }

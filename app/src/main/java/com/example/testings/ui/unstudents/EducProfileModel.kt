@@ -1,26 +1,22 @@
 package com.example.testings.ui.unstudents
 
-class EducProfileModel(code: String, name: String, faculty: String, all: String){
-    var Code: String
-    var Name: String
-    var Faculty: String
-    var All: String
+class EducProfileModel(val Code: String?, val Name: String?, val Faculty: String?, val All: String?){
 
-    var SpecialQute: EducTypes? = null
-    var GeneralTerms: EducTypes? = null
-    var Commercial: EducTypes? = null
+    var SpecialQute: EducType? = null
+    var GeneralTerms: EducType? = null
+    var Commercial: EducType? = null
 
-    init {
-        this.Code = code
-        this.Name = name
-        this.Faculty = faculty
-        this.All = all
-    }
+    var Lessons: ArrayList<NeededLesson> = ArrayList(3)
 }
 
-class EducTypes(name:String, intrum: Int, absent: Int, int_abs: Int){
-        var Name: String = name
-        var Intramural: Int = intrum
-        var Absentia: Int = absent
-        var Intra_Absentia: Int = int_abs
+class EducType(intrum: String, absent: String, int_abs: String){
+    var Intramural: String = intrum
+    var Absentia: String = absent
+    var Intra_Absentia: String = int_abs
 }
+
+class NeededLesson(
+    var Name: String,
+    var Score: String
+)
+

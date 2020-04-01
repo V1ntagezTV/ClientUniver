@@ -52,7 +52,7 @@ class NewsDetailsActivity: AppCompatActivity() {
     }
 
     private fun getLinkOrCloseActivity(): String{
-        val intent = getIntent()
+        val intent = this.intent
         val link = intent.getStringExtra("link")
 
         if (link != null){
