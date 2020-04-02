@@ -6,11 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ProgressBar
+import android.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
+import com.google.android.material.appbar.AppBarLayout
+import kotlinx.android.synthetic.main.app_bar_main.view.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -29,7 +32,6 @@ class NewsFragment : Fragment()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_news, container, false)
-        //start init контейнера новостей
         news_recyclerView = root.findViewById(R.id.news_recyclerView)
         news_recyclerView.setItemViewCacheSize(20) //временное решение cache uses for 20 newsview
         adapter = NewsAdapter()
@@ -41,6 +43,15 @@ class NewsFragment : Fragment()
         setData(pageNumber++)
         return root
     }
+    /**
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        val appBar = activity?.findViewById<Toolbar>(R.id.toolbar)
+        val params: AppBarLayout.LayoutParams = appBar?.layoutParams as AppBarLayout.LayoutParams
+        params.scrollFlags = AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS
+        appBar.layoutParams = params
+    }
+    **/
 
     fun setData(pageNum: Int) {
         GlobalScope.launch {

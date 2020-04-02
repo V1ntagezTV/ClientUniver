@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
 import java.io.IOException
 
-class SlideshowFragment : Fragment() {
+class EducFragment : Fragment() {
 
     val link = "http://sibsu.ru/abitur/bachelor/"
     val list: ArrayList<EducProfileModel> = ArrayList()
