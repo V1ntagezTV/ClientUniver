@@ -7,6 +7,24 @@
     android:background="@color/light_gray_color">
 
     <!--header with -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/shedule_tab_layout"
+        android:background="@color/light_gray_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.tabs.TabItem
+            android:text="Студент"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:text="Преподаватель"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.tabs.TabLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -15,7 +33,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/shedule_tab_layout">
 
         <!--пн-->
         <LinearLayout

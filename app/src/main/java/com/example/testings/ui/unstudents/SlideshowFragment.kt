@@ -68,8 +68,8 @@ class SlideshowFragment : Fragment() {
                     val Commercial_och = tablePriemKolMest.eq(ind).select("td[data-label=Договорн. очн.]").text()
                     val Commercial_zaoch = tablePriemKolMest.eq(ind).select("td[data-label=Договорн. заочн.]").text()
                     val Commercial_och_zao = tablePriemKolMest.eq(ind).select("td[data-label=Договорн. очн.-заочн.]").text()
-                    val prof_model = EducProfileModel(code, profile, faculty, count)
 
+                    val prof_model = EducProfileModel(code, profile, faculty, count)
                     prof_model.SpecialQute = EducType(SpecialQ_och, SpecialQ_och_zao, SpecialQ_zaoch)
                     prof_model.GeneralTerms = EducType(GeneralT_och, GeneralT_och_zao, GeneralT_zaoch)
                     prof_model.Commercial = EducType(Commercial_och, Commercial_och_zao, Commercial_zaoch)
@@ -80,8 +80,8 @@ class SlideshowFragment : Fragment() {
                     val profile = tableLessonsScores.eq(ind).select("td[data-label=Направление]").text()
                     val lessons = tableLessonsScores.eq(ind).select("td[data-label=Экзамены]").text().split('\n')
                     val scores = tableLessonsScores.eq(ind).select("td[data-label=Мин.баллы]").text().split(' ')
-                    val data = list.find { it -> it.Code == code && it.Name == profile}
-                    data?.Lessons?.set(0, NeededLesson(lessons[0], scores[0]))
+                    //val data = list.find { it -> it.Code == code && it.Name == profile}
+                    //data?.Lessons?.set(0, NeededLesson(lessons[0], scores[0]))
                 }
                 GlobalScope.launch(Dispatchers.Main) {
                     view?.findViewById<ProgressBar>(R.id.unstud_progressBar)?.visibility = View.INVISIBLE
