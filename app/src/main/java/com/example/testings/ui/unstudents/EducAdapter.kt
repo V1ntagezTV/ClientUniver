@@ -42,6 +42,8 @@ class EducAdapter: RecyclerView.Adapter<EducAdapter.EducHolder>(){
             intent.putExtra("fac", EducDB.Faculty)
             intent.putExtra("name", EducDB.Name)
             intent.putExtra("all", EducDB.All)
+            intent.putExtra("scores", EducDB.Scores)
+            intent.putExtra("lessons", EducDB.Lessons)
             startActivity(it.context, intent, Bundle())
         }
     }
