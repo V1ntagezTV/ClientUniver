@@ -76,12 +76,12 @@ class SlideshowFragment : Fragment() {
                     list.add(prof_model)
                 }
                 for (ind in 0 until tableLessonsScores.size){
-                    val code    = tablePriemKolMest.eq(ind).select("td[data-label=Код]").text()
-                    val profile = tableLessonsScores.eq(ind).select("td[data-label=Направление]").text()
-                    val lessons = tableLessonsScores.eq(ind).select("td[data-label=Экзамены]").text().split('\n')
-                    val scores = tableLessonsScores.eq(ind).select("td[data-label=Мин.баллы]").text().split(' ')
-                    //val data = list.find { it -> it.Code == code && it.Name == profile}
-                    //data?.Lessons?.set(0, NeededLesson(lessons[0], scores[0]))
+                    val name = tableLessonsScores.eq(ind).select("td[data-label=Направление]").text()
+                    val lessons = tableLessonsScores.eq(ind).select("td[data-label=Экзамены]").text()
+                    val scores = tableLessonsScores.eq(ind).select("td[data-label=Мин.баллы]").text()
+                    val data = list.find { it.Name == name }
+                    data?.Lessons = lessons
+                    data?.Scores = scores
                 }
                 GlobalScope.launch(Dispatchers.Main) {
                     view?.findViewById<ProgressBar>(R.id.unstud_progressBar)?.visibility = View.INVISIBLE
