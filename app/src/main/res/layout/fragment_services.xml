@@ -6,6 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="15dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -13,9 +15,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/serv_own_cab"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_height="60dp"
             android:text="@string/serv_cabinet"
             app:icon="@drawable/ic_user"
             app:iconGravity="textStart"
@@ -25,9 +25,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/serv_lib_bashgu"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_height="60dp"
             android:text="@string/serv_library_bashgu"
             app:icon="@drawable/ic_book"
             app:iconGravity="textStart"
@@ -37,9 +35,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/serv_lib_biblio"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_height="60dp"
             android:text="@string/serv_library_biblioclub"
             app:icon="@drawable/ic_book"
             app:iconGravity="textStart"
@@ -49,14 +45,13 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/serv_lib_lan"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_height="60dp"
             android:text="@string/serv_library_lan"
             app:icon="@drawable/ic_book"
             app:iconGravity="textStart"
             app:iconPadding="15dp"
             app:iconSize="24dp"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
