@@ -9,11 +9,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
-    android:layout_marginStart="10dp"
-    android:layout_marginEnd="10dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp"
     app:cardCornerRadius="4dp">
 
     <LinearLayout
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
@@ -23,8 +25,7 @@
         <TextView
             android:id="@+id/event_title"
             style="@style/h1_textStyle"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginVertical="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Сибайский институт (филиал) БашГУ объявляет о проведении выборов"/>
@@ -32,17 +33,12 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="5dp"
             android:background="@color/light_gray_color" />
 
         <TextView
             android:id="@+id/event_content"
             style="@style/h2_textStyle"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginVertical="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Выборы на замещение вакантных должностей: - заведующего кафедрой экономики и менеджмента 0,25 ст.; - заведующего кафедрой эксплуатации транспортно-технологических машин и комплексов 0,5 ст.…" />
@@ -51,10 +47,6 @@
             android:id="@+id/event_linkview"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="6dp"
             android:background="@color/light_gray_color"
             android:visibility="gone" />
 
@@ -63,32 +55,28 @@
             style="@style/linked_textStyle"
             android:visibility="gone"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_marginStart="10dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
             android:drawableStart="@drawable/ic_link"
-            android:drawablePadding="6dp"
-            android:layout_marginEnd="10dp"
+            android:drawablePadding="8dp"
+            android:layout_marginVertical="8dp"
             android:maxLines="1"
             android:text="https://www.youtube.com/?glffffffffff=RUhl=ru" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="5dp"
             android:background="@color/light_gray_color" />
 
         <TextView
+            android:layout_marginVertical="10dp"
             android:id="@+id/event_date"
             style="@style/footer_textStyle"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_marginStart="10dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:drawableStart="@drawable/ic_clock"
-            android:drawablePadding="6dp"
-            android:layout_marginEnd="10dp"
+            android:drawablePadding="8dp"
             android:text="31.12.2019" />
 
     </LinearLayout>

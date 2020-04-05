@@ -60,6 +60,7 @@
     </style>
 
     <style name="linked_textStyle">
+        <item name="android:ellipsize">end</item>
         <item name="android:textColor">@color/font_LinkedText</item>
         <item name="android:textSize">14sp</item>
     </style>
