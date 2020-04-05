@@ -3,7 +3,7 @@
     <color name="colorPrimary">#262626</color> <!-- сама шапка -->
     <color name="colorPrimaryDark">#262626</color> <!-- полоска шапки -->
     <color name="colorAccent">#262626</color>
-    <color name="light_gray_color">#e0e0e0</color>
+    <color name="light_gray_color">#F3F3F3</color>
 
 
     <color name="font_TitleText">#262626</color>

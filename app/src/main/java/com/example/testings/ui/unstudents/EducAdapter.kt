@@ -9,6 +9,8 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
+import com.example.testings.ui.unstudents.ProfileDetails.ProfileInfoActivity
+import com.example.testings.ui.unstudents.ProfileDetails.ProfileInfoViewModel
 
 class EducAdapter: RecyclerView.Adapter<EducAdapter.EducHolder>(){
 
@@ -38,12 +40,7 @@ class EducAdapter: RecyclerView.Adapter<EducAdapter.EducHolder>(){
 
         holder.itemView.setOnClickListener{
             val intent = Intent(it.context, ProfileInfoActivity::class.java)
-            intent.putExtra("code", EducDB.Code)
-            intent.putExtra("fac", EducDB.Faculty)
-            intent.putExtra("name", EducDB.Name)
-            intent.putExtra("all", EducDB.All)
-            intent.putExtra("scores", EducDB.Scores)
-            intent.putExtra("lessons", EducDB.Lessons)
+            ProfileInfoViewModel.profile = EducDB
             startActivity(it.context, intent, Bundle())
         }
     }
