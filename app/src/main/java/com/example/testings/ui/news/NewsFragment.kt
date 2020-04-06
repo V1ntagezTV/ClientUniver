@@ -1,9 +1,7 @@
 package com.example.testings.ui.news
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.Toolbar
@@ -32,6 +30,7 @@ class NewsFragment : Fragment()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_news, container, false)
+        setHasOptionsMenu(true)
         news_recyclerView = root.findViewById(R.id.news_recyclerView)
         news_recyclerView.setItemViewCacheSize(20) //временное решение cache uses for 20 newsview
         adapter = NewsAdapter()
@@ -43,15 +42,11 @@ class NewsFragment : Fragment()
         setData(pageNumber++)
         return root
     }
-    /**
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        val appBar = activity?.findViewById<Toolbar>(R.id.toolbar)
-        val params: AppBarLayout.LayoutParams = appBar?.layoutParams as AppBarLayout.LayoutParams
-        params.scrollFlags = AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS
-        appBar.layoutParams = params
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return super.onOptionsItemSelected(item)
     }
-    **/
 
     fun setData(pageNum: Int) {
         GlobalScope.launch {
