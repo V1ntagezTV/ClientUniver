@@ -46,8 +46,6 @@ class EventsFragment: Fragment(){
     }
 
     fun setData(pageNum: Int) {
-        view?.findViewById<Button>(R.id.event_retry_connection)?.visibility = View.INVISIBLE
-        view?.findViewById<ProgressBar>(R.id.event_progressBar)?.visibility = View.VISIBLE
         GlobalScope.launch {
             try{
                 val doc = Jsoup.connect("http://sibsu.ru/category/objavlenija/page/${pageNum}").get()
