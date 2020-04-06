@@ -1,9 +1,10 @@
-package com.example.testings.ui.events
+package com.example.testings.ui.events.EventDetails
 
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.testings.R
+import com.example.testings.ui.events.EventModel
 import com.r0adkll.slidr.Slidr
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope

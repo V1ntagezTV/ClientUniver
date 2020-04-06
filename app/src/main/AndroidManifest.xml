@@ -45,7 +45,7 @@
         </activity>
 
         <activity
-            android:name=".ui.events.EventDetailsActivity"
+            android:name=".ui.events.EventDetails.EventDetailsActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.SlideClose"
             android:label="Детали">
