@@ -60,44 +60,43 @@
             android:maxLines="4"/>
 
         <View
-            android:id="@+id/news_content_linkview"
-            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/light_gray_color"
             android:layout_marginHorizontal="15dp"/>
 
-        <TextView
-            android:id="@+id/news_content_linkTextView"
-            style="@style/linked_textStyle"
-            android:visibility="gone"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:drawableStart="@drawable/ic_link"
-            android:drawablePadding="6dp"
-            android:layout_marginVertical="8dp"
-            android:layout_marginHorizontal="15dp"
-            android:maxLines="1"
-            android:text="https://www.youtube.com/?gl=RUhl=ru" />
+            android:layout_height="wrap_content">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/light_gray_color"
-            android:layout_marginHorizontal="15dp"/>
+            <TextView
+                android:id="@+id/news_content_postdate"
+                style="@style/footer_textStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:drawableStart="@drawable/ic_clock"
+                android:drawablePadding="6dp"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:text="31.12.2019" />
 
-        <TextView
-            android:id="@+id/news_content_postdate"
-            style="@style/footer_textStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:drawableStart="@drawable/ic_clock"
-            android:drawablePadding="6dp"
-            android:layout_marginVertical="10dp"
-            android:layout_marginHorizontal="15dp"
-            android:text="31.12.2019" />
+            <TextView
+                android:id="@+id/news_content_linkTextView"
+                style="@style/footer_textStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:drawableStart="@drawable/ic_link"
+                android:drawablePadding="6dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="Ссылка"
+                android:visibility="gone" />
+
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
