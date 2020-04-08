@@ -80,4 +80,9 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
         list.addAll(arrayList)
         notifyDataSetChanged()
     }
+
+    fun CleanList(){
+        list.clear()
+        notifyDataSetChanged()
+    }
 }
