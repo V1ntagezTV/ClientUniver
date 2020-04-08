@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
+import com.example.testings.ui.events.EventDetails.EventDetailsActivity
 
 class EventsAdapter: RecyclerView.Adapter<EventsAdapter.EventHolder>(){
 

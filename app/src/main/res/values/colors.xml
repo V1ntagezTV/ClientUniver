@@ -20,13 +20,13 @@
     <color name="colorPrimary">#444C92</color>#4682B4
     <color name="colorPrimaryDark">#343879</color>#2E5575
     <color name="colorAccent">#212121</color>#2E5575
-    <color name="bg_light_gray_color">#e0e0e0</color>
+    <color name="light_gray_color">#e0e0e0</color>
 </resources>
 
 <resources>
     <color name="colorPrimary">#212121</color>#4682B4
     <color name="colorPrimaryDark">#212121</color>#2E5575
     <color name="colorAccent">#212121</color>#2E5575
-    <color name="bg_light_gray_color">#e0e0e0</color>
+    <color name="light_gray_color">#e0e0e0</color>
 </resources>
 -->

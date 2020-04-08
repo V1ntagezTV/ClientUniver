@@ -52,10 +52,8 @@
                 style="@style/h1_textStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="7dp"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="15dp"
                 android:textIsSelectable="true" />
             <!--image-->
             <View
@@ -85,16 +83,14 @@
                 style="@style/h2_textStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="15dp"
                 android:textIsSelectable="true" />
 
             <View
                 android:id="@+id/newsDet_lineFooter"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="5dp"
                 android:background="@color/light_gray_color"
                 android:visibility="invisible" />
 
@@ -104,6 +100,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:columnWidth="100dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="5dp"
                 android:gravity="center"
                 android:horizontalSpacing="2dp"
                 android:numColumns="2"
@@ -131,6 +129,7 @@
             android:contentDescription="@string/ContentDesImage"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:layout_marginStart="15dp"
             android:padding="8dp"
             app:srcCompat="@drawable/ic_about_vk" />
 

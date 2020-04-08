@@ -24,14 +24,10 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
     private var list: ArrayList<NewsModel> = ArrayList()
 
     class NewsHolder(ItemView: View): RecyclerView.ViewHolder(ItemView) {
-
         var TViewTitle: TextView = ItemView.findViewById(R.id.news_content_title)
         var TViewDate: TextView = ItemView.findViewById(R.id.news_content_postdate)
         var TViewDescrip: TextView = ItemView.findViewById(R.id.news_content_small_desc)
         var IViewPreview: ImageView = ItemView.findViewById(R.id.news_content_imgView_avatar)
-        var URLDetails: TextView = ItemView.findViewById(R.id.news_content_linkTextView)
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsHolder {
@@ -49,7 +45,6 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
         holder.TViewTitle.text = news.Title
         holder.TViewDate.text = news.PostDate
         holder.TViewDescrip.text = news.SmallDescription
-        holder.URLDetails.text = news.URLDetails
 
 
         if (news.URLPreview.startsWith("http://")) {
@@ -71,7 +66,6 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
                 startActivity(v.context, intent, Bundle())
             }
         } else {
-            holder.itemView.findViewById<View>(R.id.news_content_linkview).visibility = View.VISIBLE
             holder.itemView.findViewById<TextView>(R.id.news_content_linkTextView).visibility = View.VISIBLE
             holder.itemView.setOnClickListener{ v: View ->
                 val urlis = Uri.parse(news.URLDetails)

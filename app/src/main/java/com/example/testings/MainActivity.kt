@@ -1,5 +1,7 @@
 package com.example.testings
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,6 +13,7 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import android.view.MenuItem
 import androidx.core.view.GravityCompat
 
 class MainActivity : AppCompatActivity() {
@@ -47,9 +50,31 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId){
+            R.id.action_site -> {
+                val uris = Uri.parse("http://sibsu.ru/")
+                val intents = Intent(Intent.ACTION_VIEW, uris)
+                startActivity(intents)
+            }
+            R.id.action_group_vk -> {
+                val uris = Uri.parse("https://vk.com/sibsu_ru")
+                val intents = Intent(Intent.ACTION_VIEW, uris)
+                startActivity(intents)
+            }
+            R.id.action_user_cab -> {
+                val uris = Uri.parse("https://cabinet.sibsu.ru/")
+                val intents = Intent(Intent.ACTION_VIEW, uris)
+                startActivity(intents)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
