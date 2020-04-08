@@ -74,7 +74,7 @@
                 android:gravity="center_vertical"
                 android:maxLines="1"
                 android:text="Ссылка"
-                android:visibility="invisible" />
+                android:visibility="gone" />
         </LinearLayout>
 
     </LinearLayout>
