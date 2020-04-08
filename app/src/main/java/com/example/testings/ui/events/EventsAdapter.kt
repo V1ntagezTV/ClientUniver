@@ -62,4 +62,9 @@ class EventsAdapter: RecyclerView.Adapter<EventsAdapter.EventHolder>(){
         list.addAll(arrayList)
         notifyDataSetChanged()
     }
+
+    fun CleanList(){
+        list.clear()
+        notifyDataSetChanged()
+    }
 }

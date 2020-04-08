@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.testings.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -20,6 +21,7 @@ import java.io.IOException
 class EventsFragment: Fragment(){
 
     private lateinit var event_recyclerView: RecyclerView
+    private lateinit var eventRefreshLayout: SwipeRefreshLayout
     private lateinit var adapter: EventsAdapter
     private var list: ArrayList<EventModel> = ArrayList()
     private var pageNumber = 1
@@ -27,22 +29,31 @@ class EventsFragment: Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
     {
         val root = inflater.inflate(R.layout.fragment_events, container, false)
+        initRecyclerView(root)
+        setData(pageNumber++)
+        eventRefreshLayout = root.findViewById(R.id.event_swipe_refresh)
+        eventRefreshLayout.setOnRefreshListener(object: SwipeRefreshLayout.OnRefreshListener {
+            override fun onRefresh() {
+                adapter.CleanList()
+                pageNumber = 0
+                setData(pageNumber++)
+            }
+        })
+        root.findViewById<Button>(R.id.event_retry_connection).setOnClickListener {
+            pageNumber = 1
+            setData(pageNumber++)
+        }
+        return root
+    }
 
-        event_recyclerView = root.findViewById(R.id.event_recyclerView)
+    private fun initRecyclerView(view: View){
+        event_recyclerView = view.findViewById(R.id.event_recyclerView)
         event_recyclerView.setItemViewCacheSize(20)
         adapter = EventsAdapter()
         event_recyclerView.adapter = adapter
         event_recyclerView.itemAnimator = DefaultItemAnimator()
         event_recyclerView.layoutManager = LinearLayoutManager(context)
         setRecyclerViewScrollListener()
-        setData(pageNumber++)
-
-        root.findViewById<Button>(R.id.event_retry_connection).setOnClickListener {
-            pageNumber = 1
-            setData(pageNumber++)
-        }
-
-        return root
     }
 
     fun setData(pageNum: Int) {
@@ -85,6 +96,9 @@ class EventsFragment: Fragment(){
                     view?.findViewById<ProgressBar>(R.id.event_progressBar)?.visibility = View.INVISIBLE
                     view?.findViewById<Button>(R.id.event_retry_connection)?.visibility = View.INVISIBLE
                     adapter.Set(list)
+                    if (eventRefreshLayout.isRefreshing){
+                        eventRefreshLayout.isRefreshing = false
+                    }
                 }
             }
             catch (e: IOException){
