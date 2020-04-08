@@ -20,7 +20,6 @@ class EventsAdapter: RecyclerView.Adapter<EventsAdapter.EventHolder>(){
         var Title: TextView = itemView.findViewById(R.id.event_title)
         var PostDate: TextView = itemView.findViewById(R.id.event_date)
         var SmallDescription: TextView = itemView.findViewById(R.id.event_content)
-        var PageLink: TextView = itemView.findViewById(R.id.event__linkTextView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventHolder {
@@ -29,7 +28,7 @@ class EventsAdapter: RecyclerView.Adapter<EventsAdapter.EventHolder>(){
         return EventHolder(itemView)
     }
 
-    override fun getItemCount(): Int{
+    override fun getItemCount(): Int {
         return list.size
     }
 
@@ -38,7 +37,6 @@ class EventsAdapter: RecyclerView.Adapter<EventsAdapter.EventHolder>(){
         holder.Title.text = eventData.Title
         holder.PostDate.text = eventData.PostDate
         holder.SmallDescription.text = eventData.SmallDescription
-        holder.PageLink.text = eventData.EventPageLink
 
         if ("sibsu.ru/novosti" in eventData.EventPageLink || "sibsu.ru/objavlenija" in eventData.EventPageLink){
             holder.itemView.setOnClickListener { v:View ->
@@ -48,8 +46,7 @@ class EventsAdapter: RecyclerView.Adapter<EventsAdapter.EventHolder>(){
             }
         } else {
             holder.itemView.findViewById<TextView>(R.id.event__linkTextView).visibility = View.VISIBLE
-            holder.itemView.findViewById<View>(R.id.event_linkview).visibility = View.VISIBLE
-            holder.itemView.setOnClickListener{ v: View ->
+            holder.itemView.setOnClickListener { v: View ->
                 val urls = Uri.parse(eventData.EventPageLink)
                 val intent = Intent(Intent.ACTION_VIEW, urls)
                 startActivity(v.context, intent, Bundle())
@@ -65,6 +62,6 @@ class EventsAdapter: RecyclerView.Adapter<EventsAdapter.EventHolder>(){
 
     fun CleanList(){
         list.clear()
-        notifyDataSetChanged()
+        notifyItemRangeRemoved(0, this.itemCount)
     }
 }

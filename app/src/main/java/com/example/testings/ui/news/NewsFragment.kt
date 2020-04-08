@@ -35,6 +35,7 @@ class NewsFragment : Fragment()
             override fun onRefresh() {
                 adapter.CleanList()
                 pageNumber = 0
+                list.clear()
                 setData(pageNumber++)
             }
         })
@@ -42,8 +43,6 @@ class NewsFragment : Fragment()
         setData(pageNumber++)
         return root
     }
-
-
 
     private fun initRecyclerView(view: View){
         newsRecyclerView = view.findViewById(R.id.news_recyclerView)

@@ -36,6 +36,7 @@ class EventsFragment: Fragment(){
             override fun onRefresh() {
                 adapter.CleanList()
                 pageNumber = 0
+                list.clear()
                 setData(pageNumber++)
             }
         })
