@@ -4,8 +4,8 @@ class EducProfileModel(
     val Code: String?,
     val Name: String?,
     val Faculty: String?,
-    val All: String?
-) {
+    val All: String? )
+{
     var SpecialQute: EducType? = null
     var GeneralTerms: EducType? = null
     var Commercial: EducType? = null
