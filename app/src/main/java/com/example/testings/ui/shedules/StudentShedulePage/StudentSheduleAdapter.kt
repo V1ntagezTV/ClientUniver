@@ -1,4 +1,4 @@
-package com.example.testings.ui.shedules
+package com.example.testings.ui.shedules.StudentShedulePage
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,8 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
+import com.example.testings.ui.shedules.SheduleModel
 
-class SheduleAdapter(val list: ArrayList<SheduleModel>): RecyclerView.Adapter<SheduleAdapter.SheduleHolder>(){
+class StudentSheduleAdapter(val list: ArrayList<SheduleModel>): RecyclerView.Adapter<StudentSheduleAdapter.SheduleHolder>(){
 
     class SheduleHolder(row: View): RecyclerView.ViewHolder(row){
         var Title: TextView = row.findViewById(R.id.shedule_less_name)

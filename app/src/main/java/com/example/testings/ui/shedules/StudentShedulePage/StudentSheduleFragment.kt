@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
 import com.example.testings.ui.shedules.LessonNum
-import com.example.testings.ui.shedules.SheduleAdapter
 import com.example.testings.ui.shedules.SheduleModel
 
 class StudentSheduleFragment: Fragment() {
@@ -23,7 +22,7 @@ class StudentSheduleFragment: Fragment() {
         sheduleArray.add(SheduleModel("Механика", 201, "Валеев А.С", LessonNum.firFirst))
         sheduleArray.add(SheduleModel("Педагогика", 201, "Валеева Г.Х", LessonNum.firSecond))
         sheduleArray.add(SheduleModel("ТиМОТ", 201, "Валеева Г.Х", LessonNum.firThird))
-        val adapter = SheduleAdapter(sheduleArray)
+        val adapter = StudentSheduleAdapter(sheduleArray)
         recyclerView.adapter = adapter
         recyclerView.itemAnimator = DefaultItemAnimator()
         recyclerView.layoutManager = LinearLayoutManager(context)
