@@ -105,7 +105,7 @@ class NewsFragment : Fragment()
                 GlobalScope.launch(Dispatchers.Main) {
                     val retry = view?.findViewById<Button>(R.id.news_retry_connection)
                     retry?.setOnClickListener{
-                        pageNumber = 1
+                        pageNumber = 0
                         view?.findViewById<ProgressBar>(R.id.news_progressBar)?.visibility = View.VISIBLE
                         view?.findViewById<Button>(R.id.news_retry_connection)?.visibility = View.INVISIBLE
                         OnClickRetryConn(pageNumber++)

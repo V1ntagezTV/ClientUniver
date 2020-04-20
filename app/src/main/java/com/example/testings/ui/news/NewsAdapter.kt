@@ -83,6 +83,6 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
 
     fun CleanList(){
         list.clear()
-        notifyDataSetChanged()
+        notifyItemRangeRemoved(0, this.itemCount)
     }
 }

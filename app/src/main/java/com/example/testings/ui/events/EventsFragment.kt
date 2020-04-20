@@ -35,7 +35,7 @@ class EventsFragment: Fragment(){
         eventRefreshLayout.setOnRefreshListener(object: SwipeRefreshLayout.OnRefreshListener {
             override fun onRefresh() {
                 adapter.CleanList()
-                pageNumber = 0
+                pageNumber = 1
                 list.clear()
                 setData(pageNumber++)
             }
