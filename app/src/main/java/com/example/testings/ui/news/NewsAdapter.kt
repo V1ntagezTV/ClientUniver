@@ -37,7 +37,7 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return list.count()
     }
 
     override fun onBindViewHolder(holder: NewsHolder, position: Int) {

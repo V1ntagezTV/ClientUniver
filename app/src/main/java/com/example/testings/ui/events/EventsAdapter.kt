@@ -29,7 +29,7 @@ class EventsAdapter: RecyclerView.Adapter<EventsAdapter.EventHolder>(){
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return list.count()
     }
 
     override fun onBindViewHolder(holder: EventHolder, position: Int) {

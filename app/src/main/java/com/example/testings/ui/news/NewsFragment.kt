@@ -21,27 +21,39 @@ import java.io.IOException
 
 class NewsFragment : Fragment()
 {
-    private var list = ArrayList<NewsModel>()
+    private var list: ArrayList<NewsModel> = ArrayList()
     private lateinit var adapter: NewsAdapter
     private lateinit var newsRecyclerView: RecyclerView
     private lateinit var refreshLayout: SwipeRefreshLayout
+    val retry = view?.findViewById<Button>(R.id.news_retry_connection)
     private var pageNumber: Int = 1
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_news, container, false)
         initRecyclerView(root)
         refreshLayout = root.findViewById(R.id.news_swipe_refresh)
-        refreshLayout.setOnRefreshListener(object: SwipeRefreshLayout.OnRefreshListener {
-            override fun onRefresh() {
-                adapter.CleanList()
-                pageNumber = 0
-                list.clear()
-                setData(pageNumber++)
-            }
-        })
+        initAllListeners()
         setRecyclerViewScrollListener()
         setData(pageNumber++)
         return root
+    }
+
+    private fun initAllListeners(){
+        refreshLayout.setOnRefreshListener {
+            adapter.CleanList()
+            list.clear()
+            newsRecyclerView.removeAllViews()
+            adapter.notifyDataSetChanged()
+            pageNumber = 1
+            setData(pageNumber++)
+        }
+
+        retry?.setOnClickListener{
+            pageNumber = 0
+            view?.findViewById<ProgressBar>(R.id.news_progressBar)?.visibility = View.VISIBLE
+            view?.findViewById<Button>(R.id.news_retry_connection)?.visibility = View.INVISIBLE
+            OnClickRetryConn(pageNumber++)
+        }
     }
 
     private fun initRecyclerView(view: View){
@@ -103,13 +115,6 @@ class NewsFragment : Fragment()
             }
             catch (e: IOException) {
                 GlobalScope.launch(Dispatchers.Main) {
-                    val retry = view?.findViewById<Button>(R.id.news_retry_connection)
-                    retry?.setOnClickListener{
-                        pageNumber = 0
-                        view?.findViewById<ProgressBar>(R.id.news_progressBar)?.visibility = View.VISIBLE
-                        view?.findViewById<Button>(R.id.news_retry_connection)?.visibility = View.INVISIBLE
-                        OnClickRetryConn(pageNumber++)
-                    }
                     view?.findViewById<ProgressBar>(R.id.news_progressBar)?.visibility = View.INVISIBLE
                     retry?.visibility = View.VISIBLE
                 }
@@ -128,7 +133,7 @@ class NewsFragment : Fragment()
 
                 val linLayoutMan = newsRecyclerView.layoutManager as LinearLayoutManager?
                 if (linLayoutMan?.findLastCompletelyVisibleItemPosition() == list.size - 1){
-                    setData(++pageNumber)
+                    setData(pageNumber++)
                 }
             }
         })

@@ -32,14 +32,14 @@ class EventsFragment: Fragment(){
         initRecyclerView(root)
         setData(pageNumber++)
         eventRefreshLayout = root.findViewById(R.id.event_swipe_refresh)
-        eventRefreshLayout.setOnRefreshListener(object: SwipeRefreshLayout.OnRefreshListener {
-            override fun onRefresh() {
-                adapter.CleanList()
-                pageNumber = 1
-                list.clear()
-                setData(pageNumber++)
-            }
-        })
+        eventRefreshLayout.setOnRefreshListener {
+            adapter.CleanList()
+            list.clear()
+            event_recyclerView.removeAllViews()
+            adapter.notifyDataSetChanged()
+            pageNumber = 1
+            setData(pageNumber++)
+        }
         root.findViewById<Button>(R.id.event_retry_connection).setOnClickListener {
             pageNumber = 1
             setData(pageNumber++)
@@ -129,7 +129,7 @@ class EventsFragment: Fragment(){
 
                 val linLayoutMan = event_recyclerView.layoutManager as LinearLayoutManager?
                 if (linLayoutMan?.findLastCompletelyVisibleItemPosition() == list.size - 1){
-                    setData(++pageNumber)
+                    setData(pageNumber++)
                 }
             }
         })
