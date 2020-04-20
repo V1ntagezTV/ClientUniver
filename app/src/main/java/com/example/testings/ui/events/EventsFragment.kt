@@ -20,9 +20,11 @@ import java.io.IOException
 
 class EventsFragment: Fragment(){
 
-    private lateinit var event_recyclerView: RecyclerView
+    private lateinit var eventRecyclerView: RecyclerView
     private lateinit var eventRefreshLayout: SwipeRefreshLayout
     private lateinit var adapter: EventsAdapter
+    private lateinit var retryButton: Button
+    private lateinit var progressBar: ProgressBar
     private var list: ArrayList<EventModel> = ArrayList()
     private var pageNumber = 1
 
@@ -30,36 +32,47 @@ class EventsFragment: Fragment(){
     {
         val root = inflater.inflate(R.layout.fragment_events, container, false)
         initRecyclerView(root)
-        setData(pageNumber++)
+        retryButton = root.findViewById(R.id.event_retry_connection)
+        progressBar = root.findViewById(R.id.event_progressBar)
         eventRefreshLayout = root.findViewById(R.id.event_swipe_refresh)
+        initAllListeners()
+        setData(pageNumber++)
+        return root
+    }
+
+    private fun initAllListeners(){
         eventRefreshLayout.setOnRefreshListener {
             adapter.CleanList()
             list.clear()
-            event_recyclerView.removeAllViews()
             adapter.notifyDataSetChanged()
             pageNumber = 1
             setData(pageNumber++)
         }
-        root.findViewById<Button>(R.id.event_retry_connection).setOnClickListener {
+        retryButton.setOnClickListener{
+            adapter.CleanList()
+            list.clear()
+            eventRecyclerView.removeAllViews()
+            adapter.notifyDataSetChanged()
             pageNumber = 1
+            progressBar.visibility = View.VISIBLE
+            retryButton.visibility = View.INVISIBLE
             setData(pageNumber++)
         }
-        return root
     }
 
     private fun initRecyclerView(view: View){
-        event_recyclerView = view.findViewById(R.id.event_recyclerView)
-        event_recyclerView.setItemViewCacheSize(20)
+        eventRecyclerView = view.findViewById(R.id.event_recyclerView)
+        eventRecyclerView.setItemViewCacheSize(20)
         adapter = EventsAdapter()
-        event_recyclerView.adapter = adapter
-        event_recyclerView.itemAnimator = DefaultItemAnimator()
-        event_recyclerView.layoutManager = LinearLayoutManager(context)
+        eventRecyclerView.adapter = adapter
+        eventRecyclerView.itemAnimator = DefaultItemAnimator()
+        eventRecyclerView.layoutManager = LinearLayoutManager(context)
         setRecyclerViewScrollListener()
     }
 
-    fun setData(pageNum: Int) {
+    private fun setData(pageNum: Int) {
         GlobalScope.launch {
-            try{
+            try {
                 val doc = Jsoup.connect("http://sibsu.ru/category/objavlenija/page/${pageNum}").get()
                 val content = doc.select("div[class=listing listing-blog listing-blog-1 clearfix  columns-1]")
                     .select("article")
@@ -94,8 +107,8 @@ class EventsFragment: Fragment(){
                     list.add(eventModel)
                 }
                 GlobalScope.launch(Dispatchers.Main) {
-                    view?.findViewById<ProgressBar>(R.id.event_progressBar)?.visibility = View.INVISIBLE
-                    view?.findViewById<Button>(R.id.event_retry_connection)?.visibility = View.INVISIBLE
+                    progressBar.visibility = View.INVISIBLE
+                    retryButton.visibility = View.INVISIBLE
                     adapter.Set(list)
                     if (eventRefreshLayout.isRefreshing){
                         eventRefreshLayout.isRefreshing = false
@@ -104,30 +117,19 @@ class EventsFragment: Fragment(){
             }
             catch (e: IOException){
                 GlobalScope.launch(Dispatchers.Main) {
-                    val retry = view?.findViewById<Button>(R.id.event_retry_connection)
-                    retry?.setOnClickListener{
-                        pageNumber = 1
-                        view?.findViewById<ProgressBar>(R.id.event_progressBar)?.visibility = View.VISIBLE
-                        view?.findViewById<Button>(R.id.event_retry_connection)?.visibility = View.INVISIBLE
-                        OnClickRetryConn(pageNumber++)
-                    }
-                    view?.findViewById<ProgressBar>(R.id.event_progressBar)?.visibility = View.INVISIBLE
-                    retry?.visibility = View.VISIBLE
+                    progressBar.visibility = View.INVISIBLE
+                    retryButton.visibility = View.VISIBLE
                 }
             }
         }
     }
 
-    private fun OnClickRetryConn(pageNum: Int){
-        setData(pageNum)
-    }
-
     private fun setRecyclerViewScrollListener() {
-        event_recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        eventRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
 
-                val linLayoutMan = event_recyclerView.layoutManager as LinearLayoutManager?
+                val linLayoutMan = eventRecyclerView.layoutManager as LinearLayoutManager?
                 if (linLayoutMan?.findLastCompletelyVisibleItemPosition() == list.size - 1){
                     setData(pageNumber++)
                 }

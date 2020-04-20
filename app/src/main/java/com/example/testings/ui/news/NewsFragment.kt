@@ -25,13 +25,16 @@ class NewsFragment : Fragment()
     private lateinit var adapter: NewsAdapter
     private lateinit var newsRecyclerView: RecyclerView
     private lateinit var refreshLayout: SwipeRefreshLayout
-    val retry = view?.findViewById<Button>(R.id.news_retry_connection)
+    private lateinit var retry: Button
+    private lateinit var progressBar: ProgressBar
     private var pageNumber: Int = 1
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_news, container, false)
         initRecyclerView(root)
         refreshLayout = root.findViewById(R.id.news_swipe_refresh)
+        retry = root.findViewById(R.id.news_retry_connection)
+        progressBar = root.findViewById(R.id.news_progressBar)
         initAllListeners()
         setRecyclerViewScrollListener()
         setData(pageNumber++)
@@ -47,12 +50,14 @@ class NewsFragment : Fragment()
             pageNumber = 1
             setData(pageNumber++)
         }
-
-        retry?.setOnClickListener{
-            pageNumber = 0
-            view?.findViewById<ProgressBar>(R.id.news_progressBar)?.visibility = View.VISIBLE
-            view?.findViewById<Button>(R.id.news_retry_connection)?.visibility = View.INVISIBLE
-            OnClickRetryConn(pageNumber++)
+        retry.setOnClickListener{
+            adapter.CleanList()
+            list.clear()
+            adapter.notifyDataSetChanged()
+            pageNumber = 1
+            progressBar.visibility = View.VISIBLE
+            retry.visibility = View.INVISIBLE
+            setData(pageNumber++)
         }
     }
 
@@ -65,7 +70,7 @@ class NewsFragment : Fragment()
         newsRecyclerView.layoutManager = LinearLayoutManager(context)
     }
 
-    fun setData(pageNum: Int) {
+    private fun setData(pageNum: Int) {
         GlobalScope.launch {
             try {
                 val doc: Document = Jsoup.connect("http://sibsu.ru/category/novosti/page/${pageNum}").get()
@@ -105,8 +110,8 @@ class NewsFragment : Fragment()
                     list.add(NewsModel(title, postTime, urlImage, description, urldetails))
                 }
                 GlobalScope.launch(Dispatchers.Main) {
-                    view?.findViewById<ProgressBar>(R.id.news_progressBar)?.visibility = View.INVISIBLE
-                    view?.findViewById<Button>(R.id.news_retry_connection)?.visibility = View.INVISIBLE
+                    progressBar.visibility = View.INVISIBLE
+                    retry.visibility = View.INVISIBLE
                     adapter.Set(list)
                     if (refreshLayout.isRefreshing) {
                         refreshLayout.isRefreshing = false
@@ -115,18 +120,14 @@ class NewsFragment : Fragment()
             }
             catch (e: IOException) {
                 GlobalScope.launch(Dispatchers.Main) {
-                    view?.findViewById<ProgressBar>(R.id.news_progressBar)?.visibility = View.INVISIBLE
-                    retry?.visibility = View.VISIBLE
+                    retry.visibility = View.VISIBLE
+                    progressBar.visibility = View.INVISIBLE
                 }
             }
         }
     }
 
-    private fun OnClickRetryConn(pageNum: Int){
-        setData(pageNum)
-    }
-
-    fun setRecyclerViewScrollListener() {
+    private fun setRecyclerViewScrollListener() {
         newsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
