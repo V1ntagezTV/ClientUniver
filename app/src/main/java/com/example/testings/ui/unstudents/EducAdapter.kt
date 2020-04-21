@@ -50,4 +50,9 @@ class EducAdapter: RecyclerView.Adapter<EducAdapter.EducHolder>(){
         data.addAll(list)
         notifyDataSetChanged()
     }
+
+    fun CleanList(){
+        data.clear()
+        notifyItemRangeRemoved(0, this.itemCount)
+    }
 }

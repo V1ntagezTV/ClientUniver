@@ -6,13 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ProgressBar
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
-import kotlinx.android.synthetic.main.fragment_news_details.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -21,32 +19,48 @@ import java.io.IOException
 
 class EducFragment : Fragment() {
 
-    val link = "http://sibsu.ru/abitur/bachelor/"
+    private val link = "http://sibsu.ru/abitur/bachelor/"
     val list: ArrayList<EducProfileModel> = ArrayList()
+    lateinit var retryButton: Button
+    lateinit var progressBar: ProgressBar
     lateinit var recycler: RecyclerView
     lateinit var adapter: EducAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_unstudents, container, false)
-
         recycler = root.findViewById(R.id.unstud_recyclerView)
+        retryButton = root.findViewById(R.id.unstud_retry_connection)
+        progressBar = root.findViewById(R.id.unstud_progressBar)
+        initRecyclerView()
+        initAllListeners(root)
+        setData()
+        return root
+    }
+
+    private fun initRecyclerView(){
         recycler.setItemViewCacheSize(20) //временное решение cache uses for 20 newsview
         adapter = EducAdapter()
         recycler.adapter = adapter
         recycler.itemAnimator = DefaultItemAnimator()
         recycler.layoutManager = LinearLayoutManager(context)
-        //end init
-        setData()
+    }
 
-        return root
+    private fun initAllListeners(view: View){
+        retryButton.setOnClickListener {
+                adapter.CleanList()
+                list.clear()
+                adapter.notifyDataSetChanged()
+                progressBar.visibility = View.VISIBLE
+                retryButton.visibility = View.INVISIBLE
+                setData()
+        }
     }
 
     private fun setData(){
-        view?.findViewById<Button>(R.id.unstud_retry_connection)?.visibility = View.INVISIBLE
-        view?.findViewById<ProgressBar>(R.id.unstud_progressBar)?.visibility = View.VISIBLE
+        retryButton.visibility = View.INVISIBLE
+        progressBar.visibility = View.VISIBLE
         GlobalScope.launch {
             try {
-
                 val doc = Jsoup.connect(link).get()
                 val tablePriemKolMest = doc.select("table[itemprop=priemKolMest]").select("tbody").select("tr")
                 val tableLessonsScores = doc.select("table[itemprop=priemExam]").select("tbody").select("tr")
@@ -84,11 +98,14 @@ class EducFragment : Fragment() {
                     data?.Scores = scores
                 }
                 GlobalScope.launch(Dispatchers.Main) {
-                    view?.findViewById<ProgressBar>(R.id.unstud_progressBar)?.visibility = View.INVISIBLE
+                    progressBar.visibility = View.INVISIBLE
                     adapter.Set(list)
                 }
             } catch (e: IOException){
-
+                GlobalScope.launch(Dispatchers.Main) {
+                    retryButton.visibility = View.VISIBLE
+                    progressBar.visibility = View.INVISIBLE
+                }
             }
         }
     }
