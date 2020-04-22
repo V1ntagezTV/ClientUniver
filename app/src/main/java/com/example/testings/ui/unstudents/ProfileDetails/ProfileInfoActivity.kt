@@ -25,7 +25,7 @@ class ProfileInfoActivity: AppCompatActivity() {
         findViewById<TextView>(R.id.profile_code).text = ProfileInfoViewModel.profile?.Code
         findViewById<TextView>(R.id.profile_fac).text =  ProfileInfoViewModel.profile?.Faculty
         findViewById<TextView>(R.id.profile_all).text =  ProfileInfoViewModel.profile?.All
-        findViewById<TextView>(R.id.profile_scores).text =  ProfileInfoViewModel.profile?.Scores
+        findViewById<TextView>(R.id.profile_scores).text =  ProfileInfoViewModel.profile?.Scores?.split(' ')?.joinToString("\n")
         findViewById<TextView>(R.id.profile_lessons).text = lessons
 
         findViewById<TextView>(R.id.profile_general_och).text = ProfileInfoViewModel.profile?.GeneralTerms?.Intramural
