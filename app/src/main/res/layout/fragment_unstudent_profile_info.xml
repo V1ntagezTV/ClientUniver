@@ -12,8 +12,9 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:layout_marginHorizontal="15dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
@@ -21,10 +22,15 @@
                 style="@style/h1_textStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:layout_marginVertical="15dp"
                 android:text="Педагогическое образование профиль Химия" />
+
+            <View
+                android:layout_marginVertical="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/font_LinkedText" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -72,6 +78,13 @@
                 </TextView>
 
             </LinearLayout>
+
+            <View
+                android:layout_marginVertical="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/font_LinkedText" />
+
             <LinearLayout
                 android:id="@+id/linearLayout4"
                 android:layout_width="match_parent"
@@ -97,10 +110,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Всего" />
+                    android:text="Всего мест" />
 
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -135,12 +147,32 @@
 
             </LinearLayout>
 
+            <View
+                android:layout_marginVertical="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/font_LinkedText" />
+
             <TextView
+                android:layout_marginBottom="5dp"
                 style="@style/h1_textStyle"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Количество мест" />
+
+            <TextView
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
                 android:gravity="center"
                 android:text="Общие условия" />
+
+            <View
+                android:layout_marginHorizontal="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_gray_color" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -168,13 +200,10 @@
                     android:gravity="center"
                     android:text="Заочное" />
 
-
-
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="30dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -207,11 +236,17 @@
             </LinearLayout>
 
             <TextView
-                style="@style/h1_textStyle"
+                android:textColor="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="30dp"
                 android:gravity="center"
                 android:text="Особая квота" />
+
+            <View
+                android:layout_marginHorizontal="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_gray_color" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -239,13 +274,11 @@
                     android:gravity="center"
                     android:text="Заочное" />
 
-
-
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="30dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -278,11 +311,16 @@
             </LinearLayout>
 
             <TextView
-                style="@style/h1_textStyle"
+                android:textColor="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="30dp"
                 android:gravity="center"
                 android:text="По договорам" />
+            <View
+                android:layout_marginHorizontal="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_gray_color" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -315,8 +353,9 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="30dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -347,8 +386,6 @@
                     android:text="-" />
 
             </LinearLayout>
-
-
         </LinearLayout>
     </ScrollView>
 
