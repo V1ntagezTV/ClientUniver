@@ -91,10 +91,15 @@ class EducFragment : Fragment() {
                 }
                 for (ind in 0 until tableLessonsScores.size){
                     val name = tableLessonsScores.eq(ind).select("td[data-label=Направление]").text()
-                    val lessons = tableLessonsScores.eq(ind).select("td[data-label=Экзамены]").text()
+                    val lessons = tableLessonsScores.eq(ind)
+                        .select("td[data-label=Экзамены]")
+                        .select("ol").select("li")
                     val scores = tableLessonsScores.eq(ind).select("td[data-label=Мин.баллы]").text()
                     val data = list.find { it.Name == name }
-                    data?.Lessons = lessons
+                    data?.Lessons = ArrayList(lessons.size)
+                    for (lessInd in 0 until lessons.size){
+                        data?.Lessons?.add(lessons[lessInd].text())
+                    }
                     data?.Scores = scores
                 }
                 GlobalScope.launch(Dispatchers.Main) {

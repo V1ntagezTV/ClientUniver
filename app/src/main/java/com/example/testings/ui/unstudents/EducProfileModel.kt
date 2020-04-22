@@ -9,7 +9,7 @@ class EducProfileModel(
     var SpecialQute: EducType? = null
     var GeneralTerms: EducType? = null
     var Commercial: EducType? = null
-    var Lessons: String? = null
+    var Lessons: ArrayList<String>? = null
     var Scores: String? = null
 }
 

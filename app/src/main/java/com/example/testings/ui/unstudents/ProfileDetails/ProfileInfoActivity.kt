@@ -20,12 +20,13 @@ class ProfileInfoActivity: AppCompatActivity() {
     }
 
     private fun setPageInfo() {
+        val lessons = ProfileInfoViewModel.profile?.Lessons?.get(0) + "\n" + ProfileInfoViewModel.profile?.Lessons?.get(1) + "\n" + ProfileInfoViewModel.profile?.Lessons?.get(2)
         findViewById<TextView>(R.id.profile_title).text = ProfileInfoViewModel.profile?.Name
         findViewById<TextView>(R.id.profile_code).text = ProfileInfoViewModel.profile?.Code
         findViewById<TextView>(R.id.profile_fac).text =  ProfileInfoViewModel.profile?.Faculty
         findViewById<TextView>(R.id.profile_all).text =  ProfileInfoViewModel.profile?.All
         findViewById<TextView>(R.id.profile_scores).text =  ProfileInfoViewModel.profile?.Scores
-        findViewById<TextView>(R.id.profile_lessons).text = ProfileInfoViewModel.profile?.Lessons
+        findViewById<TextView>(R.id.profile_lessons).text = lessons
 
         findViewById<TextView>(R.id.profile_general_och).text = ProfileInfoViewModel.profile?.GeneralTerms?.Intramural
         findViewById<TextView>(R.id.profile_general_och_zao).text = ProfileInfoViewModel.profile?.GeneralTerms?.Intra_Absentia
