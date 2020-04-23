@@ -1,19 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_tools"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/boldTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Действие при нажатии кнопки назад" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            style="@style/switchStyle"
+            android:text="Кнопка «Назад» открывает боковое меню."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E8E8E8" />
+
+        <TextView
+            style="@style/boldTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Уведомления в приложении" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            style="@style/switchStyle"
+            android:text="Получайте уведомления в MySibgu."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E8E8E8" />
+
+        <TextView
+            style="@style/boldTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Интернет соединение" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            style="@style/switchStyle"
+            android:text="Экономия трафика."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            style="@style/switchStyle"
+            android:text="Предпросмотр изображений в низком качестве."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_marginVertical="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E8E8E8" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
