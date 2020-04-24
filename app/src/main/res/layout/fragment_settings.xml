@@ -17,13 +17,14 @@
             android:text="Действие при нажатии кнопки назад" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/settings_backButton"
             style="@style/switchStyle"
             android:text="Кнопка «Назад» открывает боковое меню."
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <View
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="6dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#E8E8E8" />
@@ -35,13 +36,14 @@
             android:text="Уведомления в приложении" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/settings_notifications"
             style="@style/switchStyle"
             android:text="Получайте уведомления в MySibgu."
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <View
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="6dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#E8E8E8" />
@@ -53,19 +55,21 @@
             android:text="Интернет соединение" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/settings_economyTraffic"
             style="@style/switchStyle"
             android:text="Экономия трафика."
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/settings_imagesQuality"
             style="@style/switchStyle"
             android:text="Предпросмотр изображений в низком качестве."
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <View
-            android:layout_marginVertical="8dp"
+            android:layout_marginTop="6dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#E8E8E8" />
