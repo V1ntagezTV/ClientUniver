@@ -40,7 +40,7 @@
             android:layout_marginVertical="8dp"
             android:layout_marginHorizontal="15dp"
             android:maxLines="2"
-            android:text="Вниманию сотрудников и студентов института:" />
+            tools:text="Вниманию сотрудников и студентов института:" />
 
         <View
             android:layout_width="match_parent"
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="8dp"
             android:layout_marginHorizontal="15dp"
-            android:text="2019 год был отмечен плодотворной работой всего коллектива. Успехи студентов и преподавателей нашего вуза в образовательной, научной, творческой, спортивной…"
+            tools:text="2019 год был отмечен плодотворной работой всего коллектива. Успехи студентов и преподавателей нашего вуза в образовательной, научной, творческой, спортивной…"
             android:maxLines="4"/>
 
         <View
@@ -79,7 +79,7 @@
                 android:drawableStart="@drawable/ic_clock"
                 android:drawablePadding="6dp"
                 android:gravity="center_vertical"
-                android:text="31.12.2019" />
+                tools:text="31.12.2019" />
 
             <TextView
                 android:id="@+id/news_content_linkTextView"
@@ -91,7 +91,7 @@
                 android:drawableStart="@drawable/ic_link"
                 android:drawablePadding="6dp"
                 android:gravity="center_vertical"
-                android:text="Ссылка" />
+                tools:text="Ссылка" />
 
         </LinearLayout>
     </LinearLayout>

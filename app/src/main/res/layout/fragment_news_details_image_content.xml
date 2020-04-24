@@ -11,6 +11,7 @@
             android:layout_width="180dp"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
-            tools:srcCompat="@tools:sample/avatars"/>
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="@string/ContentDesImage" />
 
 </LinearLayout>
