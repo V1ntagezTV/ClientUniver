@@ -7,7 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <!-- active thumb & track color (30% transparency) -->
-        <item name="colorControlActivated">#00278C</item>
+        <item name="colorControlActivated">#00369F</item>
 
     </style>
 
@@ -57,7 +57,7 @@
     <style name="h1_textStyle">
         <item name="android:lineSpacingExtra">4dp</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/font_TitleText</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body2</item>
         <item name="android:ellipsize">end</item>
     </style>

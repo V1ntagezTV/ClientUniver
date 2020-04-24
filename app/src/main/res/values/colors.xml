@@ -6,8 +6,8 @@
     <color name="light_gray_color">#F3F3F3</color>
 
 
-    <color name="font_TitleText">#262626</color>
-    <color name="font_ContentText">#262626</color>
+    <color name="font_TitleText">#151515</color>
+    <color name="font_ContentText">#222222</color>
     <color name="font_FooterText">#848484</color>
     <color name="font_LinkedText">#2a5895</color>
 </resources>
