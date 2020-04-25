@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbarlayout"
         android:layout_width="match_parent"
@@ -17,6 +19,7 @@
         <!-- app:layout_scrollFlags="scroll|enterAlways" -->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            app:titleTextAppearance="@style/TextAppearance.ActionBarTitle"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
