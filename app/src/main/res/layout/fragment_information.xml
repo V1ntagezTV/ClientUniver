@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="17dp"
+        android:background="#505050"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="20dp" />
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_marginHorizontal="25dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:srcCompat="@drawable/ic_applogo"
+        android:contentDescription="@string/ContentDesImage" />
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginStart="15dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintStart_toEndOf="@+id/imageView">
+
+        <TextView
+            android:layout_marginBottom="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MySibgu"
+            style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="Версия: v1.01"
+            style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="Сервис: MySibsu.ru"
+            style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="Автор: Kunafin Insur"
+            style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
