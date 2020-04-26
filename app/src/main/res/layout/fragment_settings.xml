@@ -11,7 +11,7 @@
         android:orientation="vertical">
 
         <TextView
-            style="@style/boldTitle"
+            style="@style/categoryTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Действие при нажатии кнопки назад" />
@@ -30,7 +30,7 @@
             android:background="#E8E8E8" />
 
         <TextView
-            style="@style/boldTitle"
+            style="@style/categoryTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Уведомления в приложении" />
@@ -49,7 +49,7 @@
             android:background="#E8E8E8" />
 
         <TextView
-            style="@style/boldTitle"
+            style="@style/categoryTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Интернет соединение" />

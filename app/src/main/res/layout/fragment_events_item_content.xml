@@ -8,9 +8,10 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="7dp"
-    android:layout_marginHorizontal="15dp"
-    app:cardCornerRadius="4dp">
+    android:layout_marginVertical="5dp"
+    android:layout_marginHorizontal="5dp"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="0dp">
 
     <LinearLayout
         android:layout_marginVertical="5dp"
@@ -21,16 +22,11 @@
 
         <TextView
             android:id="@+id/event_title"
-            style="@style/h1_textStyle"
+            style="@style/boldTitleText"
             android:layout_marginVertical="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="Сибайский институт (филиал) БашГУ объявляет о проведении выборов"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/light_gray_color" />
 
         <TextView
             android:id="@+id/event_content"
@@ -39,11 +35,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="Выборы на замещение вакантных должностей: - заведующего кафедрой экономики и менеджмента 0,25 ст.; - заведующего кафедрой эксплуатации транспортно-технологических машин и комплексов 0,5 ст.…" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/light_gray_color" />
 
         <LinearLayout
             android:gravity="center_vertical"

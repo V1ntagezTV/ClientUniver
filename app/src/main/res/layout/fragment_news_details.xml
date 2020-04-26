@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff">
+    android:background="@color/light_gray_color">
 
     <ProgressBar
         android:id="@+id/newsDet_progressBar"
@@ -29,7 +29,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:background="#E4E4E4"
         android:id="@+id/newsDet_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -53,10 +52,7 @@
 
             <TextView
                 android:id="@+id/newsDet_title"
-                style="@style/h1_textStyle"
-                android:textSize="19sp"
-                android:textStyle="bold"
-                android:textColor="#232323"
+                style="@style/boldTitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
