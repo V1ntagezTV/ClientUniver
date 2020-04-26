@@ -73,7 +73,7 @@
                 android:layout_marginVertical="10dp"
                 android:gravity="center_vertical"
                 android:maxLines="1"
-                tools:text="Ссылка"
+                android:text="@string/link"
                 android:visibility="gone" />
         </LinearLayout>
 

@@ -21,10 +21,9 @@
         <TextView
             android:id="@+id/news_content_title"
             style="@style/h1_textStyle"
-            android:textSize="17sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
+            android:layout_marginVertical="10dp"
             android:layout_marginHorizontal="15dp"
             android:maxLines="2"
             tools:text="Вниманию сотрудников и студентов института:" />
@@ -92,7 +91,7 @@
                 android:drawableStart="@drawable/ic_link"
                 android:drawablePadding="6dp"
                 android:gravity="center_vertical"
-                android:text="Ссылка" />
+                android:text="@string/link" />
 
         </LinearLayout>
     </LinearLayout>
