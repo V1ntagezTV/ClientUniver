@@ -57,7 +57,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:text="Версия: v1.01"
             style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
             android:textColor="@android:color/white"/>
@@ -65,7 +65,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:text="Сервис: MySibsu.ru"
             style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
             android:textColor="@android:color/white"/>
@@ -73,11 +73,70 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:text="Автор: Kunafin Insur"
+            android:textSize="14sp"
+            android:text="Разработчик: K.Insur"
             style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
             android:textColor="@android:color/white"/>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view">
+
+        <TextView
+            android:layout_marginVertical="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Новые функции"
+            android:textSize="15sp"
+            android:textColor="#53A655"
+            style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/h2_textStyle"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:drawablePadding="10dp"
+            app:drawableLeftCompat="@drawable/ic_circle"
+            android:text="Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться."/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/h2_textStyle"
+            android:lineSpacingExtra="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:drawablePadding="10dp"
+            app:drawableLeftCompat="@drawable/ic_circle"
+            android:text="Давно выяснено"/>
+
+        <TextView
+            android:layout_marginVertical="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Примечание"
+            android:textSize="15sp"
+            android:textColor="#EA1F1F"
+            style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/h2_textStyle"
+            android:lineSpacingExtra="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться." />
     </LinearLayout>
 
 

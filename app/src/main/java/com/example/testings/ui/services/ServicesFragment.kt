@@ -19,6 +19,7 @@ class ServicesFragment : Fragment() {
         root.findViewById<Button>(R.id.serv_lib_lan)?.setOnClickListener { openNewTabWindow("https://e.lanbook.com/") }
         root.findViewById<Button>(R.id.serv_lib_bashgu)?.setOnClickListener { openNewTabWindow("https://elib.bashedu.ru/") }
         root.findViewById<Button>(R.id.serv_lib_biblio)?.setOnClickListener { openNewTabWindow("http://biblioclub.ru/") }
+        root.findViewById<Button>(R.id.serv_shedule_control)?.setOnClickListener { openNewTabWindow("http://mysibsu.ru/") }
         return root
     }
 

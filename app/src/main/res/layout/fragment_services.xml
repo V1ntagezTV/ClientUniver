@@ -23,6 +23,16 @@
             app:iconSize="24dp"/>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/serv_shedule_control"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Управление расписанием"
+            app:icon="@drawable/ic_calendar"
+            app:iconGravity="textStart"
+            app:iconPadding="15dp"
+            app:iconSize="24dp"/>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/serv_lib_bashgu"
             android:layout_width="match_parent"
             android:layout_height="60dp"
