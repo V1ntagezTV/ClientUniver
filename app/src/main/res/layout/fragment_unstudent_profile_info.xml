@@ -19,7 +19,8 @@
 
             <TextView
                 android:id="@+id/profile_title"
-                style="@style/h1_textStyle"
+                style="@style/boldTitleText"
+                android:textSize="17sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
