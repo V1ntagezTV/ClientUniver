@@ -120,7 +120,7 @@
         android:id="@+id/newsDet_reqPanel"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#282b30"
+        android:background="@color/colorPrimary"
         android:orientation="horizontal"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent">
@@ -145,7 +145,7 @@
             android:contentDescription="@string/ContentDesImage"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:padding="8dp"
+            android:padding="14dp"
             app:srcCompat="@drawable/ic_about_facebook" />
 
     </LinearLayout>
