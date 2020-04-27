@@ -37,8 +37,8 @@
             style="@style/boldTitleText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="13dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="15dp"
             android:layout_marginHorizontal="15dp"
             android:maxLines="2"
             tools:text="Вниманию сотрудников и студентов института:" />
@@ -64,7 +64,8 @@
                 style="@style/footer_textStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
+                android:layout_marginVertical="17dp"
+                android:layout_marginHorizontal="15dp"
                 android:drawableStart="@drawable/ic_clock"
                 android:drawablePadding="6dp"
                 tools:text="31.12.2019" />
@@ -75,7 +76,7 @@
                 style="@style/footer_textStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
+                android:layout_marginVertical="17dp"
                 android:drawableStart="@drawable/ic_link"
                 android:drawablePadding="6dp"
                 android:text="@string/link" />
