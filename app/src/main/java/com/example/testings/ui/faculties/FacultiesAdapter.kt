@@ -1,13 +1,21 @@
 package com.example.testings.ui.faculties
 
+import android.content.Intent
+import android.net.Uri
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
+import com.example.testings.ui.events.EventDetails.EventDetailsActivity
 import com.example.testings.ui.events.EventsAdapter
+import com.example.testings.ui.faculties.FacultyDetails.FacultyDetails
+import com.example.testings.ui.faculties.FacultyDetails.FacultyDetailsModel
 
 class FacultiesAdapter(): RecyclerView.Adapter<FacultiesAdapter.FacultyHolder>(){
 
@@ -33,6 +41,12 @@ class FacultiesAdapter(): RecyclerView.Adapter<FacultiesAdapter.FacultyHolder>()
         val data = list[position]
         holder.Title.text = data.Name
         holder.Image.setImageResource(data.Imageid)
+        holder.itemView.setOnClickListener {
+            FacultyDetailsModel.id = position
+            FacultyDetailsModel.currentModel = data
+            val intent = Intent(it.context, FacultyDetails::class.java)
+            startActivity(it.context, intent, Bundle())
+        }
     }
 
     fun Set(arrayList: ArrayList<FacultyModel>){

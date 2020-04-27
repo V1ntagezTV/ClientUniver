@@ -58,6 +58,13 @@
             android:label="Направление">
         </activity>
 
+        <activity
+            android:name=".ui.faculties.FacultyDetails.FacultyDetails"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.SlideClose"
+            android:label="Факультет">
+        </activity>
+
     </application>
 
 </manifest>

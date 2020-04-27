@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/light_gray_color">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="10dp">
+
+            <TextView
+                android:id="@+id/facDet_title"
+                style="@style/boldTitleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Естественно-математический факультет" />
+
+            <LinearLayout
+                android:id="@+id/facDet_LinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginVertical="10dp">
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/facDet_content"
+                style="@style/h2_textStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Естественно-математический факультет Сибайского института (филиала) Башкирского государственного университета обладает достаточной материально-технической базой, необходимой для организации учебного процесса и воспитательной работы, а также научно-исследовательской деятельности студентов и преподавателей. Факультет расположен в учебном корпусе по улице Ф. Белова, 21.
+    Естественно- математический факультет – это четыре компьютерных класса на 60 рабочих мест, 15 кабинетов. Практическая подготовка будущих бакалавров (биологов, экологов, географов, тренеров по видам спорта) на факультете осуществляется в специально созданных и оборудованных всеми необходимыми техническими средствами аудиториях, спортивных залах.На компьютерах установлено лицензионное программное обеспечение, они объединены в локальную сеть и имеют выход в Internet и WI — FI. С использованием компьютерных классов реализуется учебный процесс, а также осуществляется текущий и рубежный контроль по преподаваемым дисциплинам. Все компьютерные классы доступны для студентов и преподавателей вне занятий." />
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.example.testings.Addons.ExpandableHeightGridView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
