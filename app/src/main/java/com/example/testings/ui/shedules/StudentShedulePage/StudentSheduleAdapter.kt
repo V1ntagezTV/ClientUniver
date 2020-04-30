@@ -6,16 +6,17 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
+import com.example.testings.ui.shedules.GroupModel
 import com.example.testings.ui.shedules.SheduleModel
 
-class StudentSheduleAdapter(val list: ArrayList<SheduleModel>): RecyclerView.Adapter<StudentSheduleAdapter.SheduleHolder>(){
+class StudentSheduleAdapter: RecyclerView.Adapter<StudentSheduleAdapter.SheduleHolder>(){
+
+    val list: ArrayList<GroupModel> = ArrayList()
 
     class SheduleHolder(row: View): RecyclerView.ViewHolder(row){
-        var Title: TextView = row.findViewById(R.id.shedule_less_name)
-        var Cab: TextView = row.findViewById(R.id.shedule_less_cab)
-        var Teacher: TextView = row.findViewById(R.id.shedule_less_teacher)
-        var DateTimeStart: TextView = row.findViewById(R.id.shedule_less_start)
-        var DateTimeEnd: TextView = row.findViewById(R.id.shedule_less_end)
+        var Name: TextView = row.findViewById(R.id.shedule_group_name)
+        var Cours: TextView = row.findViewById(R.id.shedule_group_course)
+        var Faculty: TextView = row.findViewById(R.id.shedule_group_faculty)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SheduleHolder {
@@ -30,10 +31,8 @@ class StudentSheduleAdapter(val list: ArrayList<SheduleModel>): RecyclerView.Ada
 
     override fun onBindViewHolder(holder: SheduleHolder, position: Int) {
         val itemData = list[position]
-        holder.Title.text = itemData.Title
-        holder.Teacher.text = itemData.Teacher
-        holder.Cab.text = itemData.Cab.toString()
-        holder.DateTimeStart.text = itemData.DateTimeStart.value.Start
-        holder.DateTimeEnd.text = itemData.DateTimeStart.value.End
+        holder.Name.text = itemData.Name
+        holder.Cours.text = itemData.Cours.toString()
+        holder.Faculty.text = itemData.Faculty
     }
 }

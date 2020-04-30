@@ -1,6 +1,9 @@
 package com.example.testings.ui.shedules.StudentShedulePage
 
+import android.os.AsyncTask
 import android.os.Bundle
+import android.provider.Settings
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,20 +12,31 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
+import com.example.testings.ui.shedules.GroupModel
 import com.example.testings.ui.shedules.LessonNum
 import com.example.testings.ui.shedules.SheduleModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.net.HttpURLConnection
+import java.net.URL
+import java.net.URLEncoder
 
 class StudentSheduleFragment: Fragment() {
 
+    lateinit var recyclerView: RecyclerView
+    lateinit var adapter: StudentSheduleAdapter
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_shedule_student, container, false)
-
-        val recyclerView = root.findViewById<RecyclerView>(R.id.shedule_recyclerView)
-        val sheduleArray = ArrayList<SheduleModel>()
-        sheduleArray.add(SheduleModel("Механика", 201, "Валеев А.С", LessonNum.firFirst))
-        sheduleArray.add(SheduleModel("Педагогика", 201, "Валеева Г.Х", LessonNum.firSecond))
-        sheduleArray.add(SheduleModel("ТиМОТ", 201, "Валеева Г.Х", LessonNum.firThird))
-        val adapter = StudentSheduleAdapter(sheduleArray)
+        recyclerView = root.findViewById(R.id.shedule_recyclerView)
+        adapter = StudentSheduleAdapter()
+        val groupArray = ArrayList<GroupModel>()
+        groupArray.add(GroupModel("Технология", 5, "Технологический"))
+        adapter.list.addAll(groupArray)
+        sendGetRequest()
         recyclerView.adapter = adapter
         recyclerView.itemAnimator = DefaultItemAnimator()
         recyclerView.layoutManager = LinearLayoutManager(context)
@@ -31,4 +45,12 @@ class StudentSheduleFragment: Fragment() {
         return root
     }
 
+
+    fun sendGetRequest() {
+        GlobalScope.launch {
+            val mURL = URL("https://mysibsu.ru/Data/GetAllGroups")
+            val jsonStr = mURL.readText()
+            Log.i("test", jsonStr)
+        }
+    }
 }
