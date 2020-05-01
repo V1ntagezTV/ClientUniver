@@ -6,8 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
-import com.example.testings.ui.shedules.GroupModel
-import com.example.testings.ui.shedules.SheduleModel
 
 class StudentSheduleAdapter: RecyclerView.Adapter<StudentSheduleAdapter.SheduleHolder>(){
 
@@ -32,7 +30,7 @@ class StudentSheduleAdapter: RecyclerView.Adapter<StudentSheduleAdapter.SheduleH
     override fun onBindViewHolder(holder: SheduleHolder, position: Int) {
         val itemData = list[position]
         holder.Name.text = itemData.Name
-        holder.Cours.text = itemData.Cours.toString()
-        holder.Faculty.text = itemData.Faculty
+        holder.Cours.text = "Курс: " + itemData.Cours.toString()
+        holder.Faculty.text = "Факультет: " + itemData.Faculty
     }
 }
