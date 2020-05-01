@@ -1,10 +1,9 @@
 package com.example.testings.ui.shedules
 
-import android.content.Context
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.fragment.app.FragmentStatePagerAdapter
 import com.example.testings.ui.shedules.StudentShedulePage.StudentSheduleFragment
 import com.example.testings.ui.shedules.TeacherShedulePage.TeacherSheduleFragment
 

@@ -22,3 +22,9 @@ class SheduleModel(
     var Teacher: String,
     var DateTimeStart: LessonNum
 )
+
+class GroupModel(
+    val Name:String,
+    val Cours:Int,
+    val Faculty:String
+)
