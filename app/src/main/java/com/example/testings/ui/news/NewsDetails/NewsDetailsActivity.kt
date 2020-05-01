@@ -134,8 +134,6 @@ class NewsDetailsActivity: AppCompatActivity() {
                     findViewById<LinearLayout>(R.id.newsDet_reqPanel)?.visibility = View.VISIBLE
                     findViewById<ImageView>(R.id.newsDet_reqVK)?.setOnClickListener { openNewTabWindow(vklink) }
                     findViewById<ImageView>(R.id.newsDet_reqFB)?.setOnClickListener { openNewTabWindow(fblink) }
-                    findViewById<View>(R.id.newsDet_lineImage1)?.visibility = View.VISIBLE
-                    findViewById<View>(R.id.newsDet_lineImage2)?.visibility = View.VISIBLE
                     if (ImageLinksArray.count() == 0){
                         findViewById<ExpandableHeightGridView>(R.id.newsDet_gridImages).visibility = View.GONE
                     }
