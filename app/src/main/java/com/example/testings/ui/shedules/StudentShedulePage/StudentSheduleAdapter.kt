@@ -19,7 +19,7 @@ class StudentSheduleAdapter: RecyclerView.Adapter<StudentSheduleAdapter.SheduleH
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SheduleHolder {
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_shedule_item_content, parent, false)
+            .inflate(R.layout.fragment_shedule_student_item_content, parent, false)
         return SheduleHolder(itemView)
     }
 

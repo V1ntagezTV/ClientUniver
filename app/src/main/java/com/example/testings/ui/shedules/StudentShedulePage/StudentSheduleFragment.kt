@@ -23,7 +23,7 @@ class StudentSheduleFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_shedule_student, container, false)
-        recyclerView = root.findViewById(R.id.shedule_recyclerView)
+        recyclerView = root.findViewById(R.id.students_recyclerView)
         adapter = StudentSheduleAdapter()
         this.initRecyclerView()
         this.sendGetRequest()
