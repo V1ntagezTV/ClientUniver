@@ -55,16 +55,11 @@
                 style="@style/boldTitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginHorizontal="15dp"
                 tools:text="Вниманию сотрудников и студентов института:"
                 android:textIsSelectable="true" />
-
-            <View
-                android:id="@+id/newsDet_lineImage1"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/light_gray_color"
-                android:visibility="invisible" />
 
             <ImageView
                 android:id="@+id/newsDet_titleImage"
@@ -73,13 +68,6 @@
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/ContentDesImage"
                 android:scaleType="centerCrop" />
-
-            <View
-                android:id="@+id/newsDet_lineImage2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/light_gray_color"
-                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/newsDet_content"
@@ -112,7 +100,6 @@
                 android:stretchMode="columnWidth"
                 android:verticalSpacing="2dp" />
 
-            <!--footer req links-->
         </LinearLayout>
     </ScrollView>
 
@@ -129,12 +116,12 @@
             android:id="@+id/newsDet_reqVK"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginStart="10dp"
             android:clickable="true"
-            android:contentDescription="@string/ContentDesImage"
+            android:contentDescription="@string/menu_about"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:layout_marginStart="15dp"
-            android:padding="8dp"
+            android:padding="12dp"
             app:srcCompat="@drawable/ic_about_vk" />
 
         <ImageView
