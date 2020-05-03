@@ -28,7 +28,7 @@ class TeacherAdapter: RecyclerView.Adapter<TeacherAdapter.TeacherHolder>() {
 
     override fun onBindViewHolder(holder: TeacherHolder, position: Int) {
         val value = list[position]
-        holder.FSName.text = value.FirstName + " " + value.SecondName
+        holder.FSName.text = value.LastName + " " +  value.FirstName
         holder.MiddleName.text = value.MiddleName
     }
 

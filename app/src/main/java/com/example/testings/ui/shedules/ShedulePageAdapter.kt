@@ -1,6 +1,5 @@
 package com.example.testings.ui.shedules
 
-import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -25,7 +24,7 @@ open class ShedulePageAdapter(fm: FragmentManager): FragmentPagerAdapter(fm, BEH
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position) {
             0 -> "Студент"
-            1 -> "Преподаватель"
+            1 -> "Учитель"
             else -> ""
         }
     }
