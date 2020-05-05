@@ -65,6 +65,12 @@
             android:label="Факультет">
         </activity>
 
+        <activity
+            android:name=".ui.shedules.SheduleDetailsActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.SlideClose">
+        </activity>
+
     </application>
 
 </manifest>

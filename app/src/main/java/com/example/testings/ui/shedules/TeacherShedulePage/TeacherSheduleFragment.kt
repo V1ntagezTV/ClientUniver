@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,7 +23,7 @@ import java.net.URL
 class TeacherSheduleFragment: Fragment() {
 
     lateinit var recyclerView: RecyclerView
-    val adapter: TeacherAdapter = TeacherAdapter()
+    lateinit var adapter: TeacherAdapter
     lateinit var retry: Button
     lateinit var progressBar: ProgressBar
 
@@ -30,6 +31,7 @@ class TeacherSheduleFragment: Fragment() {
         val root = inflater.inflate(R.layout.fragment_shedule_teacher, container, false)
         recyclerView = root.findViewById(R.id.teachers_recyclerView)
         retry = root.findViewById(R.id.teachers_retry_connection)
+        adapter = TeacherAdapter(findNavController())
         progressBar = root.findViewById(R.id.teachers_progressBar)
         initRecyclerView()
         initListeners()
@@ -52,6 +54,7 @@ class TeacherSheduleFragment: Fragment() {
     }
 
     private fun sendGetRequest(){
+        adapter.list.clear()
         GlobalScope.launch {
             try {
                 val link = URL("https://mysibsu.ru/Data/GetAllTeachers")

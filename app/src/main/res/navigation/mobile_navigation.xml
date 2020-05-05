@@ -25,17 +25,7 @@
         android:id="@+id/nav_shedule"
         android:name="com.example.testings.ui.shedules.SheduleFragment"
         android:label="@string/menu_shedule"
-        tools:layout="@layout/fragment_shedule">
-        <action
-            android:id="@+id/action_nav_shedule_to_nav_current_shedule"
-            app:destination="@id/nav_current_shedule" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/nav_current_shedule"
-        android:name="com.example.testings.ui.shedules.SheduleViewActivity"
-        tools:layout="@layout/shedule_list_activity">
-    </fragment>
+        tools:layout="@layout/fragment_shedule"/>
 
     <fragment
         android:id="@+id/nav_unstudents"

@@ -42,8 +42,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_about,
                 R.id.nav_info,
                 R.id.nav_faculties,
-                R.id.nav_services,
-                R.id.nav_current_shedule
+                R.id.nav_services
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -88,6 +87,7 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.closeDrawer(GravityCompat.START)
         }
         else{
+            findNavController(R.id.nav_host_fragment).popBackStack()
             super.onBackPressed()
         }
 

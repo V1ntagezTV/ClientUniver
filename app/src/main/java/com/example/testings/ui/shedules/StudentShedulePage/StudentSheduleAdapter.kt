@@ -1,15 +1,17 @@
 package com.example.testings.ui.shedules.StudentShedulePage
 
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.FragmentManager
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
-import com.example.testings.ui.shedules.SheduleViewActivity
-import kotlinx.android.synthetic.main.fragment_information.view.*
+import com.example.testings.ui.shedules.SheduleDetailsActivity
 
 class StudentSheduleAdapter(var navController: NavController): RecyclerView.Adapter<StudentSheduleAdapter.SheduleHolder>(){
 
@@ -36,8 +38,9 @@ class StudentSheduleAdapter(var navController: NavController): RecyclerView.Adap
         holder.Name.text = itemData.Name
         holder.Cours.text = "Курс: " + itemData.Cours.toString()
         holder.Faculty.text = "Факультет: " + itemData.Faculty
-        holder.itemView.setOnClickListener {
-            navController.navigate(R.id.nav_current_shedule)
+        holder.itemView.setOnClickListener { v: View ->
+            val intent = Intent(v.context, SheduleDetailsActivity::class.java)
+            startActivity(v.context, intent, Bundle())
         }
     }
 }
