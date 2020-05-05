@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -31,7 +32,7 @@ class StudentSheduleFragment: Fragment() {
         recyclerView = root.findViewById(R.id.students_recyclerView)
         retry = root.findViewById(R.id.students_retry_connection)
         progressBar = root.findViewById(R.id.students_progressBar)
-        adapter = StudentSheduleAdapter()
+        adapter = StudentSheduleAdapter(findNavController())
         initRecyclerView()
         initListeners()
         sendGetRequest()

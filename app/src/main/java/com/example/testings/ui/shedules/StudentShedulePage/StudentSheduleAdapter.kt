@@ -4,17 +4,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.FragmentManager
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
+import com.example.testings.ui.shedules.SheduleViewActivity
+import kotlinx.android.synthetic.main.fragment_information.view.*
 
-class StudentSheduleAdapter: RecyclerView.Adapter<StudentSheduleAdapter.SheduleHolder>(){
+class StudentSheduleAdapter(var navController: NavController): RecyclerView.Adapter<StudentSheduleAdapter.SheduleHolder>(){
 
     val list: ArrayList<GroupModel> = ArrayList()
 
-    class SheduleHolder(row: View): RecyclerView.ViewHolder(row){
-        var Name: TextView = row.findViewById(R.id.shedule_group_name)
-        var Cours: TextView = row.findViewById(R.id.shedule_group_course)
-        var Faculty: TextView = row.findViewById(R.id.shedule_group_faculty)
+    class SheduleHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+        var Name: TextView = itemView.findViewById(R.id.shedule_group_name)
+        var Cours: TextView = itemView.findViewById(R.id.shedule_group_course)
+        var Faculty: TextView = itemView.findViewById(R.id.shedule_group_faculty)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SheduleHolder {
@@ -32,5 +36,8 @@ class StudentSheduleAdapter: RecyclerView.Adapter<StudentSheduleAdapter.SheduleH
         holder.Name.text = itemData.Name
         holder.Cours.text = "Курс: " + itemData.Cours.toString()
         holder.Faculty.text = "Факультет: " + itemData.Faculty
+        holder.itemView.setOnClickListener {
+            navController.navigate(R.id.nav_current_shedule)
+        }
     }
 }
