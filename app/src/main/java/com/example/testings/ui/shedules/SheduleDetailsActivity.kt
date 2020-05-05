@@ -8,10 +8,10 @@ import com.r0adkll.slidr.Slidr
 
 class SheduleDetailsActivity: AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Slidr.attach(this)
-        setContentView(R.layout.shedule_details_fragment)
+        setContentView(R.layout.fragment_shedule_details)
     }
 
     override fun onSupportNavigateUp(): Boolean {

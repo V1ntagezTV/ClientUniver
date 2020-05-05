@@ -68,7 +68,8 @@
         <activity
             android:name=".ui.shedules.SheduleDetailsActivity"
             android:configChanges="orientation|screenSize"
-            android:theme="@style/AppTheme.SlideClose">
+            android:theme="@style/AppTheme.SlideClose"
+            android:label="Расписание">
         </activity>
 
     </application>
