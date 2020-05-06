@@ -1,16 +1,12 @@
 package com.example.testings.ui.shedules.TeacherShedulePage
 
-import android.content.Intent
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
-import com.example.testings.ui.shedules.SheduleDetailsActivity
 
 class TeacherAdapter(var navController: NavController): RecyclerView.Adapter<TeacherAdapter.TeacherHolder>() {
 
@@ -37,8 +33,7 @@ class TeacherAdapter(var navController: NavController): RecyclerView.Adapter<Tea
         holder.MiddleName.text = value.MiddleName
 
         holder.itemView.setOnClickListener { v: View ->
-            val intent = Intent(v.context, SheduleDetailsActivity::class.java)
-            startActivity(v.context, intent, Bundle())
+            navController.navigate(R.id.nav_shedule_details)
         }
     }
 }

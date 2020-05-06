@@ -27,15 +27,19 @@ class StudentSheduleFragment: Fragment() {
     lateinit var retry: Button
     lateinit var progressBar: ProgressBar
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        adapter = StudentSheduleAdapter(findNavController())
+        sendGetRequest()
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_shedule_student, container, false)
         recyclerView = root.findViewById(R.id.students_recyclerView)
         retry = root.findViewById(R.id.students_retry_connection)
         progressBar = root.findViewById(R.id.students_progressBar)
-        adapter = StudentSheduleAdapter(findNavController())
         initRecyclerView()
         initListeners()
-        sendGetRequest()
         return root
     }
 
@@ -55,7 +59,7 @@ class StudentSheduleFragment: Fragment() {
 
     private fun sendGetRequest() {
         GlobalScope.launch {
-            try{
+            try {
                 val mURL = URL("https://mysibsu.ru/Data/GetAllGroups")
                 val array = JSONArray(mURL.readText())
                 for (ind in 0 until array.length()) {

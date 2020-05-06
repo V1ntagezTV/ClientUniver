@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="1dp"
+    android:layout_marginBottom="1dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:paddingVertical="15dp"
+        android:paddingHorizontal="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/shedule_it_start"
+                style="@style/boldTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="8:45" />
+
+            <TextView
+                android:id="@+id/shedule_it_end"
+                style="@style/boldTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/font_FooterText"
+                tools:text="9:50" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout7"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout5"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/shedule_it_title"
+                style="@style/boldTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Механика" />
+
+            <TextView
+                android:id="@+id/shedule_it_teacher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Кунафин Инсур Айдарович"
+                android:textColor="@color/font_FooterText"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout7"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/shedule_it_cab"
+                style="@style/boldTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="201" />
+
+            <TextView
+                android:id="@+id/shedule_it_weeks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="7,1,2,3" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

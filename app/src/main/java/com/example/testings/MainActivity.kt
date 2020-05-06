@@ -87,7 +87,6 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.closeDrawer(GravityCompat.START)
         }
         else{
-            findNavController(R.id.nav_host_fragment).popBackStack()
             super.onBackPressed()
         }
 

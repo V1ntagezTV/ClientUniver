@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -27,11 +28,16 @@ class TeacherSheduleFragment: Fragment() {
     lateinit var retry: Button
     lateinit var progressBar: ProgressBar
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        adapter = TeacherAdapter(findNavController())
+        sendGetRequest()
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_shedule_teacher, container, false)
         recyclerView = root.findViewById(R.id.teachers_recyclerView)
         retry = root.findViewById(R.id.teachers_retry_connection)
-        adapter = TeacherAdapter(findNavController())
         progressBar = root.findViewById(R.id.teachers_progressBar)
         initRecyclerView()
         initListeners()

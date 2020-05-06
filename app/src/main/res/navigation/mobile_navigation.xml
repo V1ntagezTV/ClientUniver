@@ -65,4 +65,9 @@
         android:id="@+id/nav_faculties"
         android:name="com.example.testings.ui.faculties.FacultiesFragment"
         android:label="@string/menu_faculties"/>
+
+    <fragment
+        android:id="@+id/nav_shedule_details"
+        android:name="com.example.testings.ui.shedules.ShedulePage.SheduleDetailsActivity"
+        android:label="Детали расписания"/>
 </navigation>
