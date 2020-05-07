@@ -14,10 +14,11 @@ class SheduleAdapter: RecyclerView.Adapter<SheduleAdapter.SheduleHolder>() {
     class SheduleHolder(view: View): RecyclerView.ViewHolder(view){
         val start = view.findViewById<TextView>(R.id.shedule_it_start)
         val end = view.findViewById<TextView>(R.id.shedule_it_end)
-        val teacher = view.findViewById<TextView>(R.id.shedule_it_teacher)
+        val bottomInfo = view.findViewById<TextView>(R.id.shedule_it_teacher)
         val title = view.findViewById<TextView>(R.id.shedule_it_title)
         val cab = view.findViewById<TextView>(R.id.shedule_it_cab)
         val weeks = view.findViewById<TextView>(R.id.shedule_it_weeks)
+        val num = view.findViewById<TextView>(R.id.shedule_it_num)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SheduleHolder {
@@ -32,12 +33,17 @@ class SheduleAdapter: RecyclerView.Adapter<SheduleAdapter.SheduleHolder>() {
 
     override fun onBindViewHolder(holder: SheduleHolder, position: Int) {
         val data = list[position]
+        var info = data.teacher
         holder.cab.text = data.cab.toString()
         holder.title.text = data.title
         holder.end.text = data.end
         holder.start.text = data.start
-        holder.teacher.text = data.teacher
         holder.weeks.text = data.weeks
+        holder.num.text = (position + 1).toString()
+        if (SheduleModelView.currentType == "teacher"){
+            info ="Группа: " + data.profile + "\n" + "Курс: " + data.cours
+        }
+        holder.bottomInfo.text = info
     }
 
     fun addList(arr: ArrayList<SheduleModel>){

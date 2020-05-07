@@ -8,4 +8,8 @@ class SheduleModel(
     var start: String,
     var end: String,
     var weeks: String
-)
+) {
+    var cours: Int = 0
+    var faculty: String? = null
+    var profile: String? = null
+}

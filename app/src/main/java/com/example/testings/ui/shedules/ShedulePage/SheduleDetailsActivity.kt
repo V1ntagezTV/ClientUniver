@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,80 +25,108 @@ import kotlin.collections.ArrayList
 
 class SheduleDetailsActivity: Fragment() {
 
+    val SHEDULE_DAYS: Int = 6
     var weekOfDate: Int = 0
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: SheduleAdapter
     private lateinit var sheduleList: ArrayList<ArrayList<SheduleModel>>
+    lateinit var retry: Button
+    lateinit var progressBar: ProgressBar
+    lateinit var day: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         adapter = SheduleAdapter()
+        sheduleList = ArrayList(this.SHEDULE_DAYS)
+        for (i in 0 until this.SHEDULE_DAYS){
+            sheduleList.add(i, arrayListOf())
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_shedule_details, container, false)
         recyclerView = root.findViewById(R.id.shedule_det_recyclerView)
-        sheduleList = ArrayList(6)
-        sheduleList.add(0, arrayListOf())
-        sheduleList.add(1, arrayListOf())
-        sheduleList.add(2, arrayListOf())
-        sheduleList.add(3, arrayListOf())
-        sheduleList.add(4, arrayListOf())
-        sheduleList.add(5, arrayListOf())
-        recyclerView.itemAnimator = DefaultItemAnimator()
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        retry = root.findViewById(R.id.shedule_det_retry)
+        progressBar = root.findViewById(R.id.shedule_det_progressBar)
+        day = root.findViewById(R.id.shedule_det_day)
+        initRecyclerView()
+        sendGetRequest(SheduleModelView.currentId, SheduleModelView.currentType, root)
         initListeners(root)
-        val cal = Calendar.getInstance()
-        sendGetRequest(1, "teacher")
-        weekOfDate = cal.get(Calendar.DAY_OF_WEEK)
-        when (weekOfDate) {
-            Calendar.MONDAY -> adapter.addList(sheduleList[0])
-            Calendar.TUESDAY -> adapter.addList(sheduleList[1])
-            Calendar.WEDNESDAY -> adapter.addList(sheduleList[2])
-            Calendar.THURSDAY -> adapter.addList(sheduleList[3])
-            Calendar.FRIDAY -> adapter.addList(sheduleList[4])
-            Calendar.SATURDAY -> adapter.addList(sheduleList[5])
-        }
-        adapter.notifyDataSetChanged()
-        recyclerView.adapter = adapter
         return root
     }
 
-    private fun initListeners(view: View){
-        view.findViewById<Chip>(R.id.Mon).setOnClickListener{
-            adapter.list.clear()
-            adapter.list.addAll(sheduleList[0])
-            adapter.notifyDataSetChanged()
+    private fun setTodaySheduleList(view: View) {
+        val cal = Calendar.getInstance()
+        weekOfDate = cal.get(Calendar.DAY_OF_WEEK)
+        when (weekOfDate) {
+            Calendar.MONDAY -> {
+                adapter.addList(sheduleList[0])
+                view.findViewById<Chip>(R.id.Mon).isSelected = true
+                day.text = "Понедельник"
+            }
+            Calendar.TUESDAY -> {
+                view.findViewById<Chip>(R.id.Tue).isSelected = true
+                adapter.addList(sheduleList[1])
+                day.text = "Вторник"
+            }
+            Calendar.WEDNESDAY -> {
+                view.findViewById<Chip>(R.id.Wed).isSelected = true
+                adapter.addList(sheduleList[2])
+                day.text = "Среда"
+            }
+            Calendar.THURSDAY -> {
+                view.findViewById<Chip>(R.id.Thu).isSelected = true
+                adapter.addList(sheduleList[3])
+                day.text = "Четверг"
+            }
+            Calendar.FRIDAY -> {
+                view.findViewById<Chip>(R.id.Fri).isSelected = true
+                adapter.addList(sheduleList[4])
+                day.text = "Пятница"
+            }
+            Calendar.SATURDAY -> {
+                view.findViewById<Chip>(R.id.Sat).isSelected = true
+                adapter.addList(sheduleList[5])
+                day.text = "Суббота"
+            }
         }
-        view.findViewById<Chip>(R.id.Tue).setOnClickListener{
-            adapter.list.clear()
-            adapter.list.addAll(sheduleList[1])
-            adapter.notifyDataSetChanged()
-        }
-        view.findViewById<Chip>(R.id.Wed).setOnClickListener{
-            adapter.list.clear()
-            adapter.list.addAll(sheduleList[2])
-            adapter.notifyDataSetChanged()
-        }
-        view.findViewById<Chip>(R.id.Thu).setOnClickListener{
-            adapter.list.clear()
-            adapter.list.addAll(sheduleList[3])
-            adapter.notifyDataSetChanged()
-        }
-        view.findViewById<Chip>(R.id.Fri).setOnClickListener{
-            adapter.list.clear()
-            adapter.list.addAll(sheduleList[4])
-            adapter.notifyDataSetChanged()
-        }
-        view.findViewById<Chip>(R.id.Sat).setOnClickListener{
-            adapter.list.clear()
-            adapter.list.addAll(sheduleList[5])
-            adapter.notifyDataSetChanged()
-        }
-
     }
 
-    private fun sendGetRequest(id: Int, personType: String) {
+    private fun initRecyclerView(){
+        recyclerView.itemAnimator = DefaultItemAnimator()
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = adapter
+    }
+
+    private fun initListeners(view: View){
+        retry.setOnClickListener {
+            progressBar.visibility = View.VISIBLE
+            retry.visibility = View.INVISIBLE
+            sendGetRequest(SheduleModelView.currentId, SheduleModelView.currentType, view)
+        }
+        view.findViewById<Chip>(R.id.Mon).setOnClickListener{
+            adapter.addList(sheduleList[0])
+        }
+        view.findViewById<Chip>(R.id.Tue).setOnClickListener{
+            adapter.addList(sheduleList[1])
+        }
+        view.findViewById<Chip>(R.id.Wed).setOnClickListener{
+            adapter.addList(sheduleList[2])
+        }
+        view.findViewById<Chip>(R.id.Thu).setOnClickListener{
+            adapter.addList(sheduleList[3])
+        }
+        view.findViewById<Chip>(R.id.Fri).setOnClickListener{
+            adapter.addList(sheduleList[4])
+        }
+        view.findViewById<Chip>(R.id.Sat).setOnClickListener{
+            adapter.addList(sheduleList[5])
+        }
+    }
+
+    private fun sendGetRequest(id: Int, personType: String, view: View) {
+        progressBar.visibility = View.VISIBLE
+        retry.visibility = View.INVISIBLE
         GlobalScope.launch {
             try {
                 val mURL = URL("https://mysibsu.ru/Data/GetSheduleById?id=${id}&type=${personType}")
@@ -103,29 +134,46 @@ class SheduleDetailsActivity: Fragment() {
 
                 for (dayInd in 0 until dayOfWeekShedule.length()) {
                     val sheduleArrayInDay = dayOfWeekShedule.getJSONArray(dayInd)
-
                     for (sheduleInd in 0 until sheduleArrayInDay.length()){
                         val lesson = sheduleArrayInDay[sheduleInd] as JSONObject
                         val teacher = lesson.getJSONObject("Teacher")
-                        val teacherFullName = teacher.getString("LastName") + " " + teacher.getString("FirstName") + " " + teacher.getString("MiddleName")
+                        val group = lesson.getJSONObject("Group")
                         val lessonInfo = lesson.getJSONObject("LessonInfo")
+                        val teacherFullName =
+                                teacher.getString("LastName") + " " +
+                                teacher.getString("FirstName") + " " +
+                                teacher.getString("MiddleName")
+                        /** time string format from json 2020-01-01T00:00:00 **/
+                        val startTime = lessonInfo.getString("StartTime").substring(11, 16)
+                        val endTime = lessonInfo.getString("EndTime").substring(11, 16)
+
                         val data = SheduleModel(
                             lesson.getInt("LessonId"),
                             lessonInfo.getInt("AuditionNum"),
                             lessonInfo.getString("LessName"),
                             teacherFullName,
-                            lessonInfo.getString("StartTime"),
-                            lessonInfo.getString("EndTime"),
+                            startTime,
+                            endTime,
                             lessonInfo.getString("WeekDateNumbers"))
+                        data.cours = group.getInt("Cours")
+                        data.faculty = group.getString("Faculty")
+                        data.profile = group.getString("TeachProfile")
                         GlobalScope.launch(Dispatchers.Main) {
-                            sheduleList[dayInd].add(data)
+                            sheduleList[lessonInfo.getInt("DayWeek")].add(data)
                         }
-
                     }
+                }
+                GlobalScope.launch(Dispatchers.Main) {
+                    retry.visibility = View.INVISIBLE
+                    progressBar.visibility = View.INVISIBLE
+                    setTodaySheduleList(view)
                 }
 
             } catch (ex: IOException){
-
+                GlobalScope.launch(Dispatchers.Main) {
+                    retry.visibility = View.VISIBLE
+                    progressBar.visibility = View.INVISIBLE
+                }
             }
         }
     }

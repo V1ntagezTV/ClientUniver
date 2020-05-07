@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
+import com.example.testings.ui.shedules.ShedulePage.SheduleModelView
 
 class TeacherAdapter(var navController: NavController): RecyclerView.Adapter<TeacherAdapter.TeacherHolder>() {
 
@@ -28,11 +29,13 @@ class TeacherAdapter(var navController: NavController): RecyclerView.Adapter<Tea
     }
 
     override fun onBindViewHolder(holder: TeacherHolder, position: Int) {
-        val value = list[position]
-        holder.FSName.text = value.LastName + " " +  value.FirstName
-        holder.MiddleName.text = value.MiddleName
+        val itemData = list[position]
+        holder.FSName.text = itemData.LastName + " " +  itemData.FirstName
+        holder.MiddleName.text = itemData.MiddleName
 
         holder.itemView.setOnClickListener { v: View ->
+            SheduleModelView.currentId = itemData.Id
+            SheduleModelView.currentType = "teacher"
             navController.navigate(R.id.nav_shedule_details)
         }
     }

@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
+import com.example.testings.ui.shedules.ShedulePage.SheduleModelView
 
 class StudentSheduleAdapter(var navController: NavController): RecyclerView.Adapter<StudentSheduleAdapter.SheduleHolder>(){
 
@@ -34,6 +35,8 @@ class StudentSheduleAdapter(var navController: NavController): RecyclerView.Adap
         holder.Cours.text = "Курс: " + itemData.Cours.toString()
         holder.Faculty.text = "Факультет: " + itemData.Faculty
         holder.itemView.setOnClickListener { v: View ->
+            SheduleModelView.currentId = itemData.Id
+            SheduleModelView.currentType = "student"
             navController.navigate(R.id.nav_shedule_details)
         }
     }

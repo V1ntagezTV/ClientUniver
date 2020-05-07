@@ -25,9 +25,9 @@
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chipGroup"
+                app:singleSelection="true"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:singleSelection="true">
+                android:layout_height="wrap_content">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/Mon"
@@ -78,7 +78,24 @@
                     android:textAlignment="center" />
             </com.google.android.material.chip.ChipGroup>
 
+            <TextView
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="сегодня" />
+
+            <TextView
+                android:id="@+id/shedule_det_day"
+                style="@style/boldTitleText"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Понедельник"
+                android:layout_marginBottom="2dp" />
+
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -93,7 +110,28 @@
             android:id="@+id/shedule_det_recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
     </androidx.cardview.widget.CardView>
 
+    <ProgressBar
+        android:id="@+id/shedule_det_progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/shedule_det_retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/retry_connection"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
