@@ -40,4 +40,10 @@ class SheduleAdapter: RecyclerView.Adapter<SheduleAdapter.SheduleHolder>() {
         holder.weeks.text = data.weeks
     }
 
+    fun addList(arr: ArrayList<SheduleModel>){
+        list.clear()
+        list.addAll(arr)
+        this.notifyDataSetChanged()
+    }
+
 }

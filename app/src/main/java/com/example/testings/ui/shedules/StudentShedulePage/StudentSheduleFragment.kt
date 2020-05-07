@@ -30,7 +30,6 @@ class StudentSheduleFragment: Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         adapter = StudentSheduleAdapter(findNavController())
-        sendGetRequest()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -40,6 +39,10 @@ class StudentSheduleFragment: Fragment() {
         progressBar = root.findViewById(R.id.students_progressBar)
         initRecyclerView()
         initListeners()
+        if (adapter.itemCount == 0){
+            sendGetRequest()
+        }
+
         return root
     }
 
@@ -58,6 +61,8 @@ class StudentSheduleFragment: Fragment() {
     }
 
     private fun sendGetRequest() {
+        progressBar.visibility = View.VISIBLE
+        retry.visibility = View.INVISIBLE
         GlobalScope.launch {
             try {
                 val mURL = URL("https://mysibsu.ru/Data/GetAllGroups")
