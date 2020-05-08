@@ -65,6 +65,11 @@
             android:label="Факультет">
         </activity>
 
+        <activity
+            android:name=".webview.WebViewActivity"
+            android:label="Браузер">
+        </activity>
+
     </application>
 
 </manifest>

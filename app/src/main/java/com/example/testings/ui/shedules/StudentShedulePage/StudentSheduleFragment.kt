@@ -42,7 +42,6 @@ class StudentSheduleFragment: Fragment() {
         if (adapter.itemCount == 0){
             sendGetRequest()
         }
-
         return root
     }
 

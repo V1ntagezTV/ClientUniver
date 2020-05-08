@@ -22,8 +22,9 @@ import java.io.IOException
 import java.net.URL
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.reflect.typeOf
 
-class SheduleDetailsActivity: Fragment() {
+class SheduleDetailsFragment: Fragment() {
 
     val SHEDULE_DAYS: Int = 6
     var weekOfDate: Int = 0
@@ -168,12 +169,9 @@ class SheduleDetailsActivity: Fragment() {
                     progressBar.visibility = View.INVISIBLE
                     setTodaySheduleList(view)
                 }
-
             } catch (ex: IOException){
-                GlobalScope.launch(Dispatchers.Main) {
-                    retry.visibility = View.VISIBLE
-                    progressBar.visibility = View.INVISIBLE
-                }
+                retry.visibility = View.VISIBLE
+                progressBar.visibility = View.INVISIBLE
             }
         }
     }

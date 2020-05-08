@@ -1,7 +1,6 @@
 package com.example.testings
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -15,6 +14,7 @@ import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import androidx.core.view.GravityCompat
+import com.example.testings.webview.WebViewActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -55,21 +55,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        fun openNewTabWindow(urls: String) {
+            val intent = Intent(this, WebViewActivity::class.java)
+            intent.putExtra("link", urls)
+            startActivity(intent, Bundle())
+        }
         when (item.itemId){
             R.id.action_site -> {
-                val uris = Uri.parse("http://sibsu.ru/")
-                val intents = Intent(Intent.ACTION_VIEW, uris)
-                startActivity(intents)
+                openNewTabWindow("http://sibsu.ru/")
             }
             R.id.action_group_vk -> {
-                val uris = Uri.parse("https://vk.com/sibsu_ru")
-                val intents = Intent(Intent.ACTION_VIEW, uris)
-                startActivity(intents)
+                openNewTabWindow("https://vk.com/sibsu_ru")
             }
             R.id.action_user_cab -> {
-                val uris = Uri.parse("https://cabinet.sibsu.ru/")
-                val intents = Intent(Intent.ACTION_VIEW, uris)
-                startActivity(intents)
+                openNewTabWindow("https://cabinet.sibsu.ru/")
             }
         }
         return super.onOptionsItemSelected(item)

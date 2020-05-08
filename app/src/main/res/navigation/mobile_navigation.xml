@@ -72,5 +72,5 @@
 
     <fragment
         android:id="@+id/nav_shedule_details"
-        android:name="com.example.testings.ui.shedules.ShedulePage.SheduleDetailsActivity" />
+        android:name="com.example.testings.ui.shedules.ShedulePage.SheduleDetailsFragment" />
 </navigation>
