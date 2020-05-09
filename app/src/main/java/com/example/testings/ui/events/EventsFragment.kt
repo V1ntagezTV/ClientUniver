@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,6 +29,11 @@ class EventsFragment: Fragment(){
     private var list: ArrayList<EventModel> = ArrayList()
     private var pageNumber = 1
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        adapter = EventsAdapter(findNavController())
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
     {
         val root = inflater.inflate(R.layout.fragment_events, container, false)
@@ -36,7 +42,9 @@ class EventsFragment: Fragment(){
         progressBar = root.findViewById(R.id.event_progressBar)
         eventRefreshLayout = root.findViewById(R.id.event_swipe_refresh)
         initAllListeners()
-        setData(pageNumber++)
+        if (adapter.itemCount == 0 ) {
+            setData(pageNumber++)
+        }
         return root
     }
 
@@ -63,7 +71,6 @@ class EventsFragment: Fragment(){
     private fun initRecyclerView(view: View){
         eventRecyclerView = view.findViewById(R.id.event_recyclerView)
         eventRecyclerView.setItemViewCacheSize(20)
-        adapter = EventsAdapter()
         eventRecyclerView.adapter = adapter
         eventRecyclerView.itemAnimator = DefaultItemAnimator()
         eventRecyclerView.layoutManager = LinearLayoutManager(context)
@@ -71,10 +78,15 @@ class EventsFragment: Fragment(){
     }
 
     private fun setData(pageNum: Int) {
+        progressBar.visibility = View.VISIBLE
+        retryButton.visibility = View.INVISIBLE
         GlobalScope.launch {
             try {
-                val doc = Jsoup.connect("http://sibsu.ru/category/objavlenija/page/${pageNum}").get()
-                val content = doc.select("div[class=listing listing-blog listing-blog-1 clearfix  columns-1]")
+                val doc = Jsoup
+                    .connect("http://sibsu.ru/category/objavlenija/page/${pageNum}")
+                    .get()
+                val content = doc
+                    .select("div[class=listing listing-blog listing-blog-1 clearfix  columns-1]")
                     .select("article")
 
                 for (item in 0 until content.size){

@@ -8,11 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
-import com.example.testings.ui.events.EventDetails.EventDetailsActivity
 
-class EventsAdapter: RecyclerView.Adapter<EventsAdapter.EventHolder>(){
+class EventsAdapter(val navController: NavController): RecyclerView.Adapter<EventsAdapter.EventHolder>(){
 
     val list: ArrayList<EventModel> = ArrayList()
 
@@ -29,7 +29,7 @@ class EventsAdapter: RecyclerView.Adapter<EventsAdapter.EventHolder>(){
     }
 
     override fun getItemCount(): Int {
-        return list.count()
+        return list.size
     }
 
     override fun onBindViewHolder(holder: EventHolder, position: Int) {
@@ -39,10 +39,10 @@ class EventsAdapter: RecyclerView.Adapter<EventsAdapter.EventHolder>(){
         holder.SmallDescription.text = eventData.SmallDescription
 
         if ("sibsu.ru/novosti" in eventData.EventPageLink || "sibsu.ru/objavlenija" in eventData.EventPageLink){
-            holder.itemView.setOnClickListener { v:View ->
-                val intent = Intent(v.context, EventDetailsActivity::class.java)
-                intent.putExtra("link", eventData.EventPageLink)
-                startActivity(v.context, intent, Bundle())
+            holder.itemView.setOnClickListener { v: View ->
+                val bundle = Bundle()
+                bundle.putString("link", eventData.EventPageLink)
+                navController.navigate(R.id.nav_event_details, bundle)
             }
         } else {
             holder.itemView.findViewById<TextView>(R.id.event__linkTextView).visibility = View.VISIBLE

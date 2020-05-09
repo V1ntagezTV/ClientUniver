@@ -1,14 +1,15 @@
 package com.example.testings.ui.events.EventDetails
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.testings.R
 import com.example.testings.ui.events.EventModel
-import com.r0adkll.slidr.Slidr
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -16,31 +17,27 @@ import org.jsoup.Jsoup
 import java.io.IOException
 
 
-class EventDetailsActivity : AppCompatActivity(){
+class EventDetailsFragment : Fragment() {
 
     private var EventPage = EventModel()
     private lateinit var retry: Button
     private lateinit var progressBar: ProgressBar
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Slidr.attach(this)
-        setContentView(R.layout.fragment_events_details)
-        retry = findViewById(R.id.eventDet_retry_connection)
-        progressBar = findViewById(R.id.eventDet_progressBar)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val root = inflater.inflate(R.layout.fragment_events_details, container, false)
+        retry = root.findViewById(R.id.eventDet_retry_connection)
+        progressBar = root.findViewById(R.id.eventDet_progressBar)
         val linkPage = getLinkOrCloseActivity()
-        val toolbar = supportActionBar
-        toolbar?.title = "Детали"
-        toolbar?.setDisplayHomeAsUpEnabled(true)
-        setData(linkPage)
+        setData(linkPage, root)
         retry.setOnClickListener{
             progressBar.visibility = View.VISIBLE
             retry.visibility = View.INVISIBLE
-            setData(linkPage)
+            setData(linkPage, root)
         }
+        return root
     }
 
-    private fun setData(link: String){
+    private fun setData(link: String, view: View){
         GlobalScope.launch {
             try {
                 val doc = Jsoup.connect(link).get()
@@ -61,8 +58,8 @@ class EventDetailsActivity : AppCompatActivity(){
                 GlobalScope.launch(Dispatchers.Main) {
                     progressBar.visibility = View.INVISIBLE
                     retry.visibility = View.INVISIBLE
-                    findViewById<TextView>(R.id.eventDet_title).text = EventPage.Title
-                    findViewById<TextView>(R.id.eventDet_content).text = EventPage.FullDescription
+                    view.findViewById<TextView>(R.id.eventDet_title).text = EventPage.Title
+                    view.findViewById<TextView>(R.id.eventDet_content).text = EventPage.FullDescription
                 }
             }
             catch (e: IOException){
@@ -75,18 +72,10 @@ class EventDetailsActivity : AppCompatActivity(){
     }
 
     private fun getLinkOrCloseActivity(): String{
-        val intent = getIntent()
-        if (intent.getStringExtra("link") != null){
-            return intent.getStringExtra("link") as String
+        val link = arguments?.getString("link")
+        if (link != null){
+            return link as String
         }
-        onBackPressed()
         return ""
     }
-
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return super.onSupportNavigateUp()
-    }
-
-
 }

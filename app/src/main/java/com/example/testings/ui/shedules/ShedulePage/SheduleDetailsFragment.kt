@@ -1,5 +1,6 @@
 package com.example.testings.ui.shedules.ShedulePage
 
+import android.animation.Animator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -35,6 +37,11 @@ class SheduleDetailsFragment: Fragment() {
     lateinit var progressBar: ProgressBar
     lateinit var day: TextView
 
+    override fun setEnterTransition(transition: Any?) {
+        super.setEnterTransition(transition)
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         adapter = SheduleAdapter()
@@ -46,6 +53,7 @@ class SheduleDetailsFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_shedule_details, container, false)
+
         recyclerView = root.findViewById(R.id.shedule_det_recyclerView)
         retry = root.findViewById(R.id.shedule_det_retry)
         progressBar = root.findViewById(R.id.shedule_det_progressBar)
@@ -62,31 +70,25 @@ class SheduleDetailsFragment: Fragment() {
         when (weekOfDate) {
             Calendar.MONDAY -> {
                 adapter.addList(sheduleList[0])
-                view.findViewById<Chip>(R.id.Mon).isSelected = true
                 day.text = "Понедельник"
             }
             Calendar.TUESDAY -> {
-                view.findViewById<Chip>(R.id.Tue).isSelected = true
                 adapter.addList(sheduleList[1])
                 day.text = "Вторник"
             }
             Calendar.WEDNESDAY -> {
-                view.findViewById<Chip>(R.id.Wed).isSelected = true
                 adapter.addList(sheduleList[2])
                 day.text = "Среда"
             }
             Calendar.THURSDAY -> {
-                view.findViewById<Chip>(R.id.Thu).isSelected = true
                 adapter.addList(sheduleList[3])
                 day.text = "Четверг"
             }
             Calendar.FRIDAY -> {
-                view.findViewById<Chip>(R.id.Fri).isSelected = true
                 adapter.addList(sheduleList[4])
                 day.text = "Пятница"
             }
             Calendar.SATURDAY -> {
-                view.findViewById<Chip>(R.id.Sat).isSelected = true
                 adapter.addList(sheduleList[5])
                 day.text = "Суббота"
             }
@@ -175,5 +177,4 @@ class SheduleDetailsFragment: Fragment() {
             }
         }
     }
-
 }
