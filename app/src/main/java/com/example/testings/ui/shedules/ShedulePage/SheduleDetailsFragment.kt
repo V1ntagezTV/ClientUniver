@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -24,7 +25,6 @@ import java.io.IOException
 import java.net.URL
 import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.reflect.typeOf
 
 class SheduleDetailsFragment: Fragment() {
 
@@ -36,11 +36,6 @@ class SheduleDetailsFragment: Fragment() {
     lateinit var retry: Button
     lateinit var progressBar: ProgressBar
     lateinit var day: TextView
-
-    override fun setEnterTransition(transition: Any?) {
-        super.setEnterTransition(transition)
-
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,6 +87,10 @@ class SheduleDetailsFragment: Fragment() {
                 adapter.addList(sheduleList[5])
                 day.text = "Суббота"
             }
+            Calendar.SUNDAY -> {
+                view.findViewById<ImageView>(R.id.shedule_det_panda).visibility = View.VISIBLE
+                day.text = "Воскресенье"
+            }
         }
     }
 
@@ -107,23 +106,15 @@ class SheduleDetailsFragment: Fragment() {
             retry.visibility = View.INVISIBLE
             sendGetRequest(SheduleModelView.currentId, SheduleModelView.currentType, view)
         }
-        view.findViewById<Chip>(R.id.Mon).setOnClickListener{
-            adapter.addList(sheduleList[0])
-        }
-        view.findViewById<Chip>(R.id.Tue).setOnClickListener{
-            adapter.addList(sheduleList[1])
-        }
-        view.findViewById<Chip>(R.id.Wed).setOnClickListener{
-            adapter.addList(sheduleList[2])
-        }
-        view.findViewById<Chip>(R.id.Thu).setOnClickListener{
-            adapter.addList(sheduleList[3])
-        }
-        view.findViewById<Chip>(R.id.Fri).setOnClickListener{
-            adapter.addList(sheduleList[4])
-        }
-        view.findViewById<Chip>(R.id.Sat).setOnClickListener{
-            adapter.addList(sheduleList[5])
+        val chipArray: Array<Chip> = arrayOf(
+            view.findViewById(R.id.Mon), view.findViewById(R.id.Tue), view.findViewById(R.id.Wed),
+            view.findViewById(R.id.Thu), view.findViewById(R.id.Fri), view.findViewById(R.id.Sat)
+        )
+        for (ind in 0 until chipArray.size) {
+            chipArray[ind].setOnClickListener {
+                adapter.addList(sheduleList[ind])
+                view.findViewById<ImageView>(R.id.shedule_det_panda).visibility = View.GONE
+            }
         }
     }
 

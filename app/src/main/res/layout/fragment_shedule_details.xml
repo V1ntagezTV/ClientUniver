@@ -79,12 +79,6 @@
             </com.google.android.material.chip.ChipGroup>
 
             <TextView
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="сегодня" />
-
-            <TextView
                 android:id="@+id/shedule_det_day"
                 style="@style/boldTitleText"
                 android:textSize="16sp"
@@ -92,7 +86,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="Понедельник"
-                android:layout_marginBottom="2dp" />
+                android:layout_marginBottom="5dp" />
+
 
         </LinearLayout>
 
@@ -106,10 +101,31 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/GridView1">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/shedule_det_recyclerView"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/shedule_det_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/shedule_det_panda"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/shedule_det_recyclerView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/shedule_det_recyclerView"
+                app:srcCompat="@drawable/sleeping_panda"
+                android:contentDescription="@string/ContentDesImage" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
