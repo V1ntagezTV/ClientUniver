@@ -1,18 +1,16 @@
 package com.example.testings.ui.unstudents
 
-import android.content.Intent
-import android.os.Bundle
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
-import com.example.testings.ui.unstudents.ProfileDetails.ProfileInfoActivity
 import com.example.testings.ui.unstudents.ProfileDetails.ProfileInfoViewModel
 
-class EducAdapter: RecyclerView.Adapter<EducAdapter.EducHolder>(){
+class EducAdapter(var navController: NavController): RecyclerView.Adapter<EducAdapter.EducHolder>(){
 
     var data: ArrayList<EducProfileModel> = ArrayList()
 
@@ -39,9 +37,8 @@ class EducAdapter: RecyclerView.Adapter<EducAdapter.EducHolder>(){
         holder.nameV.text = EducDB.Name
 
         holder.itemView.setOnClickListener{
-            val intent = Intent(it.context, ProfileInfoActivity::class.java)
             ProfileInfoViewModel.profile = EducDB
-            startActivity(it.context, intent, Bundle())
+            navController.navigate(R.id.news_details_Fragment)
         }
     }
 

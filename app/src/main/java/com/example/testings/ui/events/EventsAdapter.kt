@@ -39,7 +39,7 @@ class EventsAdapter(val navController: NavController): RecyclerView.Adapter<Even
         holder.SmallDescription.text = eventData.SmallDescription
 
         if ("sibsu.ru/novosti" in eventData.EventPageLink || "sibsu.ru/objavlenija" in eventData.EventPageLink){
-            holder.itemView.setOnClickListener { v: View ->
+            holder.itemView.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString("link", eventData.EventPageLink)
                 navController.navigate(R.id.nav_event_details, bundle)

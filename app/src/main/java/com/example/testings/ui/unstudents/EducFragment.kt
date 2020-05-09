@@ -1,18 +1,21 @@
 package com.example.testings.ui.unstudents
 
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
 import java.io.IOException
@@ -21,45 +24,51 @@ class EducFragment : Fragment() {
 
     private val link = "http://sibsu.ru/abitur/bachelor/"
     val list: ArrayList<EducProfileModel> = ArrayList()
-    lateinit var retryButton: Button
+    lateinit var retry: Button
     lateinit var progressBar: ProgressBar
     lateinit var recycler: RecyclerView
     lateinit var adapter: EducAdapter
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        adapter = EducAdapter(findNavController())
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_unstudents, container, false)
-        recycler = root.findViewById(R.id.unstud_recyclerView)
-        retryButton = root.findViewById(R.id.unstud_retry_connection)
+        retry = root.findViewById(R.id.unstud_retry_connection)
         progressBar = root.findViewById(R.id.unstud_progressBar)
-        initRecyclerView()
-        initAllListeners(root)
-        setData()
+        initRecyclerView(root)
+        initAllListeners()
+        if (adapter.itemCount == 0) {
+            retry.visibility = View.INVISIBLE
+            progressBar.visibility = View.VISIBLE
+            setData()
+        }
         return root
     }
 
-    private fun initRecyclerView(){
-        recycler.setItemViewCacheSize(20) //временное решение cache uses for 20 newsview
-        adapter = EducAdapter()
+    private fun initRecyclerView(view: View){
+        recycler = view.findViewById(R.id.unstud_recyclerView)
         recycler.adapter = adapter
         recycler.itemAnimator = DefaultItemAnimator()
         recycler.layoutManager = LinearLayoutManager(context)
     }
 
-    private fun initAllListeners(view: View){
-        retryButton.setOnClickListener {
+    private fun initAllListeners(){
+        retry.setOnClickListener {
                 adapter.CleanList()
                 list.clear()
                 adapter.notifyDataSetChanged()
                 progressBar.visibility = View.VISIBLE
-                retryButton.visibility = View.INVISIBLE
+                retry.visibility = View.INVISIBLE
                 setData()
         }
     }
 
     private fun setData(){
-        retryButton.visibility = View.INVISIBLE
-        progressBar.visibility = View.VISIBLE
-        GlobalScope.launch {
+
+        GlobalScope.async {
             try {
                 val doc = Jsoup.connect(link).get()
                 val tablePriemKolMest = doc.select("table[itemprop=priemKolMest]").select("tbody").select("tr")
@@ -104,11 +113,12 @@ class EducFragment : Fragment() {
                 }
                 GlobalScope.launch(Dispatchers.Main) {
                     progressBar.visibility = View.INVISIBLE
+                    retry.visibility = View.INVISIBLE
                     adapter.Set(list)
                 }
             } catch (e: IOException){
                 GlobalScope.launch(Dispatchers.Main) {
-                    retryButton.visibility = View.VISIBLE
+                    retry.visibility = View.VISIBLE
                     progressBar.visibility = View.INVISIBLE
                 }
             }

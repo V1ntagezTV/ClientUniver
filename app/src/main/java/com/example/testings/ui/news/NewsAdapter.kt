@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.ImageActivity
 import com.example.testings.R
@@ -19,7 +20,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.view.*
 
 
-class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
+class NewsAdapter(var navController: NavController): RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
 
     private var list: ArrayList<NewsModel> = ArrayList()
 
@@ -60,10 +61,10 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
         }
 
         if ("://sibsu.ru/" in news.URLDetails){
-            holder.itemView.setOnClickListener{ v: View ->
-                val intent = Intent(v.context, NewsDetailsActivity::class.java)
-                intent.putExtra("link", news.URLDetails)
-                startActivity(v.context, intent, Bundle())
+            holder.itemView.setOnClickListener{
+                val bundle = Bundle()
+                bundle.putString("link", news.URLDetails)
+                navController.navigate(R.id.news_details_Fragment, bundle)
             }
         } else {
             holder.itemView.findViewById<TextView>(R.id.news_content_linkTextView).visibility = View.VISIBLE

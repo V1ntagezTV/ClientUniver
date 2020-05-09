@@ -5,6 +5,7 @@ import android.view.*
 import android.widget.Button
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -29,6 +30,11 @@ class NewsFragment : Fragment()
     private lateinit var progressBar: ProgressBar
     private var pageNumber: Int = 1
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        adapter = NewsAdapter(findNavController())
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_news, container, false)
         initRecyclerView(root)
@@ -36,8 +42,9 @@ class NewsFragment : Fragment()
         retry = root.findViewById(R.id.news_retry_connection)
         progressBar = root.findViewById(R.id.news_progressBar)
         initAllListeners()
-        setRecyclerViewScrollListener()
-        setData(pageNumber++)
+        if (adapter.itemCount == 0) {
+            setData(pageNumber++)
+        }
         return root
     }
 
@@ -64,13 +71,16 @@ class NewsFragment : Fragment()
     private fun initRecyclerView(view: View){
         newsRecyclerView = view.findViewById(R.id.news_recyclerView)
         newsRecyclerView.setItemViewCacheSize(20) //временное решение cache uses for 20 newsview
-        adapter = NewsAdapter()
+
         newsRecyclerView.adapter = adapter
         newsRecyclerView.itemAnimator = DefaultItemAnimator()
         newsRecyclerView.layoutManager = LinearLayoutManager(context)
+        setRecyclerViewScrollListener()
     }
 
     private fun setData(pageNum: Int) {
+        progressBar.visibility = View.VISIBLE
+        retry.visibility = View.INVISIBLE
         GlobalScope.launch {
             try {
                 val doc: Document = Jsoup.connect("http://sibsu.ru/category/novosti/page/${pageNum}").get()

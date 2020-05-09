@@ -4,9 +4,13 @@ package com.example.testings.ui.news.NewsDetails
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.testings.R
 import com.example.testings.ImageActivity
 import com.squareup.picasso.Picasso
@@ -20,52 +24,51 @@ import com.example.testings.Addons.ExpandableHeightGridView
 import com.r0adkll.slidr.Slidr
 
 
-class NewsDetailsActivity: AppCompatActivity() {
+class NewsDetailsActivity: Fragment() {
 
     private var ImageLinksArray: ArrayList<String> = ArrayList()
+    lateinit var expandableHeightGridView: ExpandableHeightGridView
+    lateinit var titleImageView: ImageView
     private var linkPage: String = ""
     private var titleImage: String = ""
     private var title: String = ""
     private var contentText: String = ""
+    lateinit var retry: Button
+    lateinit var progressBar: ProgressBar
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val root = inflater.inflate(R.layout.fragment_news_details, container, false)
         linkPage = getLinkOrCloseActivity()
-        setContentView(R.layout.fragment_news_details)
-        Slidr.attach(this)
-        val toolbar = supportActionBar
-        toolbar?.title = "Детали"
-        toolbar?.setDisplayHomeAsUpEnabled(true)
-
-        setPageContent()
-
-        findViewById<Button>(R.id.newsDet_retry_connection).setOnClickListener{
-            findViewById<Button>(R.id.newsDet_retry_connection).visibility = View.INVISIBLE
-            setPageContent()
+        retry = root.findViewById(R.id.newsDet_retry_connection)
+        progressBar = root.findViewById(R.id.newsDet_progressBar)
+        expandableHeightGridView = root.findViewById(R.id.newsDet_gridImages)
+        titleImageView = root.findViewById(R.id.newsDet_titleImage)
+        setPageContent(root)
+        retry.setOnClickListener{
+            root.findViewById<Button>(R.id.newsDet_retry_connection).visibility = View.INVISIBLE
+            setPageContent(root)
         }
-        findViewById<ImageView>(R.id.newsDet_titleImage).setOnClickListener{
+        titleImageView.setOnClickListener{
             OnClickImage(titleImage)
         }
-        findViewById<ExpandableHeightGridView>(R.id.newsDet_gridImages).setOnItemClickListener { _, _, position, _ ->
+        expandableHeightGridView.setOnItemClickListener { _, _, position, _ ->
                     OnClickImage(ImageLinksArray[position])
         }
+        return root
     }
 
     private fun getLinkOrCloseActivity(): String{
-        val intent = this.intent
-        val link = intent.getStringExtra("link")
-
+        val link = arguments?.getString("link")
         if (link != null){
             return link
         }
-        onBackPressed()
+        findNavController().popBackStack()
         return ""
     }
 
-    private fun setPageContent(){
-        findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.INVISIBLE
-        findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.VISIBLE
-
+    private fun setPageContent(view: View){
+        retry.visibility = View.INVISIBLE
+        progressBar.visibility = View.VISIBLE
         GlobalScope.launch {
             try {
                 val doc: Document = Jsoup.connect(linkPage).get()
@@ -116,40 +119,40 @@ class NewsDetailsActivity: AppCompatActivity() {
                     if (titleImage.startsWith("http://")){
                         Picasso.get()
                             .load(titleImage)
-                            .into(findViewById<ImageView>(R.id.newsDet_titleImage))
+                            .into(view.findViewById<ImageView>(R.id.newsDet_titleImage))
                     }
                     //
-                    val gridView: ExpandableHeightGridView = findViewById(R.id.newsDet_gridImages)
-                    val adapter = ImageListAdapter(baseContext, ImageLinksArray)
+                    val gridView: ExpandableHeightGridView = view.findViewById(R.id.newsDet_gridImages)
+                    val adapter = ImageListAdapter(view.context, ImageLinksArray)
                     gridView.adapter = adapter
                     adapter.notifyDataSetChanged()
                     gridView.isExpanded = true
 
-                    findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.INVISIBLE
+                    progressBar.visibility = View.INVISIBLE
                     //setNewsContent
-                    findViewById<TextView>(R.id.newsDet_title)?.text = title
-                    findViewById<TextView>(R.id.newsDet_content)?.text = contentText
+                    view.findViewById<TextView>(R.id.newsDet_title)?.text = title
+                    view.findViewById<TextView>(R.id.newsDet_content)?.text = contentText
                     //design content unhide
-                    findViewById<View>(R.id.newsDet_lineFooter)?.visibility = View.VISIBLE
-                    findViewById<LinearLayout>(R.id.newsDet_reqPanel)?.visibility = View.VISIBLE
-                    findViewById<ImageView>(R.id.newsDet_reqVK)?.setOnClickListener { openNewTabWindow(vklink) }
-                    findViewById<ImageView>(R.id.newsDet_reqFB)?.setOnClickListener { openNewTabWindow(fblink) }
+                    view.findViewById<View>(R.id.newsDet_lineFooter)?.visibility = View.VISIBLE
+                    view.findViewById<LinearLayout>(R.id.newsDet_reqPanel)?.visibility = View.VISIBLE
+                    view.findViewById<ImageView>(R.id.newsDet_reqVK)?.setOnClickListener { openNewTabWindow(vklink) }
+                    view.findViewById<ImageView>(R.id.newsDet_reqFB)?.setOnClickListener { openNewTabWindow(fblink) }
                     if (ImageLinksArray.count() == 0){
-                        findViewById<ExpandableHeightGridView>(R.id.newsDet_gridImages).visibility = View.GONE
+                        expandableHeightGridView.visibility = View.GONE
                     }
                 }
             }
             catch (e: IOException){
                 GlobalScope.launch(Dispatchers.Main) {
-                    findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.INVISIBLE
-                    findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.VISIBLE
+                    view.findViewById<ProgressBar>(R.id.newsDet_progressBar)?.visibility = View.INVISIBLE
+                    view.findViewById<Button>(R.id.newsDet_retry_connection)?.visibility = View.VISIBLE
                 }
             }
         }
     }
 
     fun OnClickImage(link: String){
-        val intent = Intent(this, ImageActivity::class.java)
+        val intent = Intent(this.context, ImageActivity::class.java)
         intent.putExtra("ImageUrl", link)
         startActivity(intent, Bundle())
     }
@@ -158,9 +161,5 @@ class NewsDetailsActivity: AppCompatActivity() {
         val uris = Uri.parse(urls)
         val intents = Intent(Intent.ACTION_VIEW, uris)
         startActivity(intents)
-    }
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return super.onSupportNavigateUp()
     }
 }

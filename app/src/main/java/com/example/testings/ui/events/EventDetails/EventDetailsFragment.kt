@@ -74,7 +74,7 @@ class EventDetailsFragment : Fragment() {
     private fun getLinkOrCloseActivity(): String{
         val link = arguments?.getString("link")
         if (link != null){
-            return link as String
+            return link
         }
         return ""
     }

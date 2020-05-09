@@ -18,7 +18,8 @@
     <fragment
         android:id="@+id/news_details_Fragment"
         android:name="com.example.testings.ui.news.NewsDetails.NewsDetailsActivity"
-        android:label="@string/news_details">
+        android:label="@string/news_details"
+        tools:layout="@layout/fragment_news_details">
     </fragment>
 
     <fragment
@@ -35,7 +36,18 @@
         android:id="@+id/nav_unstudents"
         android:name="com.example.testings.ui.unstudents.EducFragment"
         android:label="@string/menu_unstudents"
-        tools:layout="@layout/fragment_unstudents" />
+        tools:layout="@layout/fragment_unstudents" >
+        <action
+            android:id="@+id/action_nav_unstudents_to_nav_profile_info"
+            app:destination="@id/nav_profile_info" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_profile_info"
+        android:name="com.example.testings.ui.unstudents.ProfileDetails.ProfileInfoActivity"
+        android:label="Детали"
+        tools:layout="@layout/fragment_unstudent_profile_info">
+    </fragment>
 
     <fragment
         android:id="@+id/nav_setting"
@@ -58,13 +70,18 @@
     <fragment
         android:id="@+id/nav_events"
         android:name="com.example.testings.ui.events.EventsFragment"
-        android:label="@string/menu_events"/>
+        android:label="@string/menu_events"
+        tools:layout="@layout/fragment_events">
+        <action
+            android:id="@+id/action_nav_events_to_nav_event_details"
+            app:destination="@id/nav_event_details" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_event_details"
         android:name="com.example.testings.ui.events.EventDetails.EventDetailsFragment"
-        android:label="Детали">
-
+        android:label="Детали"
+        tools:layout="@layout/fragment_events_details">
     </fragment>
 
     <fragment
@@ -79,5 +96,6 @@
 
     <fragment
         android:id="@+id/nav_shedule_details"
-        android:name="com.example.testings.ui.shedules.ShedulePage.SheduleDetailsFragment" />
+        android:name="com.example.testings.ui.shedules.ShedulePage.SheduleDetailsFragment"
+        tools:layout="@layout/fragment_shedule_details"/>
 </navigation>
