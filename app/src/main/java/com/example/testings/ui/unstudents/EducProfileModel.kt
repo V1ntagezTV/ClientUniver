@@ -18,3 +18,4 @@ class EducType(
     val Absentia: String,
     val Intra_Absentia: String)
 
+class ProfileItemModel(var title: String, var link: String)

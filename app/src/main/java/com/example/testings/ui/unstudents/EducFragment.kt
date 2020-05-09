@@ -1,7 +1,6 @@
 package com.example.testings.ui.unstudents
 
 import android.os.Bundle
-import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,15 +14,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
 import java.io.IOException
 
 class EducFragment : Fragment() {
 
-    private val link = "http://sibsu.ru/abitur/bachelor/"
-    val list: ArrayList<EducProfileModel> = ArrayList()
+    private val link = "http://sibsu.ru/abiturientu/"
+    val list: ArrayList<ProfileItemModel> = ArrayList()
     lateinit var retry: Button
     lateinit var progressBar: ProgressBar
     lateinit var recycler: RecyclerView
@@ -43,7 +41,9 @@ class EducFragment : Fragment() {
         if (adapter.itemCount == 0) {
             retry.visibility = View.INVISIBLE
             progressBar.visibility = View.VISIBLE
-            setData()
+            GlobalScope.launch {
+                setData()
+            }
         }
         return root
     }
@@ -57,70 +57,45 @@ class EducFragment : Fragment() {
 
     private fun initAllListeners(){
         retry.setOnClickListener {
-                adapter.CleanList()
-                list.clear()
-                adapter.notifyDataSetChanged()
-                progressBar.visibility = View.VISIBLE
-                retry.visibility = View.INVISIBLE
+            adapter.cleanList()
+            list.clear()
+            adapter.notifyDataSetChanged()
+            progressBar.visibility = View.VISIBLE
+            retry.visibility = View.INVISIBLE
+            GlobalScope.launch {
                 setData()
+            }
         }
     }
 
-    private fun setData(){
+    private suspend fun setData(){
+        try {
+            val doc = Jsoup.connect(link).get()
+            val htmlcontent = doc.select("div[class=entry-content clearfix]")
+            val fac_titles = htmlcontent.select("h3[style=text-align: center;]")
 
-        GlobalScope.async {
-            try {
-                val doc = Jsoup.connect(link).get()
-                val tablePriemKolMest = doc.select("table[itemprop=priemKolMest]").select("tbody").select("tr")
-                val tableLessonsScores = doc.select("table[itemprop=priemExam]").select("tbody").select("tr")
-
-                for (ind in 0 until tablePriemKolMest.size){
-                    val code    = tablePriemKolMest.eq(ind).select("td[data-label=Код]").text()
-                    val profile = tablePriemKolMest.eq(ind).select("td[data-label=Направление]").text()
-                    val faculty = tablePriemKolMest.eq(ind).select("td[data-label=Факультет]").text()
-                    val count   = tablePriemKolMest.eq(ind).select("td[data-label=Всего]").text()
-
-                    val SpecialQ_och   = tablePriemKolMest.eq(ind).select("td[data-label=Особ. квота очн.]").first().text()
-                    val SpecialQ_zaoch = tablePriemKolMest.eq(ind).select("td[data-label=Особ. квота очн.]").last().text()
-                    val SpecialQ_och_zao = tablePriemKolMest.eq(ind).select("td[data-label=Особ. квота очн.-заочн.]").text()
-
-                    val GeneralT_och = tablePriemKolMest.eq(ind).select("td[data-label=Общие усл. очн.]").text()
-                    val GeneralT_zaoch = tablePriemKolMest.eq(ind).select("td[data-label=Общие усл. заочн.]").text()
-                    val GeneralT_och_zao = tablePriemKolMest.eq(ind).select("td[data-label=Общие усл. очн.-заочн.]").text()
-
-                    val Commercial_och = tablePriemKolMest.eq(ind).select("td[data-label=Договорн. очн.]").text()
-                    val Commercial_zaoch = tablePriemKolMest.eq(ind).select("td[data-label=Договорн. заочн.]").text()
-                    val Commercial_och_zao = tablePriemKolMest.eq(ind).select("td[data-label=Договорн. очн.-заочн.]").text()
-
-                    val prof_model = EducProfileModel(code, profile, faculty, count)
-                    prof_model.SpecialQute = EducType(SpecialQ_och, SpecialQ_och_zao, SpecialQ_zaoch)
-                    prof_model.GeneralTerms = EducType(GeneralT_och, GeneralT_och_zao, GeneralT_zaoch)
-                    prof_model.Commercial = EducType(Commercial_och, Commercial_och_zao, Commercial_zaoch)
-                    list.add(prof_model)
+            val ol_tables = htmlcontent.select("ol")
+            for (tableInd in 0 until ol_tables.size){
+                val tableContent = ol_tables[tableInd].select("li")
+                for (profInd in 0 until tableContent.size) {
+                    val title = tableContent.select("li").eq(profInd).text()
+                    val link = tableContent
+                        .select("li")
+                        .select("a")
+                        .attr("href")
+                    val item = ProfileItemModel(title, link)
+                    list.add(item)
                 }
-                for (ind in 0 until tableLessonsScores.size){
-                    val name = tableLessonsScores.eq(ind).select("td[data-label=Направление]").text()
-                    val lessons = tableLessonsScores.eq(ind)
-                        .select("td[data-label=Экзамены]")
-                        .select("ol").select("li")
-                    val scores = tableLessonsScores.eq(ind).select("td[data-label=Мин.баллы]").text()
-                    val data = list.find { it.Name == name }
-                    data?.Lessons = ArrayList(lessons.size)
-                    for (lessInd in 0 until lessons.size){
-                        data?.Lessons?.add(lessons[lessInd].text())
-                    }
-                    data?.Scores = scores
-                }
-                GlobalScope.launch(Dispatchers.Main) {
-                    progressBar.visibility = View.INVISIBLE
-                    retry.visibility = View.INVISIBLE
-                    adapter.Set(list)
-                }
-            } catch (e: IOException){
-                GlobalScope.launch(Dispatchers.Main) {
-                    retry.visibility = View.VISIBLE
-                    progressBar.visibility = View.INVISIBLE
-                }
+            }
+            GlobalScope.launch(Dispatchers.Main) {
+                adapter.setList(list)
+                progressBar.visibility = View.INVISIBLE
+                retry.visibility = View.INVISIBLE
+            }
+        } catch (e: IOException){
+            GlobalScope.launch(Dispatchers.Main) {
+                retry.visibility = View.VISIBLE
+                progressBar.visibility = View.INVISIBLE
             }
         }
     }
