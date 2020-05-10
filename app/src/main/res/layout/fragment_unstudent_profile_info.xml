@@ -19,74 +19,58 @@
             <TextView
                 android:id="@+id/profile_title"
                 style="@style/boldTitleText"
+                android:textSize="18sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginTop="15dp"
-                android:gravity="center"
-                tools:text="Педагогическое образование профиль Химия" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="10dp"
-                android:orientation="vertical">
+                tools:text="Педагогическое образование профиль Химия" />
 
-                <LinearLayout
-                    android:id="@+id/linearLayout4"
-                    android:layout_marginBottom="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+            <TextView
+                style="@style/boldTitleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F4F4F4"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp"
+                android:layout_marginTop="8dp"
+                android:text="Код"
+                android:textAlignment="viewStart"
+                android:textSize="18sp" />
 
-                    <TextView
-                        style="@style/boldTitleText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Код"
-                        android:textAlignment="viewStart"
-                        android:textSize="18sp" />
+            <TextView
+                android:id="@+id/profile_code"
+                style="@style/h1_textStyle"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="44.44.44" />
 
-                    <TextView
-                        android:id="@+id/profile_code"
-                        style="@style/h1_textStyle"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:textAlignment="viewEnd"
-                        tools:text="44.44.44" />
+            <TextView
+                android:background="#F4F4F4"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp"
+                style="@style/boldTitleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="Факультет"
+                android:textSize="18sp" />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        style="@style/boldTitleText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Факультет"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/profile_fac"
-                        style="@style/h1_textStyle"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:textAlignment="viewEnd"
-                        tools:text="Технологический" />
-
-                </LinearLayout>
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/profile_fac"
+                style="@style/h1_textStyle"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Естественно - математический" />
 
             <LinearLayout
-                android:layout_marginTop="5dp"
-                android:layout_marginHorizontal="15dp"
+                android:background="#F4F4F4"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -98,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textAlignment="viewStart"
-                    android:text="Предметы">
+                    android:text="Предмет">
                 </TextView>
 
                 <TextView
@@ -108,14 +92,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textAlignment="viewEnd"
-                    android:text="Баллы">
+                    android:text="Балл">
                 </TextView>
 
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_marginTop="5dp"
-                android:layout_marginHorizontal="15dp"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -125,7 +109,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    tools:text="Математика\nМатематика\nМатематика">
+                    android:text="Математика\nМатематика\nМатематика">
                 </TextView>
 
                 <TextView
@@ -135,233 +119,293 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textAlignment="viewEnd"
-                    tools:text="40\n40\n40">
+                    android:text="40\n40\n40">
                 </TextView>
 
             </LinearLayout>
 
-            <TextView
-                style="@style/boldTitleText"
-                android:textSize="18sp"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:gravity="center"
-                android:text="Общие условия" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/h1_textStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Очное" />
-
-                <TextView
-                    style="@style/h1_textStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Очно-заочное" />
-
-                <TextView
-                    style="@style/h1_textStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Заочное" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/profile_general_och"
-                    style="@style/boldTitleText"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    tools:text="20" />
-
-                <TextView
-                    android:id="@+id/profile_general_och_zao"
-                    style="@style/boldTitleText"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    tools:text="20" />
-
-                <TextView
-                    android:id="@+id/profile_general_zaoch"
-                    style="@style/boldTitleText"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    tools:text="20" />
-
-            </LinearLayout>
+        <LinearLayout
+            android:background="#F4F4F4"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <TextView
                 style="@style/boldTitleText"
                 android:textSize="18sp"
-                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:gravity="center"
-                android:text="Особая квота" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/h1_textStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Очное" />
-
-                <TextView
-                    style="@style/h1_textStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Очно-заочное" />
-
-                <TextView
-                    style="@style/h1_textStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Заочное" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/profile_special_och"
-                    style="@style/boldTitleText"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    tools:text="20" />
-
-                <TextView
-                    android:id="@+id/profile_special_och_zao"
-                    style="@style/boldTitleText"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    tools:text="20" />
-
-                <TextView
-                    android:id="@+id/profile_special_zao"
-                    style="@style/boldTitleText"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    tools:text="20" />
-
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="viewStart"
+                android:text="Общие условия">
+            </TextView>
 
             <TextView
                 style="@style/boldTitleText"
                 android:textSize="18sp"
-                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:gravity="center"
-                android:text="По договорам" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="viewEnd"
+                android:text="Мест">
+            </TextView>
+        </LinearLayout>
 
             <LinearLayout
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="25dp"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <TextView
-                    style="@style/h1_textStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Очное" />
+                    android:orientation="vertical">
 
-                <TextView
-                    style="@style/h1_textStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    <TextView
+                        style="@style/h1_textStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:text="Очное" />
+
+                    <TextView
+                        style="@style/h1_textStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Очно-заочное" />
+
+                    <TextView
+                        style="@style/h1_textStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Заочное" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Очно-заочное" />
+                    android:orientation="vertical">
 
-                <TextView
-                    style="@style/h1_textStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Заочное" />
+                    <TextView
+                        android:id="@+id/profile_general_och"
+                        style="@style/h1_textStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="viewEnd"
+                        tools:text="20" />
 
+                    <TextView
+                        android:id="@+id/profile_general_och_zao"
+                        style="@style/h1_textStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="viewEnd"
+                        tools:text="20" />
 
+                    <TextView
+                        android:id="@+id/profile_general_zaoch"
+                        style="@style/h1_textStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="viewEnd"
+                        tools:text="20" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="match_parent"
+                android:background="#F4F4F4"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/boldTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Особая квота"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    style="@style/boldTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Мест"
+                    android:textAlignment="viewEnd"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/profile_commerc_och"
-                    style="@style/boldTitleText"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    tools:text="20" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/h1_textStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:text="Очное" />
+
+                    <TextView
+                        style="@style/h1_textStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Очно-заочное" />
+
+                    <TextView
+                        style="@style/h1_textStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Заочное" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/profile_special_och"
+                        style="@style/h1_textStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="viewEnd"
+                        tools:text="20" />
+
+                    <TextView
+                        android:id="@+id/profile_special_och_zao"
+                        style="@style/h1_textStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="viewEnd"
+                        tools:text="20" />
+                    <TextView
+                        android:id="@+id/profile_special_zao"
+                        style="@style/h1_textStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="viewEnd"
+                        tools:text="20" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#F4F4F4"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp">
 
                 <TextView
-                    android:id="@+id/profile_commerc_och_zao"
                     style="@style/boldTitleText"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    tools:text="20" />
+                    android:text="По договорам"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp"/>
 
                 <TextView
-                    android:id="@+id/profile_commerc_zao"
                     style="@style/boldTitleText"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    tools:text="20" />
+                    android:text="Мест"
+                    android:textAlignment="viewEnd"
+                    android:textSize="18sp"/>
+            </LinearLayout>
 
+            <LinearLayout
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/h1_textStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Очное" />
+
+                    <TextView
+                        style="@style/h1_textStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Очно-заочное" />
+
+                    <TextView
+                        style="@style/h1_textStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Заочное" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/profile_commerc_och"
+                        style="@style/h1_textStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="viewEnd"
+                        tools:text="20" />
+
+                    <TextView
+                        android:id="@+id/profile_commerc_och_zao"
+                        style="@style/h1_textStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="viewEnd"
+                        tools:text="20" />
+
+                    <TextView
+                        android:id="@+id/profile_commerc_zao"
+                        style="@style/h1_textStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="viewEnd"
+                        tools:text="20" />
+
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

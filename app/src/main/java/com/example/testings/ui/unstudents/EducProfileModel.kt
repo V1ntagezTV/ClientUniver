@@ -1,10 +1,9 @@
 package com.example.testings.ui.unstudents
 
 class EducProfileModel(
-    val Code: String?,
-    val Name: String?,
-    val Faculty: String?,
-    val All: String? )
+    var Code: String?,
+    var Name: String?,
+    var Faculty: String?)
 {
     var SpecialQute: EducType? = null
     var GeneralTerms: EducType? = null
@@ -14,8 +13,8 @@ class EducProfileModel(
 }
 
 class EducType(
-    val Intramural: String,
-    val Absentia: String,
-    val Intra_Absentia: String)
+    var Intramural: String,
+    var Absentia: String,
+    var Intra_Absentia: String)
 
 class ProfileItemModel(var title: String, var link: String)

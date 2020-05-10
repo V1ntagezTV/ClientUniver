@@ -81,6 +81,7 @@ class EducFragment : Fragment() {
                     val title = tableContent.select("li").eq(profInd).text()
                     val link = tableContent
                         .select("li")
+                        .eq(profInd)
                         .select("a")
                         .attr("href")
                     val item = ProfileItemModel(title, link)
