@@ -92,7 +92,18 @@
     <fragment
         android:id="@+id/nav_faculties"
         android:name="com.example.testings.ui.faculties.FacultiesFragment"
-        android:label="@string/menu_faculties"/>
+        android:label="@string/menu_faculties"
+        tools:layout="@layout/fragment_faculties" >
+        <action
+            android:id="@+id/action_nav_faculties_to_nav_faculties_details"
+            app:destination="@id/nav_faculties_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_faculties_details"
+        android:name="com.example.testings.ui.faculties.FacultyDetails.FacultyDetails"
+        android:label="Факультет"
+        tools:layout="@layout/fragment_faculty_details" />
 
     <fragment
         android:id="@+id/nav_shedule_details"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#262626</color> <!-- сама шапка -->
-    <color name="colorPrimaryDark">#1C1C1C</color> <!-- полоска шапки -->
+    <color name="colorPrimary">#3F51B5</color> <!-- сама шапка -->
+    <color name="colorPrimaryDark">#36469C</color> <!-- полоска шапки -->
     <color name="colorAccent">#262626</color>
     <color name="light_gray_color">#F3F3F3</color>
 

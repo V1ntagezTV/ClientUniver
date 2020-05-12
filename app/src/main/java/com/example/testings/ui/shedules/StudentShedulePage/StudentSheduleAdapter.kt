@@ -34,8 +34,8 @@ class StudentSheduleAdapter(var navController: NavController): RecyclerView.Adap
     override fun onBindViewHolder(holder: SheduleHolder, position: Int) {
         val itemData = list[position]
         holder.Name.text = itemData.Name
-        holder.Cours.text = "Курс: " + itemData.Cours.toString()
-        holder.Faculty.text = "Факультет: " + itemData.Faculty
+        holder.Cours.text = itemData.Cours.toString()
+        holder.Faculty.text = itemData.Faculty
         holder.itemView.setOnClickListener { v: View ->
             SheduleModelView.currentId = itemData.Id
             SheduleModelView.currentType = "student"

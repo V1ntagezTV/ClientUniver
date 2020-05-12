@@ -1,8 +1,8 @@
 package com.example.testings.ui.unstudents.ProfileDetails
 
 
+import android.app.Person
 import android.os.Bundle
-import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +10,13 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.testings.R
 import com.example.testings.ui.unstudents.EducProfileModel
+import com.example.testings.ui.unstudents.EducType
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
+import org.w3c.dom.Text
 import java.io.IOException
 
 class ProfileInfoFragment: Fragment() {
@@ -40,8 +43,35 @@ class ProfileInfoFragment: Fragment() {
             val code = htmlcontent.select("div[class=row bs-shortcode-row bs-shortcode-row-2-column]").eq(0).select("div[class=col-xs-9 bs-shortcode-col]").text()
             val fac = htmlcontent.select("div[class=row bs-shortcode-row bs-shortcode-row-2-column]").eq(1).select("div[class=col-xs-9 bs-shortcode-col]").text()
             val name = doc.select("div[class=post-header post-tp-1-header]").text()
+
+            val lessTable = htmlcontent
+                .select("div[class=table-responsive]")[1]
+                .select("table[class=table]")
+                .select("tbody").select("tr")[0]
+                .select("td[data-label=Миним. баллы]").html().split("<br>")
+
+            val placesTable = htmlcontent
+                .select("div[class=table-responsive]")[0]
+                .select("table[class=table]")
+                .select("tbody").select("tr")
+
+            val genOch = placesTable[0].select("td[data-label=бюджетных мест]").text()
+            val genZao = placesTable[1].select("td[data-label=бюджетных мест]").text()
+            val genOchZao = placesTable[2].select("td[data-label=бюджетных мест]").text()
+
+            val specOch = placesTable[0].select("td[data-label=мест по особой квоте]").text()
+            val specZao = placesTable[1].select("td[data-label=мест по особой квоте]").text()
+            val specOchZao = placesTable[2].select("td[data-label=мест по особой квоте]").text()
+
+            val commOch = placesTable[0].select("td[data-label=мест по договорам]").text()
+            val commZao = placesTable[1].select("td[data-label=мест по договорам]").text()
+            val commOchZao = placesTable[2].select("td[data-label=мест по договорам]").text()
             GlobalScope.launch(Dispatchers.Main) {
                 profile = EducProfileModel(code, name, fac)
+                profile?.Lessons = lessTable
+                profile?.GeneralTerms = EducType(genOch, genZao, genOchZao)
+                profile?.Commercial = EducType(commOch, commZao, commOchZao)
+                profile?.SpecialQute = EducType(specOch, specZao, specOchZao)
                 setPageInfo(view)
             }
         } catch (ex: IOException) {
@@ -50,13 +80,34 @@ class ProfileInfoFragment: Fragment() {
     }
 
     private fun setPageInfo(view: View) {
-        view.findViewById<TextView>(R.id.profile_title).text = profile?.Name
-        view.findViewById<TextView>(R.id.profile_code).text = profile?.Code
-        view.findViewById<TextView>(R.id.profile_fac).text =  profile?.Faculty
+        val lessonsViewList: ArrayList<TextView> = arrayListOf(
+            view.findViewById(R.id.unstud_prof_first),
+            view.findViewById(R.id.unstud_prof_second),
+            view.findViewById(R.id.unstud_prof_third)
+        )
+        val scoreViewList: ArrayList<TextView> = arrayListOf(
+            view.findViewById(R.id.unstud_prof_first_count),
+            view.findViewById(R.id.unstud_prof_second_count),
+            view.findViewById(R.id.unstud_prof_third_count)
+        )
+        for (ind in 0 until profile?.Lessons!!.size) {
+            if (profile?.Lessons!![ind].trim().isNotEmpty()) {
+                val less = profile?.Lessons!![ind].trim().split('-')
+                lessonsViewList[ind].text = less[0].trim()
+                scoreViewList[ind].text = less[1].trim()
+            }
+        }
 
-/*      view.findViewById<TextView>(R.id.profile_general_och).text = profile?.GeneralTerms?.Intramural
+        view.findViewById<TextView>(R.id.unstud_prof_code).text = profile?.Code
+        view.findViewById<TextView>(R.id.unstud_prof_faculty).text =  profile?.Faculty
+        view.findViewById<TextView>(R.id.unstud_prof_all).text =
+            (profile?.Commercial!!.getAll()
+            + profile?.GeneralTerms!!.getAll()
+            + profile?.SpecialQute!!.getAll()).toString()
+
+        view.findViewById<TextView>(R.id.profile_general_och).text = profile?.GeneralTerms?.Intramural
         view.findViewById<TextView>(R.id.profile_general_och_zao).text = profile?.GeneralTerms?.Intra_Absentia
-        view.findViewById<TextView>(R.id.profile_general_zaoch).text = profile?.GeneralTerms?.Absentia
+        view.findViewById<TextView>(R.id.profile_general_zao).text = profile?.GeneralTerms?.Absentia
 
         view.findViewById<TextView>(R.id.profile_special_och).text = profile?.SpecialQute?.Intramural
         view.findViewById<TextView>(R.id.profile_special_och_zao).text = profile?.SpecialQute?.Intra_Absentia
@@ -64,6 +115,6 @@ class ProfileInfoFragment: Fragment() {
 
         view.findViewById<TextView>(R.id.profile_commerc_och).text = profile?.Commercial?.Intramural
         view.findViewById<TextView>(R.id.profile_commerc_och_zao).text = profile?.Commercial?.Intra_Absentia
-        view.findViewById<TextView>(R.id.profile_commerc_zao).text = profile?.Commercial?.Absentia*/
+        view.findViewById<TextView>(R.id.profile_commerc_zao).text = profile?.Commercial?.Absentia
     }
 }

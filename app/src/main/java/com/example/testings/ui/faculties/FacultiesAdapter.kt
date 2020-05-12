@@ -1,19 +1,16 @@
 package com.example.testings.ui.faculties
 
-import android.content.Intent
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testings.R
-import com.example.testings.ui.faculties.FacultyDetails.FacultyDetails
 import com.example.testings.ui.faculties.FacultyDetails.FacultyDetailsModel
 
-class FacultiesAdapter(): RecyclerView.Adapter<FacultiesAdapter.FacultyHolder>(){
+class FacultiesAdapter(val navController: NavController): RecyclerView.Adapter<FacultiesAdapter.FacultyHolder>(){
 
     var list: ArrayList<FacultyModel> = ArrayList()
 
@@ -39,8 +36,7 @@ class FacultiesAdapter(): RecyclerView.Adapter<FacultiesAdapter.FacultyHolder>()
         holder.Image.setImageResource(data.Imageid)
         holder.itemView.setOnClickListener {
             FacultyDetailsModel.currentModel = data
-            val intent = Intent(it.context, FacultyDetails::class.java)
-            startActivity(it.context, intent, Bundle())
+            navController.navigate(R.id.nav_faculties_details)
         }
     }
 

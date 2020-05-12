@@ -80,10 +80,14 @@
 
             <TextView
                 android:id="@+id/shedule_det_day"
+                android:background="@drawable/background_info_text"
+                android:paddingVertical="5dp"
+                android:paddingHorizontal="10dp"
+                android:textColor="@android:color/white"
                 style="@style/boldTitleText"
                 android:textSize="16sp"
                 android:gravity="center"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Понедельник"
                 android:layout_marginBottom="5dp" />
@@ -118,13 +122,14 @@
                 android:id="@+id/shedule_det_panda"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
-                android:visibility="visible"
+                android:contentDescription="@string/ContentDesImage"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="@+id/shedule_det_recyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/shedule_det_recyclerView"
-                app:srcCompat="@drawable/sleeping_panda"
-                android:contentDescription="@string/ContentDesImage" />
+                app:layout_constraintVertical_bias="0.499"
+                app:srcCompat="@drawable/sleeping_panda" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

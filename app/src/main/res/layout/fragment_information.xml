@@ -18,8 +18,8 @@
         android:id="@+id/view2"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginHorizontal="17dp"
-        android:background="#505050"
+        android:layout_marginHorizontal="18dp"
+        android:background="@android:color/white"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="20dp" />
 

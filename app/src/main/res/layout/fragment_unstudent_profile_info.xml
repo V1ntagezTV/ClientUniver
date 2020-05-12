@@ -1,413 +1,604 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@android:color/white"
+    android:background="@color/light_gray_color"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/profile_title"
-                style="@style/boldTitleText"
-                android:textSize="18sp"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="10dp"
-                tools:text="Педагогическое образование профиль Химия" />
+                android:layout_marginHorizontal="10dp"
+                android:visibility="visible"
+                android:layout_marginVertical="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="1dp">
 
-            <TextView
-                style="@style/boldTitleText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#F4F4F4"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="10dp"
-                android:layout_marginTop="8dp"
-                android:text="Код"
-                android:textAlignment="viewStart"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/profile_code"
-                style="@style/h1_textStyle"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:text="44.44.44" />
-
-            <TextView
-                android:background="#F4F4F4"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="10dp"
-                style="@style/boldTitleText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="top"
-                android:text="Факультет"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/profile_fac"
-                style="@style/h1_textStyle"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:text="Естественно - математический" />
-
-            <LinearLayout
-                android:background="#F4F4F4"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="10dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/boldTitleText"
-                    android:textSize="18sp"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:paddingTop="10dp"
+                    android:paddingBottom="25dp"
+                    android:paddingHorizontal="15dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAlignment="viewStart"
-                    android:text="Предмет">
-                </TextView>
-
-                <TextView
-                    style="@style/boldTitleText"
-                    android:textSize="18sp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAlignment="viewEnd"
-                    android:text="Балл">
-                </TextView>
-
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/h1_textStyle"
-                    android:id="@+id/profile_lessons"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Математика\nМатематика\nМатематика">
-                </TextView>
-
-                <TextView
-                    style="@style/h1_textStyle"
-                    android:id="@+id/profile_scores"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAlignment="viewEnd"
-                    android:text="40\n40\n40">
-                </TextView>
-
-            </LinearLayout>
-
-        <LinearLayout
-            android:background="#F4F4F4"
-            android:paddingHorizontal="15dp"
-            android:paddingVertical="10dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                style="@style/boldTitleText"
-                android:textSize="18sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textAlignment="viewStart"
-                android:text="Общие условия">
-            </TextView>
-
-            <TextView
-                style="@style/boldTitleText"
-                android:textSize="18sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textAlignment="viewEnd"
-                android:text="Мест">
-            </TextView>
-        </LinearLayout>
-
-            <LinearLayout
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
                     <TextView
-                        style="@style/h1_textStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-
-                        android:text="Очное" />
+                        android:id="@+id/textView2"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
+                        android:background="#4e71ef"
+                        android:text="Предметы"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintEnd_toStartOf="@+id/textView4"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        style="@style/h1_textStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Очно-заочное" />
+                        android:id="@+id/unstud_prof_first"
+                        style="@style/GrayBgText"
+                        tools:text="Математика"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="#efefef"
+                        app:layout_constraintEnd_toStartOf="@+id/unstud_prof_first_count"
+                        app:layout_constraintHorizontal_bias="0.9"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
                     <TextView
+                        android:id="@+id/textView4"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
+                        android:background="#4e71ef"
+                        android:text="Баллы"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/unstud_prof_first_count"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="#efefef"
+                        tools:text="20"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+                    <TextView
+                        android:id="@+id/unstud_prof_second"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        tools:text="Математика"
+                        app:layout_constraintEnd_toStartOf="@+id/unstud_prof_second_count"
+                        app:layout_constraintHorizontal_bias="0.9"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/unstud_prof_first" />
+
+                    <TextView
+                        android:id="@+id/unstud_prof_second_count"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        tools:text="20"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/unstud_prof_first_count" />
+
+                    <TextView
+                        android:id="@+id/unstud_prof_third"
+                        style="@style/GrayBgText"
+                        tools:text="Математика"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="#efefef"
+                        app:layout_constraintEnd_toStartOf="@+id/unstud_prof_second_count"
+                        app:layout_constraintHorizontal_bias="0.9"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/unstud_prof_second" />
+
+                    <TextView
+                        android:id="@+id/unstud_prof_third_count"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="#efefef"
+                        tools:text="20"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/unstud_prof_second_count" />
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_tick"
+                        android:contentDescription="@string/ContentDesImage" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/textView"
+                        style="@style/boldTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="26dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_vertical"
+                        android:text="Требования"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageView4"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="1dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:paddingTop="10dp"
+                    android:paddingBottom="25dp"
+                    android:paddingHorizontal="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="12dp"
+                        android:contentDescription="@string/ContentDesImage"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_information_i" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/boldTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="26dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_vertical"
+                        android:text="Информация"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageView5"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView11"
                         style="@style/h1_textStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Заочное" />
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
+                        android:text="Код"
+                        app:layout_constraintEnd_toStartOf="@+id/unstud_prof_code"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                </LinearLayout>
+                    <TextView
+                        android:id="@+id/unstud_prof_code"
+                        style="@style/h1_textStyle"
+                        android:layout_width="180dp"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="56dp"
+                        android:background="@drawable/background_info_text"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="5dp"
+                        tools:text="44.44.44"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/textView12"
+                        style="@style/h1_textStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:text="Всего мест"
+                        app:layout_constraintEnd_toStartOf="@+id/unstud_prof_all"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+                    <TextView
+                        android:id="@+id/unstud_prof_all"
+                        style="@style/h1_textStyle"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/background_info_text"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="5dp"
+                        tools:text="44"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/unstud_prof_code" />
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        style="@style/h1_textStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:text="Факультет"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+                    <TextView
+                        android:id="@+id/unstud_prof_faculty"
+                        style="@style/h1_textStyle"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/background_info_text"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="5dp"
+                        tools:text="Технологический"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/textView13"
+                        app:layout_constraintTop_toBottomOf="@+id/unstud_prof_all" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="1dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:paddingTop="10dp"
+                    android:paddingBottom="25dp"
+                    android:paddingHorizontal="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Очно-заочное"
+                        app:layout_constraintEnd_toStartOf="@+id/profile_general_och_zao"
+                        app:layout_constraintHorizontal_bias="0.9"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+                    <TextView
+                        android:id="@+id/textView28"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Очно-заочное"
+                        app:layout_constraintEnd_toStartOf="@+id/profile_special_och_zao"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+                    <TextView
+                        android:id="@+id/textView35"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Очно-заочное"
+                        app:layout_constraintEnd_toStartOf="@+id/profile_commerc_och_zao"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView34" />
 
                     <TextView
                         android:id="@+id/profile_general_och"
-                        style="@style/h1_textStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textAlignment="viewEnd"
-                        tools:text="20" />
-
-                    <TextView
-                        android:id="@+id/profile_general_och_zao"
-                        style="@style/h1_textStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textAlignment="viewEnd"
-                        tools:text="20" />
-
-                    <TextView
-                        android:id="@+id/profile_general_zaoch"
-                        style="@style/h1_textStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textAlignment="viewEnd"
-                        tools:text="20" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#F4F4F4"
-                android:orientation="horizontal"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="10dp">
-
-                <TextView
-                    style="@style/boldTitleText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Особая квота"
-                    android:textAlignment="viewStart"
-                    android:textSize="18sp"/>
-
-                <TextView
-                    style="@style/boldTitleText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Мест"
-                    android:textAlignment="viewEnd"
-                    android:textSize="18sp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/h1_textStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-
-                        android:text="Очное" />
-
-                    <TextView
-                        style="@style/h1_textStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Очно-заочное" />
-
-                    <TextView
-                        style="@style/h1_textStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Заочное" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="#efefef"
+                        tools:text="0"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
                     <TextView
                         android:id="@+id/profile_special_och"
-                        style="@style/h1_textStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textAlignment="viewEnd"
-                        tools:text="20" />
-
-                    <TextView
-                        android:id="@+id/profile_special_och_zao"
-                        style="@style/h1_textStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textAlignment="viewEnd"
-                        tools:text="20" />
-                    <TextView
-                        android:id="@+id/profile_special_zao"
-                        style="@style/h1_textStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textAlignment="viewEnd"
-                        tools:text="20" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#F4F4F4"
-                android:orientation="horizontal"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="10dp">
-
-                <TextView
-                    style="@style/boldTitleText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="По договорам"
-                    android:textAlignment="viewStart"
-                    android:textSize="18sp"/>
-
-                <TextView
-                    style="@style/boldTitleText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Мест"
-                    android:textAlignment="viewEnd"
-                    android:textSize="18sp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/h1_textStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Очное" />
-
-                    <TextView
-                        style="@style/h1_textStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Очно-заочное" />
-
-                    <TextView
-                        style="@style/h1_textStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Заочное" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="#efefef"
+                        android:text="0"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
                     <TextView
                         android:id="@+id/profile_commerc_och"
-                        style="@style/h1_textStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textAlignment="viewEnd"
-                        tools:text="20" />
-
-                    <TextView
-                        android:id="@+id/profile_commerc_och_zao"
-                        style="@style/h1_textStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textAlignment="viewEnd"
-                        tools:text="20" />
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="#efefef"
+                        android:text="0"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
                     <TextView
                         android:id="@+id/profile_commerc_zao"
-                        style="@style/h1_textStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textAlignment="viewEnd"
-                        tools:text="20" />
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="#efefef"
+                        android:text="0"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_commerc_och_zao" />
 
-                </LinearLayout>
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/profile_special_zao"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="#efefef"
+                        android:text="0"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_special_och_zao" />
+
+                    <TextView
+                        android:id="@+id/profile_general_zao"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="#efefef"
+                        android:text="0"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_general_och_zao" />
+
+                    <TextView
+                        android:id="@+id/profile_general_och_zao"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_general_och" />
+
+                    <TextView
+                        android:id="@+id/profile_special_och_zao"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="0"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_special_och" />
+
+                    <TextView
+                        android:id="@+id/profile_commerc_och_zao"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="0"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_commerc_och" />
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
+                        android:background="@color/colorPrimary"
+                        android:textColor="@android:color/white"
+                        android:text="Мест"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
+                        android:background="@color/colorPrimary"
+                        android:text="Общие условия"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintEnd_toStartOf="@+id/textView17"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView18"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Очное"
+                        android:background="#efefef"
+                        app:layout_constraintEnd_toStartOf="@+id/profile_general_och"
+                        app:layout_constraintHorizontal_bias="0.071"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                    <TextView
+                        android:id="@+id/textView26"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="#efefef"
+                        android:text="Очное"
+                        app:layout_constraintEnd_toStartOf="@+id/profile_special_och"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+                    <TextView
+                        android:id="@+id/textView34"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="#efefef"
+                        android:text="Очное"
+                        app:layout_constraintEnd_toStartOf="@+id/profile_commerc_och"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView32" />
+
+                    <TextView
+                        android:id="@+id/textView30"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="#efefef"
+                        android:text="Заочное"
+                        app:layout_constraintEnd_toStartOf="@+id/profile_special_zao"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+                    <TextView
+                        android:id="@+id/textView36"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="#efefef"
+                        android:text="Заочное"
+                        app:layout_constraintEnd_toStartOf="@+id/profile_commerc_zao"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
+                    <TextView
+                        android:id="@+id/textView22"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="#efefef"
+                        android:text="Заочное"
+                        app:layout_constraintEnd_toStartOf="@+id/profile_general_zao"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+                    <TextView
+                        android:id="@+id/textView24"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/colorPrimary"
+                        android:text="Особая квота"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintEnd_toStartOf="@+id/textView25"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+                    <TextView
+                        android:id="@+id/textView32"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="7dp"
+                        android:text="По договорам"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toStartOf="@+id/textView33"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+                    <TextView
+                        android:id="@+id/textView25"
+                        style="@style/GrayBgText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/colorPrimary"
+                        android:text="Мест"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_general_zao" />
+
+                    <TextView
+                        android:id="@+id/textView33"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="7dp"
+                        android:text="Мест"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_special_zao" />
+
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="12dp"
+                        android:contentDescription="@string/ContentDesImage"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_information_i" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/boldTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="26dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_vertical"
+                        android:text="Количество мест"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageView10"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
         </LinearLayout>
-    </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
