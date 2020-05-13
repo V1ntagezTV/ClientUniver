@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:focusable="false"
-    android:focusableInTouchMode="false"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:background="@color/light_gray_color">
 
     <ProgressBar
@@ -35,8 +36,9 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="50dp"
         android:fitsSystemWindows="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
+        android:descendantFocusability="beforeDescendants"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         app:layout_constraintBottom_toTopOf="@+id/newsDet_reqPanel"
         app:layout_constraintTop_toTopOf="parent">
 

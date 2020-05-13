@@ -25,8 +25,6 @@
     <!--style for splash screen-->
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_screen_background</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:colorPrimary">@android:color/white</item>
         <item name="colorPrimary">@android:color/white</item>
@@ -62,6 +60,14 @@
     <style name="TextAppearance.ActionBarTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="TextAppearance.WebViewBarTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextAppearance.WebViewBarSubtitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="footer_textStyle">
@@ -101,7 +107,7 @@
     <style name="boldTitleText" parent="h1_textStyle">
         <item name="android:textSize">19sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">#293475</item>
+        <item name="android:textColor">#2E3B83</item>
     </style>
 
     <style name="TextAppearance.TabTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
@@ -109,7 +115,7 @@
         <item name="android:textSize">20sp</item>
     </style>
 
-    <style name="GrayBgText">
+    <style name="TableText">
         <item name="android:gravity">center_vertical</item>
         <item name="android:paddingStart">10dp</item>
         <item name="android:paddingEnd">10dp</item>

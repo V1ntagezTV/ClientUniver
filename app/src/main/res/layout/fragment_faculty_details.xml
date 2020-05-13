@@ -31,7 +31,7 @@
                 tools:text="Естественно-математический факультет" />
 
             <TextView
-                style="@style/GrayBgText"
+                style="@style/TableText"
                 android:background="@drawable/background_info_text"
                 android:textColor="@android:color/white"
                 android:textSize="14sp"

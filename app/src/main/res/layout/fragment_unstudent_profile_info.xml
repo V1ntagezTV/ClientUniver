@@ -34,7 +34,7 @@
 
                     <TextView
                         android:id="@+id/textView2"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="60dp"
@@ -48,7 +48,7 @@
 
                     <TextView
                         android:id="@+id/unstud_prof_first"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         tools:text="Математика"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
 
                     <TextView
                         android:id="@+id/textView4"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="60dp"
@@ -72,7 +72,7 @@
 
                     <TextView
                         android:id="@+id/unstud_prof_first_count"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="#efefef"
@@ -82,7 +82,7 @@
 
                     <TextView
                         android:id="@+id/unstud_prof_second"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         tools:text="Математика"
@@ -93,7 +93,7 @@
 
                     <TextView
                         android:id="@+id/unstud_prof_second_count"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         tools:text="20"
@@ -102,7 +102,7 @@
 
                     <TextView
                         android:id="@+id/unstud_prof_third"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         tools:text="Математика"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
 
                     <TextView
                         android:id="@+id/unstud_prof_third_count"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="#efefef"
@@ -295,7 +295,7 @@
 
                     <TextView
                         android:id="@+id/textView20"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="Очно-заочное"
@@ -306,7 +306,7 @@
 
                     <TextView
                         android:id="@+id/textView28"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="Очно-заочное"
@@ -317,7 +317,7 @@
 
                     <TextView
                         android:id="@+id/textView35"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="Очно-заочное"
@@ -328,7 +328,7 @@
 
                     <TextView
                         android:id="@+id/profile_general_och"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="#efefef"
@@ -338,7 +338,7 @@
 
                     <TextView
                         android:id="@+id/profile_special_och"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="#efefef"
@@ -348,7 +348,7 @@
 
                     <TextView
                         android:id="@+id/profile_commerc_och"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="#efefef"
@@ -358,7 +358,7 @@
 
                     <TextView
                         android:id="@+id/profile_commerc_zao"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="#efefef"
@@ -368,7 +368,7 @@
 
                     <TextView
                         android:id="@+id/profile_special_zao"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="#efefef"
@@ -378,7 +378,7 @@
 
                     <TextView
                         android:id="@+id/profile_general_zao"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="#efefef"
@@ -388,7 +388,7 @@
 
                     <TextView
                         android:id="@+id/profile_general_och_zao"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="0"
@@ -397,7 +397,7 @@
 
                     <TextView
                         android:id="@+id/profile_special_och_zao"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
@@ -407,7 +407,7 @@
 
                     <TextView
                         android:id="@+id/profile_commerc_och_zao"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
@@ -417,7 +417,7 @@
 
                     <TextView
                         android:id="@+id/textView17"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="60dp"
@@ -429,7 +429,7 @@
 
                     <TextView
                         android:id="@+id/textView3"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="60dp"
@@ -443,7 +443,7 @@
 
                     <TextView
                         android:id="@+id/textView18"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="Очное"
@@ -455,7 +455,7 @@
 
                     <TextView
                         android:id="@+id/textView26"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="#efefef"
@@ -467,7 +467,7 @@
 
                     <TextView
                         android:id="@+id/textView34"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="#efefef"
@@ -479,7 +479,7 @@
 
                     <TextView
                         android:id="@+id/textView30"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="#efefef"
@@ -491,7 +491,7 @@
 
                     <TextView
                         android:id="@+id/textView36"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="#efefef"
@@ -503,7 +503,7 @@
 
                     <TextView
                         android:id="@+id/textView22"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="#efefef"
@@ -515,7 +515,7 @@
 
                     <TextView
                         android:id="@+id/textView24"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -546,7 +546,7 @@
 
                     <TextView
                         android:id="@+id/textView25"
-                        style="@style/GrayBgText"
+                        style="@style/TableText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -580,13 +580,13 @@
                         android:contentDescription="@string/ContentDesImage"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_information_i" />
+                        app:srcCompat="@drawable/ic_person_add" />
 
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/boldTitleText"
                         android:layout_width="wrap_content"
                         android:layout_height="26dp"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginStart="15dp"
                         android:layout_marginTop="12dp"
                         android:gravity="center_vertical"
                         android:text="Количество мест"
