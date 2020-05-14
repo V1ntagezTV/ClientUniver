@@ -1,10 +1,16 @@
 package com.example.testings.webview
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.KeyEvent
+import android.view.Menu
+import android.view.MenuItem
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.testings.R
 
@@ -55,5 +61,36 @@ class WebViewActivity: AppCompatActivity() {
         }
         return super.onKeyDown(keyCode, event);
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.webview_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.wbaction_openInBrowser -> {
+                openNewTabWindow(webView.url)
+            }
+            R.id.wbaction_request -> {
+                val intent = Intent(Intent.ACTION_SEND)
+                intent.type = "text/plain"
+                intent.putExtra(Intent.EXTRA_TEXT, webView.url)
+                try {
+                    startActivity(Intent.createChooser(intent, "Поделиться ссылкой"))
+                } catch (ex: ActivityNotFoundException) {
+                    Toast.makeText(applicationContext, "Ошибка отправки", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun openNewTabWindow(urls: String) {
+        val uris = Uri.parse(urls)
+        val intents = Intent(Intent.ACTION_VIEW, uris)
+        startActivity(intents)
     }
 }

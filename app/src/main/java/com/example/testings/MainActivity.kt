@@ -1,5 +1,6 @@
 package com.example.testings
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.navigation.findNavController
@@ -14,12 +15,14 @@ import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import androidx.core.view.GravityCompat
+import androidx.navigation.NavController
 import com.example.testings.webview.WebViewActivity
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         this.drawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
-        val navController = findNavController(R.id.nav_host_fragment)
+        navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
@@ -55,25 +58,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        fun openNewTabWindow(urls: String) {
-            val intent = Intent(this, WebViewActivity::class.java)
+        fun openWebViewActivity(urls: String, context: Context) {
+            val intent = Intent(context, WebViewActivity::class.java)
             intent.putExtra("link", urls)
             startActivity(intent, Bundle())
         }
         when (item.itemId){
             R.id.action_site -> {
-                openNewTabWindow("http://sibsu.ru/")
+                openWebViewActivity("http://sibsu.ru/", this.baseContext)
             }
             R.id.action_group_vk -> {
-                openNewTabWindow("https://vk.com/sibsu_ru")
+                openWebViewActivity("https://vk.com/sibsu_ru", this.baseContext)
             }
             R.id.action_user_cab -> {
-                openNewTabWindow("https://cabinet.sibsu.ru/")
+                openWebViewActivity("https://cabinet.sibsu.ru/", this.baseContext)
             }
         }
         return super.onOptionsItemSelected(item)
-
-
     }
 
     override fun onSupportNavigateUp(): Boolean {
