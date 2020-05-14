@@ -1,5 +1,6 @@
 package com.example.testings.ui.about
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -10,6 +11,7 @@ import android.widget.ImageView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.example.testings.R
+import com.example.testings.webview.WebViewActivity
 
 
 class AboutFragment: Fragment(){
@@ -21,18 +23,24 @@ class AboutFragment: Fragment(){
         val facebook_image = root.findViewById<ImageView>(R.id.about_facebook)
         val twitter_image = root.findViewById<ImageView>(R.id.about_twitter)
         val website = root.findViewById<CardView>(R.id.about_website)
+        val callnumber = root.findViewById<CardView>(R.id.about_callnumber)
 
-        website.setOnClickListener { openNewTabWindow("http://sibsu.ru/") }
-        vk_image.setOnClickListener { openNewTabWindow("https://vk.com/sibsu_ru")}
-        instagram_image.setOnClickListener { openNewTabWindow("https://www.instagram.com/sibashgu/") }
-        facebook_image.setOnClickListener { openNewTabWindow("https://www.facebook.com/SiBashGU/") }
-        twitter_image.setOnClickListener { openNewTabWindow("https://twitter.com/bsusibay") }
+        callnumber.setOnClickListener {
+            val phone = "8 347 755 15 70"
+            val intent = Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null))
+            startActivity(intent)
+        }
+        website.setOnClickListener { openWebViewActivity("http://sibsu.ru/", context) }
+        vk_image.setOnClickListener { openWebViewActivity("https://vk.com/sibsu_ru", context)}
+        instagram_image.setOnClickListener { openWebViewActivity("https://www.instagram.com/sibashgu/", context) }
+        facebook_image.setOnClickListener { openWebViewActivity("https://www.facebook.com/SiBashGU/", context) }
+        twitter_image.setOnClickListener { openWebViewActivity("https://twitter.com/bsusibay", context) }
         return root
     }
 
-    fun openNewTabWindow(urls: String) {
-        val uris = Uri.parse(urls)
-        val intents = Intent(Intent.ACTION_VIEW, uris)
-        view?.context?.startActivity(intents)
+    private fun openWebViewActivity(urls: String, context: Context?) {
+        val intent = Intent(context, WebViewActivity::class.java)
+        intent.putExtra("link", urls)
+        startActivity(intent, Bundle())
     }
 }
