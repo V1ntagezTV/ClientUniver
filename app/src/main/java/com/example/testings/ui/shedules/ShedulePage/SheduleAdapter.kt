@@ -38,8 +38,8 @@ class SheduleAdapter: RecyclerView.Adapter<SheduleAdapter.SheduleHolder>() {
         holder.title.text = data.title
         holder.end.text = data.end
         holder.start.text = data.start
-        holder.weeks.text = data.weeks
-        holder.num.text = (position + 1).toString()
+        holder.weeks.text = "Недели: " + data.weeks
+        holder.num.text = (position + 1).toString() + " пара"
         if (SheduleModelView.currentType == "teacher"){
             info ="" + data.cours + " "+ data.profile
         }

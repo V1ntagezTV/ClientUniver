@@ -15,25 +15,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/shedule_it_num"
-            style="@style/boldTitleText"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="40dp"
-            android:textColor="#EFEFEF"
-            android:textSize="35sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="1" />
+
 
         <LinearLayout
             android:id="@+id/linearLayout5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:gravity="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/shedule_it_num"
+                style="@style/boldTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#BABABA"
+                android:textSize="12sp"
+                tools:text="1 пара" />
 
             <TextView
                 android:id="@+id/shedule_it_start"
@@ -47,7 +47,8 @@
                 style="@style/boldTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#656565"
+                android:textColor="#818181"
+                android:textSize="16sp"
                 tools:text="9:50" />
 
         </LinearLayout>
@@ -63,6 +64,15 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/shedule_it_weeks"
+                style="@style/boldTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#BABABA"
+                android:textSize="12sp"
+                tools:text="Недели: 1-2" />
+
+            <TextView
                 android:id="@+id/shedule_it_title"
                 style="@style/boldTitleText"
                 android:layout_width="wrap_content"
@@ -71,11 +81,13 @@
 
             <TextView
                 android:id="@+id/shedule_it_teacher"
+                style="@style/boldTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Кунафин Инсур Айдарович"
-                android:textColor="@color/font_FooterText"
-                android:textSize="16sp" />
+                android:textColor="#818181"
+                android:textSize="16sp"
+                tools:text="Кунафин Инсур Айдарович"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -88,18 +100,19 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                style="@style/boldTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#BABABA"
+                android:textSize="12sp"
+                android:text="каб." />
+
+            <TextView
                 android:id="@+id/shedule_it_cab"
                 style="@style/boldTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="201" />
-
-            <TextView
-                android:id="@+id/shedule_it_weeks"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="viewEnd"
-                tools:text="7" />
 
         </LinearLayout>
 
