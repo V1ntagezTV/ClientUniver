@@ -28,26 +28,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Кунафин Инсур" />
-
-        <TextView
-            android:id="@+id/teacher_MiddleName"
-            style="@style/boldTitleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/teacher_FirstSec_Name"
-            tools:text="Айдарович" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_circles_vertical" />
+            tools:text="Кунафин Инсур Айдарович" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

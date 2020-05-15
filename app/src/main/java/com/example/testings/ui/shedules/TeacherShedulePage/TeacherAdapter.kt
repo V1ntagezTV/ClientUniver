@@ -15,7 +15,6 @@ class TeacherAdapter(var navController: NavController): RecyclerView.Adapter<Tea
 
     class TeacherHolder(view: View): RecyclerView.ViewHolder(view) {
         val FSName = view.findViewById<TextView>(R.id.teacher_FirstSec_Name)
-        val MiddleName = view.findViewById<TextView>(R.id.teacher_MiddleName)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeacherHolder {
@@ -30,8 +29,7 @@ class TeacherAdapter(var navController: NavController): RecyclerView.Adapter<Tea
 
     override fun onBindViewHolder(holder: TeacherHolder, position: Int) {
         val itemData = list[position]
-        holder.FSName.text = itemData.LastName + " " +  itemData.FirstName
-        holder.MiddleName.text = itemData.MiddleName
+        holder.FSName.text = itemData.LastName + " " +  itemData.FirstName + " " +  itemData.MiddleName
 
         holder.itemView.setOnClickListener { v: View ->
             SheduleModelView.currentId = itemData.Id
