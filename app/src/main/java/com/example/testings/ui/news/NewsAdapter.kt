@@ -76,13 +76,13 @@ class NewsAdapter(var navController: NavController): RecyclerView.Adapter<NewsAd
         }
     }
 
-    fun Set(arrayList: ArrayList<NewsModel>){
+    fun setList(arrayList: ArrayList<NewsModel>){
         list.clear()
         list.addAll(arrayList)
         notifyDataSetChanged()
     }
 
-    fun CleanList(){
+    fun cleanList(){
         list.clear()
         notifyItemRangeRemoved(0, this.itemCount)
     }

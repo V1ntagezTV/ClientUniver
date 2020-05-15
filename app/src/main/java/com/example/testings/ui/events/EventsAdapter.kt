@@ -54,13 +54,13 @@ class EventsAdapter(val navController: NavController): RecyclerView.Adapter<Even
         }
     }
 
-    fun Set(arrayList: ArrayList<EventModel>){
+    fun addList(arrayList: ArrayList<EventModel>){
         list.clear()
         list.addAll(arrayList)
         notifyDataSetChanged()
     }
 
-    fun CleanList(){
+    fun cleanList(){
         list.clear()
         notifyItemRangeRemoved(0, this.itemCount)
     }

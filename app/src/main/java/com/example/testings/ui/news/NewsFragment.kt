@@ -43,6 +43,8 @@ class NewsFragment : Fragment()
         progressBar = root.findViewById(R.id.news_progressBar)
         initAllListeners()
         if (adapter.itemCount == 0) {
+            progressBar.visibility = View.VISIBLE
+            retry.visibility = View.INVISIBLE
             setData(pageNumber++)
         }
         return root
@@ -50,15 +52,14 @@ class NewsFragment : Fragment()
 
     private fun initAllListeners(){
         refreshLayout.setOnRefreshListener {
-            adapter.CleanList()
+            adapter.cleanList()
             list.clear()
             newsRecyclerView.removeAllViews()
-            adapter.notifyDataSetChanged()
             pageNumber = 1
             setData(pageNumber++)
         }
         retry.setOnClickListener{
-            adapter.CleanList()
+            adapter.cleanList()
             list.clear()
             adapter.notifyDataSetChanged()
             pageNumber = 1
@@ -71,7 +72,6 @@ class NewsFragment : Fragment()
     private fun initRecyclerView(view: View){
         newsRecyclerView = view.findViewById(R.id.news_recyclerView)
         newsRecyclerView.setItemViewCacheSize(20) //временное решение cache uses for 20 newsview
-
         newsRecyclerView.adapter = adapter
         newsRecyclerView.itemAnimator = DefaultItemAnimator()
         newsRecyclerView.layoutManager = LinearLayoutManager(context)
@@ -79,8 +79,6 @@ class NewsFragment : Fragment()
     }
 
     private fun setData(pageNum: Int) {
-        progressBar.visibility = View.VISIBLE
-        retry.visibility = View.INVISIBLE
         GlobalScope.launch {
             try {
                 val doc: Document = Jsoup.connect("http://sibsu.ru/category/novosti/page/${pageNum}").get()
@@ -122,7 +120,7 @@ class NewsFragment : Fragment()
                 GlobalScope.launch(Dispatchers.Main) {
                     progressBar.visibility = View.INVISIBLE
                     retry.visibility = View.INVISIBLE
-                    adapter.Set(list)
+                    adapter.setList(list)
                     if (refreshLayout.isRefreshing) {
                         refreshLayout.isRefreshing = false
                     }

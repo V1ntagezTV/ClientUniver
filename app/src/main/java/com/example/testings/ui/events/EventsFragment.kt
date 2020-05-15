@@ -43,6 +43,8 @@ class EventsFragment: Fragment(){
         eventRefreshLayout = root.findViewById(R.id.event_swipe_refresh)
         initAllListeners()
         if (adapter.itemCount == 0 ) {
+            progressBar.visibility = View.VISIBLE
+            retryButton.visibility = View.INVISIBLE
             setData(pageNumber++)
         }
         return root
@@ -50,16 +52,15 @@ class EventsFragment: Fragment(){
 
     private fun initAllListeners(){
         eventRefreshLayout.setOnRefreshListener {
-            adapter.CleanList()
+            adapter.cleanList()
             list.clear()
             adapter.notifyDataSetChanged()
             pageNumber = 1
             setData(pageNumber++)
         }
         retryButton.setOnClickListener{
-            adapter.CleanList()
+            adapter.cleanList()
             list.clear()
-            eventRecyclerView.removeAllViews()
             adapter.notifyDataSetChanged()
             pageNumber = 1
             progressBar.visibility = View.VISIBLE
@@ -78,8 +79,6 @@ class EventsFragment: Fragment(){
     }
 
     private fun setData(pageNum: Int) {
-        progressBar.visibility = View.VISIBLE
-        retryButton.visibility = View.INVISIBLE
         GlobalScope.launch {
             try {
                 val doc = Jsoup
@@ -121,7 +120,7 @@ class EventsFragment: Fragment(){
                 GlobalScope.launch(Dispatchers.Main) {
                     progressBar.visibility = View.INVISIBLE
                     retryButton.visibility = View.INVISIBLE
-                    adapter.Set(list)
+                    adapter.addList(list)
                     if (eventRefreshLayout.isRefreshing){
                         eventRefreshLayout.isRefreshing = false
                     }
