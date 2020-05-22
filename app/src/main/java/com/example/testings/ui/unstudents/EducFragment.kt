@@ -52,6 +52,7 @@ class EducFragment : Fragment() {
         recycler = view.findViewById(R.id.unstud_recyclerView)
         recycler.adapter = adapter
         recycler.itemAnimator = DefaultItemAnimator()
+        recycler.setItemViewCacheSize(30)
         recycler.layoutManager = LinearLayoutManager(context)
     }
 
@@ -68,11 +69,10 @@ class EducFragment : Fragment() {
         }
     }
 
-    private suspend fun setData(){
+    private fun setData(){
         try {
             val doc = Jsoup.connect(link).get()
             val htmlcontent = doc.select("div[class=entry-content clearfix]")
-            val fac_titles = htmlcontent.select("h3[style=text-align: center;]")
 
             val ol_tables = htmlcontent.select("ol")
             for (tableInd in 0 until ol_tables.size){

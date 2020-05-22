@@ -103,14 +103,14 @@
                     <TextView
                         android:id="@+id/unstud_prof_third"
                         style="@style/TableText"
-                        tools:text="Математика"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="#efefef"
-                        app:layout_constraintEnd_toStartOf="@+id/unstud_prof_second_count"
+                        app:layout_constraintEnd_toStartOf="@+id/unstud_prof_third_count"
                         app:layout_constraintHorizontal_bias="0.9"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/unstud_prof_second" />
+                        app:layout_constraintTop_toBottomOf="@+id/unstud_prof_second"
+                        tools:text="Математика" />
 
                     <TextView
                         android:id="@+id/unstud_prof_third_count"
@@ -118,9 +118,9 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="#efefef"
-                        tools:text="20"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/unstud_prof_second_count" />
+                        app:layout_constraintTop_toBottomOf="@+id/unstud_prof_second_count"
+                        tools:text="20" />
 
                     <ImageView
                         android:id="@+id/imageView4"
@@ -208,16 +208,16 @@
                         android:id="@+id/unstud_prof_code"
                         style="@style/h1_textStyle"
                         android:layout_width="180dp"
-                        android:textAlignment="center"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="56dp"
                         android:background="@drawable/background_info_text"
                         android:paddingHorizontal="20dp"
                         android:paddingVertical="5dp"
-                        tools:text="44.44.44"
+                        android:textAlignment="center"
                         android:textColor="@android:color/white"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="44.44.44" />
 
                     <TextView
                         android:id="@+id/textView12"
@@ -235,12 +235,11 @@
                         style="@style/h1_textStyle"
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
-                        android:textAlignment="center"
                         android:layout_marginTop="8dp"
                         android:background="@drawable/background_info_text"
                         android:paddingHorizontal="20dp"
                         android:paddingVertical="5dp"
-                        tools:text="44"
+                        android:textAlignment="center"
                         android:textColor="@android:color/white"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/unstud_prof_code" />
@@ -264,13 +263,13 @@
                         android:background="@drawable/background_info_text"
                         android:paddingHorizontal="20dp"
                         android:paddingVertical="5dp"
-                        tools:text="Технологический"
                         android:textAlignment="center"
                         android:textColor="@android:color/white"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toEndOf="@+id/textView13"
-                        app:layout_constraintTop_toBottomOf="@+id/unstud_prof_all" />
+                        app:layout_constraintTop_toBottomOf="@+id/unstud_prof_all"
+                        tools:text="Технологический" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -329,10 +328,10 @@
                     <TextView
                         android:id="@+id/profile_general_och"
                         style="@style/TableText"
+                        android:text="0"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="#efefef"
-                        tools:text="0"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 

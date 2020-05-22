@@ -1,22 +1,20 @@
 package com.example.testings.ui.unstudents.ProfileDetails
 
 
-import android.app.Person
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.testings.R
 import com.example.testings.ui.unstudents.EducProfileModel
 import com.example.testings.ui.unstudents.EducType
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
-import org.w3c.dom.Text
 import java.io.IOException
 
 class ProfileInfoFragment: Fragment() {
@@ -27,7 +25,6 @@ class ProfileInfoFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_unstudent_profile_info, container, false)
-
         link = arguments?.getString("link")
         GlobalScope.launch {
             setData(link, root)
@@ -75,7 +72,10 @@ class ProfileInfoFragment: Fragment() {
                 setPageInfo(view)
             }
         } catch (ex: IOException) {
-
+            GlobalScope.launch(Dispatchers.Main) {
+                val toast = Toast.makeText(context, "Ошибка интернет соединения", Toast.LENGTH_LONG)
+                toast.show()
+            }
         }
     }
 
