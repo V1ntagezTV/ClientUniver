@@ -9,7 +9,7 @@
     app:cardElevation="1dp"
     android:layout_marginBottom="1dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:paddingVertical="15dp"
         android:paddingHorizontal="10dp"
         android:layout_width="match_parent"
@@ -22,9 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/shedule_it_num"
@@ -38,6 +36,7 @@
             <TextView
                 android:id="@+id/shedule_it_start"
                 style="@style/boldTitleText"
+                android:textSize="16sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="8:45" />
@@ -47,7 +46,7 @@
                 style="@style/boldTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#818181"
+                android:textColor="#9A9A9A"
                 android:textSize="16sp"
                 tools:text="9:50" />
 
@@ -56,12 +55,10 @@
         <LinearLayout
             android:id="@+id/linearLayout6"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_marginHorizontal="10dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@+id/linearLayout7"
-            app:layout_constraintStart_toEndOf="@+id/linearLayout5"
-            app:layout_constraintTop_toTopOf="parent">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/shedule_it_weeks"
@@ -77,27 +74,25 @@
                 style="@style/boldTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Механика" />
+                android:text="Механика"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/shedule_it_teacher"
                 style="@style/boldTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#818181"
+                android:textColor="#9A9A9A"
                 android:textSize="16sp"
-                tools:text="Кунафин Инсур Айдарович"
-                />
+                tools:text="Кунафин Инсур Айдарович" />
         </LinearLayout>
 
         <LinearLayout
-            android:gravity="center"
+            android:gravity="top"
             android:id="@+id/linearLayout7"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:orientation="vertical">
 
             <TextView
                 style="@style/boldTitleText"
@@ -110,11 +105,12 @@
             <TextView
                 android:id="@+id/shedule_it_cab"
                 style="@style/boldTitleText"
+                android:textSize="16sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="201" />
 
         </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

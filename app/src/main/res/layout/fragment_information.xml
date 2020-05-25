@@ -92,8 +92,8 @@
             android:layout_marginVertical="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Новые функции"
-            android:textSize="15sp"
+            android:text="ЧТО НОВОГО"
+            android:textSize="13sp"
             android:textColor="#53A655"
             style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
             android:textStyle="bold" />
@@ -102,41 +102,40 @@
             style="@style/h2_textStyle"
             android:layout_marginBottom="5dp"
             android:gravity="center_vertical"
-            android:lineSpacingExtra="4dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:textSize="14sp"
             android:drawablePadding="15dp"
             app:drawableLeftCompat="@drawable/ic_circle"
-            android:text="Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться."/>
+            android:text="Исправлены ошибки."/>
 
         <androidx.appcompat.widget.AppCompatTextView
             style="@style/h2_textStyle"
-            android:lineSpacingExtra="4dp"
+            android:gravity="center_vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:textSize="14sp"
             android:drawablePadding="15dp"
             app:drawableLeftCompat="@drawable/ic_circle"
-            android:text="Давно выяснено"/>
+            android:text="Увеличена производительность"/>
 
         <TextView
             android:layout_marginVertical="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Примечание"
-            android:textSize="15sp"
+            android:text="ПРИМЕЧАНИЕ"
+            android:textSize="13sp"
             android:textColor="#EA1F1F"
             style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
             android:textStyle="bold" />
 
         <TextView
             style="@style/h2_textStyle"
-            android:lineSpacingExtra="4dp"
+            android:lineSpacingExtra="6dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:text="Теперь расписание работает и для студентов, и для преподавателей." />
+            android:text="Спасибо за использование MySibgu! Мы продолжаем усердно работать, чтобы вы могли насладиться большим опытом работы с нашим приложением." />
     </LinearLayout>
 
 

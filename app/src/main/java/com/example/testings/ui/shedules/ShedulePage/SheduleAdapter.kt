@@ -33,7 +33,9 @@ class SheduleAdapter: RecyclerView.Adapter<SheduleAdapter.SheduleHolder>() {
 
     override fun onBindViewHolder(holder: SheduleHolder, position: Int) {
         val data = list[position]
-        var info = data.teacher
+        val teacherNameList = data.teacher.split(" ")
+        val teacherText = teacherNameList[0] + ' ' + teacherNameList[1].substring(0, 1) + ". " + teacherNameList[2].substring(0, 1) + ". "
+        var info = teacherText
         holder.cab.text = data.cab.toString()
         holder.title.text = data.title
         holder.end.text = data.end
