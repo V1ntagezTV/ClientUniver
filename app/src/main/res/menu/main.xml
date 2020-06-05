@@ -18,5 +18,4 @@
         android:orderInCategory="100"
         android:title="Личный кабинет"
         app:showAsAction="never" />
-
 </menu>

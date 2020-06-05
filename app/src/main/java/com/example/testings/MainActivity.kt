@@ -17,6 +17,7 @@ import android.view.MenuItem
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import com.example.testings.webview.WebViewActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,7 +30,26 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNav.selectedItemId = R.id.nav_news
+        bottomNav.setOnNavigationItemSelectedListener{
+            when (it.itemId) {
+                R.id.nav_news -> {
+                    navController.navigate(R.id.nav_news)
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.nav_events -> {
+                    navController.navigate(R.id.nav_events)
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.nav_shedule -> {
+                    navController.navigate(R.id.nav_shedule)
+                    return@setOnNavigationItemSelectedListener true
+                }
+            }
+            return@setOnNavigationItemSelectedListener false
 
+        }
         this.drawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         navController = findNavController(R.id.nav_host_fragment)
